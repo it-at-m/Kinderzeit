@@ -1,34 +1,19 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+If you want to see the interactive areas while positioning them in the click dummy, open up App.js and change the debug variable to `true`.
 
-## Getting Started
+# building the docker image
+docker build -f Dockerfile.dev -t seakers-frontend:dev . 
 
-First, run the development server:
+# running the docker image
+docker run -it --rm -v ${PWD}:/app -v /app/node_modules -p 3000:3000 -e CHOKIDAR_USEPOLLING=true seakers-frontend:dev
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+-it starts the container in interactive mode, needed because react-scripts exists after start-up which will cause the container to exit
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+--rm removes the container and volumes after the container exits
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+-v ${PWD}:/app mounts the code into the container at /app
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+-v /app/node_modules -> we want to use the container version of the node_modules
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+-p 3000:3000 expose port 3000 to other Docker containers on the same network and 3001 to the host
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+-e CHOKIDAR_USEPOLLING= true enables polling mechanism via chokidar (which wraps fs.watch, fs.watchFile, fsevents), needed for hot-reloading
