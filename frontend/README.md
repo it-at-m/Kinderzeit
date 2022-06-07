@@ -1,10 +1,10 @@
 If you want to see the interactive areas while positioning them in the click dummy, open up App.js and change the debug variable to `true`.
 
 # building the docker image
-docker build -f Dockerfile.dev -t seakers-frontend:dev . 
+```docker build -f Dockerfile.dev -t seakers-frontend:dev```
 
 # running the docker image
-docker run -it --rm -v ${PWD}:/app -v /app/node_modules -p 3000:3000 -e CHOKIDAR_USEPOLLING=true seakers-frontend:dev
+```docker run -it --rm -v ${PWD}:/app -v /app/node_modules -p 3000:3000 -e CHOKIDAR_USEPOLLING=true seakers-frontend:dev```
 
 -it starts the container in interactive mode, needed because react-scripts exists after start-up which will cause the container to exit
 
