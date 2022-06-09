@@ -1,31 +1,43 @@
 {
-  "name": "frontend",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "docker:build:dev": "docker build --no-cache -f Dockerfile.dev -t seakers-frontend:dev .",
-    "docker:run:dev": "yarn run docker:build:dev && docker run -it --rm -v ${PWD}:/app -v /app/node_modules -p 3000:3000 -e CHOKIDAR_USEPOLLING=true seakers-frontend:dev",
-    "docker:build:prod": "docker build --no-cache -f Dockerfile.prod -t seakers-frontend:prod .",
-    "docker:run:prod": "yarn run docker:build:prod && docker run -it --rm -v ${PWD}:/app -v /app/node_modules -v /app/.next -p 3000:3000 -e CHOKIDAR_USEPOLLING=true seakers-frontend:prod",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "airtable": "^0.11.4",
-    "next": "^12.1.6",
-    "react": "18.1.0",
-    "react-dom": "18.1.0"
-  },
-  "devDependencies": {
-    "@types/node": "^17.0.35",
-    "@types/react": "^18.0.9",
-    "autoprefixer": "^10.4.7",
-    "eslint": "8.15.0",
-    "eslint-config-next": "12.1.6",
-    "postcss": "^8.4.14",
-    "tailwindcss": "^3.0.24",
-    "typescript": "^4.6.4"
-  }
+    "name": "frontend",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "docker:build:dev": "docker build --no-cache -f Dockerfile.dev -t seakers-frontend:dev .",
+        "docker:run:dev": "yarn run docker:build:dev && docker run -it --rm -v ${PWD}:/app -v /app/node_modules -p 3000:3000 -e CHOKIDAR_USEPOLLING=true seakers-frontend:dev",
+        "docker:build:prod": "docker build --no-cache -f Dockerfile.prod -t seakers-frontend:prod .",
+        "docker:run:prod": "yarn run docker:build:prod && docker run -it --rm -v ${PWD}:/app -v /app/node_modules -v /app/.next -p 3000:3000 -e CHOKIDAR_USEPOLLING=true seakers-frontend:prod",
+        "precommit": "prettier --write . && eslint --fix pages/**/*.tsx"
+    },
+    "dependencies": {
+        "@babel/core": "^7.0.0",
+        "@emotion/react": "^11.9.0",
+        "@emotion/styled": "^11.8.1",
+        "@mui/material": "^5.8.3",
+        "airtable": "^0.11.4",
+        "next": "^12.1.6",
+        "react": "18.1.0",
+        "react-dom": "18.1.0"
+    },
+    "devDependencies": {
+        "@next/eslint-plugin-next": "^12.1.6",
+        "@types/node": "^17.0.35",
+        "@types/react": "^18.0.9",
+        "@typescript-eslint/eslint-plugin": "^5.27.1",
+        "@typescript-eslint/parser": "^5.27.1",
+        "autoprefixer": "^10.4.7",
+        "eslint": ">=5.16.0",
+        "eslint-config-google": "^0.14.0",
+        "eslint-config-next": "12.1.6",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-react": "^7.30.0",
+        "husky": "^8.0.1",
+        "postcss": "^8.4.14",
+        "prettier": "^2.6.2",
+        "tailwindcss": "^3.0.24",
+        "typescript": "^4.6.4"
+    }
 }
