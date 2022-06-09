@@ -4,7 +4,7 @@ on:
   # run it on push to the staging repository branch
   push:
     branches: 
-      - master
+      - development
     paths: 
       - 'frontend/**'
 
