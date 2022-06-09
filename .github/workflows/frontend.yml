@@ -1,0 +1,27 @@
+name: Frontend Build
+
+on:
+  # run it on push to the staging repository branch
+  push:
+    branches: 
+      - master
+    paths: 
+      - 'frontend/**'
+
+jobs:
+  build-frontend:
+    uses: ./.github/workflows/build-and-deploy.yml
+    with:
+      context: ./frontend
+      image-name: frontend
+      deployment-name: frontend-deployment
+      username: ${{ github.actor }}
+      environment: development
+      cluster-name: seakers
+      zone: europe-west2
+      project: batch16-projects
+      dockerfile: Dockerfile.prod
+      repository: BATCH16--SEAKERS
+    secrets:
+      GHCR_PAT: ${{ secrets.GHCR_PAT }}
+      REACT_SPRING_TEMPLATE_SA: ${{ secrets.REACT_SPRING_TEMPLATE_SA }}
