@@ -21,7 +21,7 @@ jobs:
       zone: europe-west2
       project: batch16-projects
       dockerfile: Dockerfile.prod
-      repository: BATCH16--SEAKERS
+      repository: batch16--seakers
     secrets:
       GHCR_PAT: ${{ secrets.GHCR_PAT }}
       REACT_SPRING_TEMPLATE_SA: ${{ secrets.REACT_SPRING_TEMPLATE_SA }}
