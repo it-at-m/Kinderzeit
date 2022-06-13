@@ -1,0 +1,22 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: regionalpd-storageclass
+  namespace: development
+provisioner: kubernetes.io/gce-pd
+parameters:
+  type: pd-standard
+  replication-type: regional-pd
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: postgresql-pv
+  namespace: development
+spec:
+  storageClassName: regionalpd-storageclass
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 200Gi

@@ -1,0 +1,48 @@
+name: Deploy postgres
+
+on: 
+  workflow_dispatch:
+    inputs:
+      environment: 
+        description: "namespace"
+        required: true
+        default: "development"
+      cluster-name:
+        description: "Cluster name!!"
+        required: true
+        default: "seakers"
+      zone:
+        description: "zone"
+        required: true
+        default: "europe-west2"
+      project: 
+        description: "project"
+        required: true
+        default: "batch16-projects"
+    secrets:
+      REACT_SPRING_TEMPLATE_SA:
+        required: true
+
+jobs:
+  deploy-postgres:
+    name: Deploy Postgres
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+            
+      - uses: 'google-github-actions/setup-gcloud@v0' # Setup gcloud
+        with:
+          service_account_key: ${{ secrets.REACT_SPRING_TEMPLATE_SA }} # ServiceAccount key with necessary rights added as a secret on Github.
+      
+      # Generate kubeconfig entry
+      - run: gcloud container clusters get-credentials ${{ github.event.inputs.cluster-name }} --zone ${{ github.event.inputs.zone }} --project ${{ github.event.inputs.project }}            
+
+      # apply pv
+      - name: Kubectl apply pv
+        run: kubectl apply -n ${{ github.event.inputs.environment }} -f deployment/database-pv.yaml
+
+      # apply service
+      - name: Kubectl apply service
+        run: kubectl apply -n ${{ github.event.inputs.environment }} -f deployment/database.yaml
