@@ -1,0 +1,43 @@
+# Application config. All "REPLACE_ME" values must be provided from the outside!
+# e.g. with environment variables like SPRING_DATASOURCE_URL=jdbc:postgresql://some-host:5432/postgres
+#
+# In the "dev" profile, the values from application-dev.yaml are added.
+
+spring:
+  main:
+    banner-mode: off
+
+  profiles:
+    active:
+      prod
+
+  flyway:
+    locations: "classpath:db/migration"
+
+  datasource:
+    driver-class-name: "org.postgresql.Driver"
+    url: "jdbc:postgresql://postgres:5432/postgres"
+    username: "REPLACE_ME"
+    password: "REPLACE_ME"
+
+  # disable warning
+  jpa.open-in-view: false
+
+  servlet:
+    multipart:
+      max-file-size: "5MB"
+      max-request-size: "11MB"
+
+
+server:
+  # Add the error message to outgoing JSON (not the stack trace!)
+  error.include-message: always
+  # Graceful shutdown: refuse new requests but complete running ones
+  shutdown: graceful
+
+management:
+  server:
+    port: 8082
+  endpoints.enabled-by-default: false
+  endpoint.health.enabled: true
+  endpoint.health.probes.enabled: true
