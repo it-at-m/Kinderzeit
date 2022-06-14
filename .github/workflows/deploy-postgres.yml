@@ -41,8 +41,8 @@ jobs:
 
       # apply pv
       - name: Kubectl apply pv
-        run: kubectl apply -n ${{ github.event.inputs.environment }} -f deployment/database-pv.yaml
+        run: kubectl apply -n ${{ github.event.inputs.environment }} -f deployment/db/database-pv.yaml
 
       # apply service
       - name: Kubectl apply service
-        run: kubectl apply -n ${{ github.event.inputs.environment }} -f deployment/database.yaml
+        run: kubectl apply -n ${{ github.event.inputs.environment }} -f deployment/db/database.yaml
