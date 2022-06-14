@@ -1,0 +1,23 @@
+{
+  "name": "batch16--seakers",
+  "version": "1.0.0",
+  "description": "NPM project for managing the git hooks of th Git repositorym ",
+  "main": "index.js",
+  "repository": "git@github.com:DigitalProductschool/batch16--seakers.git",
+  "author": "Andrei Bratu <bratuandrei0@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "precommit:frontend": "cd frontend && yarn run precommit",
+    "precommit:backend": "echo This is a dummy backend preflight check ✨",
+    "precommit": "yarn run precommit:frontend && yarn run precommit:backend",
+    "prepare": "husky install"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn run precommit"
+    }
+  },
+  "devDependencies": {
+    "husky": "^8.0.0"
+  }
+}
