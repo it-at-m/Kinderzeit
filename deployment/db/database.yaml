@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: postgres
+ namespace: development
+spec:
+ strategy:
+   rollingUpdate:
+     maxSurge: 1
+     maxUnavailable: 1
+   type: RollingUpdate
+ replicas: 1
+ selector:
+   matchLabels:
+     app: postgres
+ template:
+   metadata:
+     labels:
+       app: postgres
+   spec:
+     containers:
+       - name: postgres
+         image: postgres:10
+         resources:
+           limits:
+             cpu: "1500m"
+             memory: "1Gi"
+           requests:
+             cpu: "500m"
+             memory: "1Gi"
+         ports:
+           - containerPort: 5432
+         env:
+           - name: POSTGRES_PASSWORD
+             valueFrom:
+              secretKeyRef:
+                name: dbc
+                key: db-password
+                optional: false
+           - name: PGDATA
+             value: /var/lib/postgresql/data/pgdata
+         volumeMounts:
+           - mountPath: /var/lib/postgresql/data
+             name: postgredb
+     volumes:
+       - name: postgredb
+         persistentVolumeClaim:
+           claimName: postgresql-pv
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+  namespace: development
+spec:
+  ports:
+    - port: 5432
+  selector:
+    app: postgres

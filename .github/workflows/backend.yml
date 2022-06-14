@@ -1,4 +1,4 @@
-name: Frontend Build
+name: Backend Build
 
 on:
   # run it on push to the staging repository branch
@@ -6,21 +6,21 @@ on:
     branches: 
       - main
     paths: 
-      - 'frontend/**'
+      - 'backend/**'
 
 jobs:
-  build-frontend:
+  build-backend:
     uses: ./.github/workflows/build-and-deploy.yml
     with:
-      context: ./frontend
-      image-name: frontend
-      deployment-name: frontend-deployment
+      context: ./backend
+      image-name: backend
+      deployment-name: backend-deployment
       username: ${{ github.actor }}
       environment: development
       cluster-name: seakers
       zone: europe-west2
       project: batch16-projects
-      dockerfile: Dockerfile.prod
+      dockerfile: Dockerfile
       repository: batch16--seakers
     secrets:
       GHCR_PAT: ${{ secrets.GHCR_PAT }}
