@@ -4,7 +4,7 @@ on:
   # run it on push to the staging repository branch
   push:
     branches: 
-      - master
+      - main
     paths: 
       - 'backend/**'
 
@@ -21,7 +21,7 @@ jobs:
       zone: europe-west2
       project: batch16-projects
       dockerfile: Dockerfile
-      repository: react-spring-template
+      repository: batch16--seakers
     secrets:
       GHCR_PAT: ${{ secrets.GHCR_PAT }}
       REACT_SPRING_TEMPLATE_SA: ${{ secrets.REACT_SPRING_TEMPLATE_SA }}
