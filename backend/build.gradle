@@ -5,7 +5,7 @@ plugins {
     id 'org.sonarqube' version '3.3'
 }
 
-group = 'dps.seakers'
+group = 'io.dpschool'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
