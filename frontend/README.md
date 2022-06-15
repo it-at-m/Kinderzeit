@@ -10,11 +10,13 @@
 
 ## UNIX
 
-`docker run -it --rm -v ${PWD}:/app -v /app/node_modules -p 3000:3000 -e CHOKIDAR_USEPOLLING=true seakers-frontend:dev`
+Beware the `prod` and `dev` tags used to discern between images. Examples belows assume a production env.
+
+`docker run -it --rm -v ${PWD}:/app -v /app/node_modules -v /app/.next -p 3000:3000 -e CHOKIDAR_USEPOLLING=true seakers-frontend:prod`
 
 ## WINDOWS
 
-`docker run -it --rm -v ${PWD}:/app -v /app/node_modules -p 3000:3000 -e CHOKIDAR_USEPOLLING=true seakers-frontend:dev`
+`docker run -it --rm -v ${PWD}:/app -v /app/node_modules -v /app/.next -p 3000:3000 -e CHOKIDAR_USEPOLLING=true seakers-frontend:prod`
 
 ## Command Explanation
 
