@@ -77,7 +77,7 @@ export default function Home() {
                     }
                 }
             )
-    }, [])
+    }, [events, holidays, interests])
 
     useEffect(() => {
         setFilteredEvents(
@@ -91,7 +91,7 @@ export default function Home() {
                         ev.interests.some((i) => selectedInterests.includes(i))
                 )
         )
-    }, [selectedHoliday, selectedInterests])
+    }, [selectedHoliday, selectedInterests, events])
 
     useEffect(() => {
         setSelectedHoliday(null)
