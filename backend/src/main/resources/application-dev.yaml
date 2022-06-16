@@ -1,6 +1,7 @@
 spring:
   # add the "afterMigrate" script that adds dummy data when the server is started in "dev" profile
   flyway.locations: "classpath:db/migration,classpath:db/dev"
+  flyway.baselineOnMigrate: true
 
   datasource:
     url: "jdbc:postgresql://localhost:5432/postgres"
