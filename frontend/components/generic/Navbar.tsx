@@ -5,13 +5,20 @@ export default function Navbar() {
         <header className="bg-[#D9D9D9] h-[56px] relative w-screen my-auto flex px-[1.7rem]">
             <div className="h-full flex-1 flex justify-start items-center">
                 <div className="w-[52px] h-[52px] rounded-full bg-[#A2A2A2]"></div>
-                <div className="uppercase font-inter font-bold text-[2.5rem] ml-[3rem]">
+                <div className="uppercase font-inter font-bold text-[2.5rem] ml-[1rem]">
                     Ferienplaner
                 </div>
-                <div className="font-inter font-[300] text-[1.8rem] ml-[10%]">
+                <div className="font-inter font-[500] text-[1.8rem] ml-[20%]">
                     Ferienprogramm
                 </div>
+                <div className="font-inter font-[500] text-[1.8rem] ml-[2%]">
+                    Empfehlung
+                </div>
+                <div className="font-inter font-[500] text-[1.8rem] ml-[2%]">
+                    Über Uns
+                </div>
             </div>
+            <div></div>
             {/* Buttons */}
             <div className="h-full w-[72px] flex justify-between items-center">
                 {/* Filter */}
