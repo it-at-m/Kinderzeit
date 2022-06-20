@@ -101,23 +101,23 @@ export default function Home() {
     return (
         <Layout>
             <div className="w-screen h-[74rem] relative">
-                <div className="absolute bg-[#D9D9D9] w-3/5 top-[9rem] h-[56rem] left-0" />
-                <div className="absolute w-2/5 top-[9rem] h-[56rem] px-[6.5rem] right-0 flex flex-col items-center justify-center">
-                    <div className="font-[700] text-inter text-[6rem] text-center">
+                <div className="absolute bg-[#D9D9D9] w-[115rem]  h-[30rem] " />
+                <div className="absolute w-2/5 top-[9rem] h-[56rem] rem-[6.5rem] right-0 flex flex-col items-center justify-center">
+                    <div className="font-[700] text-inter text-[6rem] text-center ">
                         WILLKOMMEN LIEBE ELTERN!
                     </div>
-                    <div className="text-inter text-[2rem] text-left ml-[2rem] mt-[3rem]">
+                    {/* <div className="text-inter text-[2rem] text-left ml-[2rem] mt-[3rem]">
                         Ferienplanung für Kinder kann heutzutage eine ganz
                         schöne Herausforderung sein.
                     </div>
                     <div className="text-inter text-[2rem] text-left ml-[2rem] mt-[1.5rem]">
                         Wir möchten euch dabei unterstützen, schnell und einfach
                         schöne Erinnerungen für eure Kinder zu finden!
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <div className="h-[5rem] w-screen">
-                <select className="ml-[10rem] w-[31rem] px-[3rem] bg-white text-xl h-full drop-shadow-[0_4px_14px_rgba(0,0,0,0.1)]">
+                <select className="ml-[10rem] w-[31rem] -[3rem] bg-white text-xl h-full drop-shadow-[0_4px_14px_rgba(0,0,0,0.1)]">
                     <option>All Vacations</option>
                     <option>Miau</option>
                     <option>Summer Holiday</option>
