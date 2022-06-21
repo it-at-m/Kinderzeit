@@ -14,11 +14,11 @@ import java.util.UUID;
 @Table(name="Event")
 @Getter
 @Setter
-public class EventModel {
+public class Event {
     @Id
     @GeneratedValue
     private UUID id;
-    
+
     @Column(nullable = false)
     private Integer minAge;
 

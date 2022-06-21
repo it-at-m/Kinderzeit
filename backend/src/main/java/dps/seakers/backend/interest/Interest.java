@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name="Interest")
-@Data
+
 public class Interest {
 
     @Id
