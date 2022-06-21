@@ -17,19 +17,19 @@ public class EventController {
     }
 
     @GetMapping("/api/event/all")
-    Iterable<EventModel> all() {
+    Iterable<Event> all() {
         System.out.println("Testing logging to console");
         return eventRepository.findAll();
     }
 
     @GetMapping("/api/event/{id}")
-    EventModel userById(@PathVariable UUID id) {
+    Event userById(@PathVariable UUID id) {
         return eventRepository.findById(id).orElseThrow(() -> new ResponseStatusException(
                 HttpStatus.NOT_FOUND));
     }
 
     @PostMapping("/api/event/save")
-    EventModel save(@RequestBody EventModel event) {
+    Event save(@RequestBody Event event) {
         return eventRepository.save(event);
     }
 
