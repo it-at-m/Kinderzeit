@@ -5,15 +5,20 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.List;
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.UUID;
 
 @Entity
 @Table(name="Event")
-@Data
-public class Event {
+@Getter
+@Setter
+public class EventModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+    @GeneratedValue
+    private UUID id;
+    
     @Column(nullable = false)
     private Integer minAge;
 
