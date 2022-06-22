@@ -28,13 +28,15 @@ export default function OverviewEventCard({ event }: { event: Event }) {
                     Discover over 3.000 creatures in more than 33 displays.
                 </p>
 
-                <div className="flex-1 flex flex-col mt-[2.7rem] mb-[1.6rem] justify-between">
+                <div className="flex flex-wrap grid grid-cols-2 gap-4 place-content-evenly mt-[2.7rem] mb-[1.6rem] justify-between">
                     {Object.entries({
-                        Date: 'Fr., 03.06.2022, 9:00 Uhr',
-                        Kosten: '€ 16.00',
+                        Datum: 'Fr., 03.06.2022',
+                        uhrzeit:' 9:00 Uhr',                        
                         Verfügbarkeit: '10 Plätze',
+                        Kosten: '€ 16.00',
                         Alter: '3 - 14 Jahre',
                         Verantstaltungsort: 'Sea Life, Moosach',
+                        Kontakt:'info@kunstlabor.org'
                     }).map(([label, text]) => (
                         <div
                             key={`event_details_${label}`}
