@@ -4,7 +4,7 @@ CREATE TABLE "Event" (
   "maxAge" int NOT NULL,
   "cancelled" boolean NOT NULL,
   "organizerId" int NOT NULL,
-  "address" varchar NOT NULL,
+  "homeAddress" varchar NOT NULL,
   "zipCode" varchar NOT NULL,
   "maxAdultsPerFamily" int,
   "maxChildrenPerFamily" int NOT NULL,
