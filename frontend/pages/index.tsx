@@ -5,7 +5,7 @@ import React from 'react'
 // import { useRouter } from 'next/router'
 import OverviewEventCard from '../components/overview/OverviewEventCard'
 import Layout from '../components/generic/Layout'
-//import Navbar from '../components/generic/Navbar'
+// import Navbar from '../components/generic/Navbar'
 
 // const base = new Airtable({ apiKey: 'keyFd5A4fpY1Ztt5S' }).base(
 //     'appmYwp41qODY93Ys'
