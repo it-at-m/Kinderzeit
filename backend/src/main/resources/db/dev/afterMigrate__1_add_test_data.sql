@@ -6,32 +6,6 @@
 -- PROGRAMS
 
 -- Digital Product School
-INSERT INTO event
-    (id,
-    minAge ,
-    maxAge ,
-    cancelled,
-    organizerId ,
-    homeAddress ,
-    zipCode ,
-    maxAdultsPerFamily ,
-    maxChildrenPerFamily ,
-    price,
-    placesAvailable ,
-    startDate ,
-    endDate)
-VALUES
-    (4,
-    8,
-    17,
-    false,
-    1,
-    'Dachauer Str. 90 80335 München',
-    '80335',
-    2,
-    2,
-    25.00,
-    5,
-    '15.6.2022',
-    '16.6.2022')
+INSERT INTO person(id, email, first_name, last_name)
+VALUES ('adeade6a-dd0b-4e98-b05e-51b2e3a9e66d', 'john@doe.com', 'John', 'Doe')
 ON CONFLICT DO NOTHING;
