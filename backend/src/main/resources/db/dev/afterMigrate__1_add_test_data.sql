@@ -12,7 +12,7 @@ INSERT INTO event
     maxAge ,
     cancelled,
     organizerId ,
-    homeAddress ,
+    address ,
     zipCode ,
     maxAdultsPerFamily ,
     maxChildrenPerFamily ,
