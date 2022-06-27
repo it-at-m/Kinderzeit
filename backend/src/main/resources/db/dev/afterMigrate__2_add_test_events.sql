@@ -1,9 +1,9 @@
-INSERT INTO event
+INSERT INTO Event
     (id,
-    minAge ,
-    maxAge ,
+    minAge,
+    maxAge,
     cancelled,
-    organizerId ,
+    organizerId,
     address ,
     zipCode ,
     maxAdultsPerFamily ,
@@ -13,7 +13,7 @@ INSERT INTO event
     startDate ,
     endDate)
 VALUES
-    (4,
+    (2,
     8,
     17,
     false,
@@ -24,6 +24,6 @@ VALUES
     2,
     25.00,
     5,
-    '15.6.2022',
-    '16.6.2022')
+    '2022-06-15',
+    '2022-06-16')
 ON CONFLICT DO NOTHING;

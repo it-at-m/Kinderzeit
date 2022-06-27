@@ -1,4 +1,4 @@
-package dps.seakers.backend.child;
+/*package dps.seakers.backend.child;
 
 import dps.seakers.backend.interest.Interest;
 import dps.seakers.backend.parent.Parent;
@@ -50,4 +50,4 @@ public class Child {
     public int hashCode() {
         return getClass().hashCode();
     }
-}
+}*/

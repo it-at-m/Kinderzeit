@@ -1,4 +1,4 @@
-package dps.seakers.backend.interest;
+/*package dps.seakers.backend.interest;
 
 import dps.seakers.backend.child.Child;
 import dps.seakers.backend.event.Event;
@@ -25,3 +25,4 @@ public class Interest {
     @ManyToMany(mappedBy="tags")
     public List<Event> taggedEvents;
 }
+*/
