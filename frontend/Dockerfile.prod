@@ -1,6 +1,16 @@
-FROM node:16-stretch-slim AS builder
+FROM ubuntu/nginx
+
+EXPOSE 80
+
+RUN apt update && apt upgrade -y
 
 WORKDIR /app
+
+RUN apt install nodejs npm curl -y
+
+RUN npm install -g yarn
+
+RUN npm install -g pm2
 
 COPY package.json package.json
 
@@ -10,10 +20,8 @@ COPY . /app
 
 RUN yarn run build
 
-FROM nginx:alpine
-
 COPY nginx.conf /etc/nginx/nginx.conf
 
-RUN apk update && apk add bash
+COPY ./start.sh start.sh
 
-COPY --from=builder /app/build /var/www/html
+ENTRYPOINT ["bash", "start.sh"]

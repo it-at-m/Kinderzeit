@@ -101,9 +101,13 @@ export default function Home() {
 
     return (
         <Layout>
-            <div className="w-screen h-[74rem] relative" >
-            <div className ="absolute w-[115rem]  h-[30rem]"><img className="w-[115rem]  h-[50rem]" src="https://www.excel-communications.com/wp-content/uploads/2021/04/artem-kniaz-DqgMHzeio7g-unsplash-scaled.jpg"></img>
-            </div>
+            <div className="w-screen h-[74rem] relative">
+                <div className="absolute w-[115rem]  h-[30rem]">
+                    <img
+                        className="w-[115rem]  h-[50rem]"
+                        src="https://www.excel-communications.com/wp-content/uploads/2021/04/artem-kniaz-DqgMHzeio7g-unsplash-scaled.jpg"
+                    ></img>
+                </div>
                 {/* <div className="absolute bg-[#D9D9D9] w-[115rem]  h-[30rem]" /> */}
 
                 <div className="absolute w-2/5 top-[-12rem] h-[56rem] rem-[6.5rem] left-0 flex flex-col items-center justify-center">

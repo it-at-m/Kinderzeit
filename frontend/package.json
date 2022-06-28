@@ -8,8 +8,8 @@
         "start": "next start",
         "docker:build:dev": "docker build --no-cache -f Dockerfile.dev -t seakers-frontend:dev .",
         "docker:run:dev": "yarn run docker:build:dev && docker run -it --rm -v ${PWD}:/app -v /app/node_modules -p 3000:3000 -e CHOKIDAR_USEPOLLING=true seakers-frontend:dev",
-        "docker:build:prod": "docker build --no-cache -f Dockerfile.prod -t seakers-frontend:prod .",
-        "docker:run:prod": "yarn run docker:build:prod && docker run -it --rm -v ${PWD}:/app -v /app/node_modules -v /app/.next -p 3000:3000 -e CHOKIDAR_USEPOLLING=true seakers-frontend:prod",
+        "docker:build:prod": "docker build -f Dockerfile.prod -t seakers-frontend:prod .",
+        "docker:run:prod": "yarn run docker:build:prod && docker run -it --rm -v ${PWD}:/app -v /app/node_modules -v /app/.next -p 80:80 -e CHOKIDAR_USEPOLLING=true seakers-frontend:prod",
         "precommit": "prettier --write . && eslint --fix pages/**/*.tsx"
     },
     "dependencies": {
@@ -34,7 +34,6 @@
         "eslint-config-next": "12.1.6",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-react": "^7.30.0",
-        "husky": "^8.0.1",
         "postcss": "^8.4.14",
         "prettier": "^2.6.2",
         "tailwindcss": "^3.0.24",
