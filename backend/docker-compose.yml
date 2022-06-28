@@ -1,7 +1,7 @@
 version: "3.8"
 
 services:
-  postgres:
+  db:
     restart: always
     image: "postgres:14.1-alpine"
     volumes:
@@ -11,7 +11,6 @@ services:
       POSTGRES_PASSWORD: compose-postgres
 
   pgadmin:
-    # Nota bene check pgadmin.servers.json
     image: dpage/pgadmin4
     restart: always
     environment:
@@ -20,4 +19,4 @@ services:
     ports:
       - "5050:80"
     depends_on:
-      - postgres
+      - db
