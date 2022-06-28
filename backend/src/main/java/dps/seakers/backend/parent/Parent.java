@@ -1,4 +1,4 @@
-package dps.seakers.backend.parent;
+/*package dps.seakers.backend.parent;
 
 import dps.seakers.backend.child.Child;
 import lombok.Data;
@@ -32,3 +32,4 @@ public class Parent {
     @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Child> children;
 }
+*/

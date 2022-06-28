@@ -5,6 +5,8 @@ WORKDIR /service
 COPY . .
 RUN gradle --no-daemon --no-watch-fs build
 
+FROM amazoncorretto:17-alpine3.12
+
 COPY --from=builder /service/build/libs/*.jar backend.jar
 
 CMD [ "java", "-jar", "backend.jar"]
