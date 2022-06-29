@@ -8,7 +8,7 @@ plugins {
 
 group = 'dps.seakers'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
+sourceCompatibility = '8'
 
 configurations {
     compileOnly {
@@ -54,7 +54,7 @@ dependencies {
 
 }
 flyway {
-    url= 'jdbc:postgresql://localhost:5432/postgres'
+    url= 'jdbc:postgresql://db:5432/postgres'
     user= "compose-postgres"
     password= "compose-postgres"
     locations = ["classpath:db/migration,classpath:db/dev"]
