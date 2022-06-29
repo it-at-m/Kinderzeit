@@ -4,6 +4,10 @@
 # In the "dev" profile, the values from application-dev.yaml are added.
 
 spring:
+  data:
+    rest:
+      basePath: '/api'
+
   main:
     banner-mode: off
 

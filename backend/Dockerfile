@@ -1,11 +1,13 @@
-FROM gradle:7.3.3-jdk17 as builder
+FROM gradle AS builder
 
 WORKDIR /service
 
 COPY . .
 RUN gradle --no-daemon --no-watch-fs build
 
-FROM amazoncorretto:17-alpine3.12
+CMD [ "java", "-jar", "/service/build/libs/*.jar"]
+
+FROM amazoncorretto
 
 COPY --from=builder /service/build/libs/*.jar backend.jar
 

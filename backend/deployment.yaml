@@ -28,18 +28,18 @@ spec:
             limits:
               memory: "750M"
               cpu: "500m"
-          livenessProbe:
-            httpGet:
-              path: "/actuator/health/liveness"
-              port: 8082
-            initialDelaySeconds: 180
-            periodSeconds: 60
-          readinessProbe:
-            httpGet:
-              path: "/actuator/health/readiness"
-              port: 8082
-            initialDelaySeconds: 90
-            periodSeconds: 10
+          # livenessProbe:
+          #   httpGet:
+          #     path: "/actuator/health/liveness"
+          #     port: 8082
+          #   initialDelaySeconds: 180
+          #   periodSeconds: 60
+          # readinessProbe:
+          #   httpGet:
+          #     path: "/actuator/health/readiness"
+          #     port: 8082
+          #   initialDelaySeconds: 90
+          #   periodSeconds: 10
           env:
             - name: SPRING_DATASOURCE_PASSWORD
               valueFrom:
@@ -51,7 +51,6 @@ spec:
                 secretKeyRef:
                   name: dbc
                   key: db-user
-
       volumes:
         - name: migration-credentials-volume
           configMap:
@@ -66,6 +65,13 @@ metadata:
 spec:
   selector:
     app: backend-app
+    tier: backend
   ports:
-    - protocol: TCP
+    - protocol: 'TCP'
       port: 8080
+      name: backend-port
+      targetPort: 8080
+    - protocol: 'TCP'
+      port: 5050
+      name: pgadmin-port
+      targetPort: 5050
