@@ -53,12 +53,6 @@ dependencies {
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
 
 }
-flyway {
-    url= 'jdbc:postgresql://db:5432/postgres'
-    user= "compose-postgres"
-    password= "compose-postgres"
-    locations = ["classpath:db/migration,classpath:db/dev"]
-}
 jar {
     enabled = false
 }

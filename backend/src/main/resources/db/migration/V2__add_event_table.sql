@@ -1,5 +1,5 @@
 CREATE TABLE Event (
-  id int UNIQUE NOT NULL,
+  id uuid not null,
   image_URL varchar,
   event_name varchar NOT NULL,
   event_description varchar NOT NULL,

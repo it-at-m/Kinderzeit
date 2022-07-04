@@ -18,7 +18,7 @@ INSERT INTO Event
     end_date,
     email_contact)
 VALUES
-    (  1,
+    (  'bcaede5a-dd0b-4e98-b05e-51b2e3a9e66d',
         'xxx',
 		'Sea Life',
         'Discover over 3.000 creatures in more than 33 displays.',

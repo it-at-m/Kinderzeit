@@ -18,7 +18,7 @@ import java.util.UUID;
 public class Event {
     @Id
     @GeneratedValue
-    private int id;
+    private UUID id;
 
     @Column()
     private String image_URL;
