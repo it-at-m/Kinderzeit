@@ -18,43 +18,61 @@ import java.util.UUID;
 public class Event {
     @Id
     @GeneratedValue
-    private UUID id;
+    private int id;
+
+    @Column()
+    private String image_URL;
 
     @Column(nullable = false)
-    private Integer minAge;
+    private String event_name;
 
     @Column(nullable = false)
-    private Integer maxAge;
+    private String event_description;
+
+    @Column(nullable = false)
+    private String start_time;
+
+    @Column(nullable = false)
+    private Integer min_age;
+
+    @Column(nullable = false)
+    private Integer max_age;
 
     @Column(nullable = false)
     private Boolean cancelled;
 
     /*@ManyToMany(mappedBy="taggedEvents")
     public List<Interest> tags;*/
+    @Column(nullable = false)
+    private Integer organizer_id;
 
     @Column(nullable = false)
-    private String adress;
+    private String event_address;
 
     @Column(nullable = false)
-    private String zipCode;
-
-    @Column(nullable = false)
-    private Integer maxAdultsPerFamily;
-
-    @Column(nullable = false)
-    private Integer maxChildrenPerFamily;
+    private String zip_code;
 
     @Column(nullable = false)
     private double price;
 
     @Column(nullable = false)
-    private Integer placesAvailable;
+    private Integer max_adults_per_family;
 
     @Column(nullable = false)
-    private LocalDateTime startDate;
+    private Integer max_children_per_family;
 
     @Column(nullable = false)
-    private LocalDateTime endDate;
+    private Integer places_available;
+
+    @Column(nullable = false)
+    private LocalDateTime begin_date;
+
+    @Column(nullable = false)
+    private LocalDateTime end_date;
+
+    @Column(nullable = false)
+    private String email_contact;
+
 
    /*@OneToOne
     @Column(name="organizerId", nullable = false)
