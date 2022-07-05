@@ -36,4 +36,4 @@ VALUES
         '2022-06-03',
         '2022-06-04',
         'info@kunstlabor.org'
-    );
+    ) ON CONFLICT DO NOTHING;
