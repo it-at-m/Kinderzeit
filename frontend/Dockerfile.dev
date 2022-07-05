@@ -8,5 +8,5 @@ COPY . .
 
 RUN yarn install
 
-ENTRYPOINT [ "yarn", "run", "dev"]
+ENTRYPOINT [ "bash", "start.sh"]
 

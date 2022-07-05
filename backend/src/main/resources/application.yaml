@@ -4,15 +4,12 @@
 # In the "dev" profile, the values from application-dev.yaml are added.
 
 spring:
-  data:
-    rest:
-      basePath: '/api'
-
   main:
     banner-mode: off
 
   profiles:
     active:
+      # Use 'dev' when developing locally, and switch to 'prod' for pushes/ deployments
       prod
 
   flyway:
@@ -31,7 +28,6 @@ spring:
     multipart:
       max-file-size: "5MB"
       max-request-size: "11MB"
-
 
 server:
   # Add the error message to outgoing JSON (not the stack trace!)

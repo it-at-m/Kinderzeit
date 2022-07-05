@@ -7,9 +7,9 @@
         "build": "next build",
         "start": "next start",
         "docker:build:dev": "docker build --no-cache -f Dockerfile.dev -t seakers-frontend:dev .",
-        "docker:run:dev": "yarn run docker:build:dev && docker run -it --rm -v ${PWD}:/app -v /app/node_modules -p 3000:3000 -e CHOKIDAR_USEPOLLING=true seakers-frontend:dev",
+        "docker:run:dev": "yarn docker:build:dev && docker run -it --rm -v ${PWD}:/app -v /app/node_modules -p 3000:3000 -e CHOKIDAR_USEPOLLING=true seakers-frontend:dev --network backend_default",
         "docker:build:prod": "docker build -f Dockerfile.prod -t seakers-frontend:prod .",
-        "docker:run:prod": "yarn run docker:build:prod && docker run -it --rm -v ${PWD}:/app -v /app/node_modules -v /app/.next -p 80:80 -e CHOKIDAR_USEPOLLING=true seakers-frontend:prod",
+        "docker:run:prod": "yarn docker:build:prod && docker run -it --rm -v ${PWD}:/app -v /app/node_modules -v /app/.next -p 80:80 -e CHOKIDAR_USEPOLLING=true seakers-frontend:prod --network backend_default",
         "precommit": "prettier --write . && eslint --fix pages/**/*.tsx"
     },
     "dependencies": {
