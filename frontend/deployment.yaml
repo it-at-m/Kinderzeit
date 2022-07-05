@@ -18,7 +18,7 @@ spec:
                 track: stable
         spec:
             containers:
-                - name: frontend-app
+                - name: frontend
                   image: <IMAGE>
                   imagePullPolicy: Always
                   resources:

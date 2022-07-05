@@ -24,14 +24,24 @@ services:
 
   frontend:
     build:
-      context: ../frontend
-      dockerfile: Dockerfile.prod
-    ports:
-     - 80:80
+      context: ./frontend
+      dockerfile: Dockerfile.dev
     depends_on:
       - backend
+    volumes:
+      # Note, not all possibly editable files have been added
+      # If your changes are not hot-reloaded, it's probably
+      # because it's not included in the list below
+      - ./frontend/pages:/app/pages
+      - ./frontend/components:/app/components
+      - ./frontend/public:/app/public
+      - ./frontend/styles:/app/styles
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    ports:
+      - 80:80
 
   backend:
-    build: .
+    build: ./backend
     depends_on:
       - db

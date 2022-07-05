@@ -71,7 +71,3 @@ spec:
       port: 8080
       name: backend-port
       targetPort: 8080
-    - protocol: 'TCP'
-      port: 5050
-      name: pgadmin-port
-      targetPort: 5050
