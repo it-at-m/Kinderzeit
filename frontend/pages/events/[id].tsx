@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 
 import React from 'react'
-import Airtable from 'airtable'
 import { useRouter } from 'next/router'
 import Event from '../../event'
 import Link from 'next/link'

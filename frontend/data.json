@@ -1,0 +1,64 @@
+
+
+[
+  {    
+  "id":"1",
+  "imageUrl" : "https://images.thrillophilia.com/image/upload/s--90xz2mik--/c_fill,h_775,q_auto,w_1600/f_auto,fl_strip_profile/v1/images/photos/000/334/417/original/1595836118_shutterstock_664589182.jpg.jpg?1595836118",
+  "name": "Day Adventure at sea",
+  "description":"Discover over 3.000 creatures in more than 33 displays.",
+  "time" : "9:00 Uhr",
+  "minAge": "3 Jahre",
+  "maxAge": "14 Jahre",
+  "cancelled" : "",
+  "organizerId": "",
+  "address": "Sea Life, Moosach",
+  "zipCode" :"",
+  "price" : "€ 16.00",
+  "placesAvailable" : "10 Plätze",
+  "startDate" : "03.06.2022",
+  "endDate": "",
+  "emailContact": "info@kunstlabor.org",
+  "holidayPeriod" : "pfingsten"
+  
+  }, 
+  {  
+  "id":"2",
+  "imageUrl" : "https://images.thrillophilia.com/image/upload/s--90xz2mik--/c_fill,h_775,q_auto,w_1600/f_auto,fl_strip_profile/v1/images/photos/000/334/417/original/1595836118_shutterstock_664589182.jpg.jpg?1595836118",
+  "name": "Day Adventure at sea",
+  "description":"Discover over 3.000 creatures in more than 33 displays.",
+  "time" : "9:00 Uhr",
+  "minAge": "3 Jahre",
+  "maxAge": "14 Jahre",
+  "cancelled" : "",
+  "organizerId": "",
+  "address": "Sea Life, Moosach",
+  "zipCode" :"",
+  "price" : "€ 16.00",
+  "placesAvailable" : "10 Plätze",
+  "startDate" : "03.06.2022",
+  "endDate": "",
+  "emailContact": "info@kunstlabor.org" ,
+  "holidayPeriod" : "Sommerferien"
+
+  },
+  {   
+    "id":"3",
+    "imageUrl" : "https://images.thrillophilia.com/image/upload/s--90xz2mik--/c_fill,h_775,q_auto,w_1600/f_auto,fl_strip_profile/v1/images/photos/000/334/417/original/1595836118_shutterstock_664589182.jpg.jpg?1595836118",
+    "name": "Day Adventure at sea",
+    "description":"Discover over 3.000 creatures in more than 33 displays.",
+    "time" : "9:00 Uhr",
+    "minAge": "3 Jahre",
+    "maxAge": "14 Jahre",
+    "cancelled" : "",
+    "organizerId": "",
+    "address": "Sea Life, Moosach",
+    "zipCode" :"",
+    "price" : "€ 16.00",
+    "placesAvailable" : "10 Plätze",
+    "startDate" : "03.06.2022",
+    "endDate": "",
+    "emailContact": "info@kunstlabor.org" ,
+    "holidayPeriod" : "all vacation"
+
+  }
+]

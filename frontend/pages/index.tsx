@@ -1,6 +1,9 @@
 import React from 'react'
 import OverviewEventCard from '../components/overview/OverviewEventCard'
 import Layout from '../components/generic/Layout'
+import data from '../data.json'
+import filter from '../components/generic/Filter'
+
 
 export default function Home() {
     return (
@@ -21,13 +24,17 @@ export default function Home() {
                         </div>
             <div className="  h-[5rem] w-screen">
                 <select className="ml-[10rem] w-[31rem] -[30rem] bg-white text-xl h-full drop-shadow-[0_4px_14px_rgba(0,0,0,0.1)]">
-                    <option>All Vacations</option>
-                    <option>Miau</option>
-                    <option>Summer Holiday</option>
+                    <option>All Vacations</option> 
+                    <option  onClick= {filter.filterPfingsten}> pfingsten  </option>
+                    <option>Sommerferien</option>
+                    <option>Herbstferien</option>
+                    <option>Weihnachtsferien</option>
+                    <option>Faschingsferien</option>
+                    <option>Osterferien</option>
                 </select>
             </div>
             <div className="w-screen px-[10rem] py-[3.5rem] grid grid-cols-3 gap-20 place-content-around ">
-                {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((arrVal) => (
+                {[0, 1, 2].map((arrVal) => (
                     <OverviewEventCard
                         event={null}
                         key={`event_card_${arrVal}`}
