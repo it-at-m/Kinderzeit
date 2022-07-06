@@ -2,9 +2,9 @@ import React from 'react'
 
 export default function Navbar() {
     return (
-        <header className="bg-[#D9D9D9] h-[56px] relative w-screen my-auto flex px-[1.7rem]">
+        <header className="bg-pink-300 h-[3rem] relative w-screen my-auto flex rem-[1.7rem]">
             <div className="h-full flex-1 flex justify-start items-center">
-                <div className="w-[52px] h-[52px] rounded-full bg-[#A2A2A2]"></div>
+                <div className="w-[2.5rem] h-[2.5rem] rounded-full bg-pink-100"></div>
                 <div className="uppercase font-inter font-bold text-[2.5rem] ml-[1rem]">
                     Ferienplaner
                 </div>
@@ -20,11 +20,11 @@ export default function Navbar() {
             </div>
             <div></div>
             {/* Buttons */}
-            <div className="h-full w-[72px] flex justify-between items-center">
+            <div className="h-full w-[7.2rem] flex justify-between items-center">
                 {/* Filter */}
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="cursor-pointer h-[30px] w-[30px] right-[62px] top-[30px]"
+                    className="cursor-pointer h-[3rem] w-[3rem] right-[6.2rem] top-[3rem]"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -39,7 +39,7 @@ export default function Navbar() {
                 {/* User Profile */}
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="cursor-pointer h-[30px] w-[30px] right-[17px] top-[30px]"
+                    className="cursor-pointer h-[3rem] w-[3rem] right-[1.7rem] top-[3rem]"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
