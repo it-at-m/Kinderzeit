@@ -1,10 +1,9 @@
 package dps.seakers.backend.event;
-
 //import dps.seakers.backend.interest.Interest;
-import lombok.Data;
+
+// import lombok.Data;
 
 import javax.persistence.*;
-import java.util.List;
 import java.time.LocalDateTime; 
 import lombok.Getter;
 import lombok.Setter;

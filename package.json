@@ -19,5 +19,9 @@
   },
   "devDependencies": {
     "husky": "^8.0.0"
+  },
+  "dependencies": {
+    "react-hook-form": "^7.33.1",
+    "react-router-dom": "^6.3.0"
   }
 }
