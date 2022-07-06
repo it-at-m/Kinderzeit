@@ -1,4 +1,39 @@
 package dps.seakers.backend.event;
+import lombok.extern.slf4j.Slf4j;
+import net.kaczmarzyk.spring.data.jpa.domain.Between;
+import net.kaczmarzyk.spring.data.jpa.domain.Equal;
+import net.kaczmarzyk.spring.data.jpa.domain.In;
+import net.kaczmarzyk.spring.data.jpa.domain.Like;
+import net.kaczmarzyk.spring.data.jpa.web.annotation.And;
+import net.kaczmarzyk.spring.data.jpa.web.annotation.Spec;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.transaction.Transactional;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -7,30 +42,73 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.UUID;
 
 @RestController
+@RequestMapping("/api/event")
 public class EventController {
 
-    private EventRepository eventRepository;
+    private final EventService eventService;
 
     @Autowired
-    public EventController(EventRepository eventRespository) {
-        this.eventRepository = eventRespository;
+    public EventController(EventService eventService) {
+        this.eventService = eventService;
     }
 
-    @GetMapping("/api/event/all")
+    @Transactional
+    @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
     Iterable<Event> all() {
-        System.out.println("Testing logging to console");
-        return eventRepository.findAll();
+        return eventService.getAll();
     }
 
-    @GetMapping("/api/event/{id}")
-    Event userById(@PathVariable UUID id) {
-        return eventRepository.findById(id).orElseThrow(() -> new ResponseStatusException(
-                HttpStatus.NOT_FOUND));
+    /*@Transactional
+    @GetMapping(value = "/allsorted", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    List<Event> allsorted() {
+        return eventService.getSorted();
+    }*/
+    @Transactional
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public Event get(@PathVariable(name = "id") UUID id) {
+        return eventService.get(id);
     }
 
-    @PostMapping("/api/event/save")
-    Event save(@RequestBody Event event) {
-        return eventRepository.save(event);
+    @Transactional
+    @PostMapping(value = "/save", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.CREATED)
+    public Event create(@RequestBody Event item) {
+        return eventService.create(item);
     }
 
+
+    @Transactional
+    @DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable(name = "id") UUID id) {
+        eventService.delete(id);
+    }
+
+    @Transactional
+    @PatchMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public Event update(@PathVariable(name = "id") UUID id, @RequestBody Event item) {
+        return eventService.update(id, item);
+    }
+
+   /* @Transactional
+    @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<List<Car>> get(
+            @And({
+                    @Spec(path = "manufacturer", params = "manufacturer", spec = Like.class),
+                    @Spec(path = "model", params = "model", spec = Like.class),
+                    @Spec(path = "country", params = "country", spec = In.class),
+                    @Spec(path = "type", params = "type", spec = Like.class),
+                    @Spec(path = "createDate", params = "createDate", spec = Equal.class),
+                    @Spec(path = "createDate", params = {"createDateGt", "createDateLt"}, spec = Between.class)
+            }) Specification<Car> spec,
+            Sort sort,
+            @RequestHeader HttpHeaders headers) {
+        final PagingResponse response = eventService.get(spec, headers, sort);
+        return new ResponseEntity<>(response.getElements(), returnHttpHeaders(response), HttpStatus.OK);
+    }*/
 }
