@@ -31,7 +31,7 @@ spec:
             imagePullSecrets:
                 - name: ghcr-credentials
 ---
-apiVersion: v1a
+apiVersion: v1
 kind: Service
 metadata:
     name: frontend
