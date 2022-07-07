@@ -52,10 +52,13 @@ import java.util.UUID;
 public class EventController {
 
     private final EventService eventService;
+    private final EventRepository eventRepository;
+
 
     @Autowired
     public EventController(EventService eventService) {
         this.eventService = eventService;
+        this.eventRepository = eventRepository;
     }
 
     @Transactional
@@ -82,9 +85,8 @@ public class EventController {
     @PostMapping(value = "/save", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     public Event create(@RequestBody Event item) {
-        return eventService.create(item);
+        return eventRepository.save(item);
     }
-
 
     @Transactional
     @DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
