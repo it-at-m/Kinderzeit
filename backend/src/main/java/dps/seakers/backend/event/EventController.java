@@ -56,7 +56,7 @@ public class EventController {
 
 
     @Autowired
-    public EventController(EventService eventService) {
+    public EventController(EventService eventService,EventRepository eventRepository) {
         this.eventService = eventService;
         this.eventRepository = eventRepository;
     }
