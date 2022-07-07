@@ -5,6 +5,10 @@ import net.kaczmarzyk.spring.data.jpa.domain.Equal;
 import net.kaczmarzyk.spring.data.jpa.domain.In;
 import net.kaczmarzyk.spring.data.jpa.domain.Like;
 import net.kaczmarzyk.spring.data.jpa.web.annotation.And;
+import net.kaczmarzyk.spring.data.jpa.domain.LessThanOrEqual;
+import net.kaczmarzyk.spring.data.jpa.domain.GreaterThanOrEqual;
+import net.kaczmarzyk.spring.data.jpa.domain.DateBeforeInclusive;
+import net.kaczmarzyk.spring.data.jpa.domain.DateAfterInclusive;
 import net.kaczmarzyk.spring.data.jpa.web.annotation.Spec;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -102,7 +106,12 @@ public class EventController {
     public ResponseEntity<List<Event>> get(
             @And({
                     @Spec(path = "area", params = "area", spec = In.class),
-                    @Spec(path = "price", params = "price", spec = Equal.class)
+                    @Spec(path = "price", params = "price", spec = Equal.class),
+                    @Spec(path = "min_age", params = "age", spec = LessThanOrEqual.class),
+                    @Spec(path = "max_age", params = "age", spec = GreaterThanOrEqual.class),
+                    @Spec(path = "begin_date", params = "date", spec = DateBeforeInclusive.class),
+                    @Spec(path = "end_date", params = "date", spec = DateAfterInclusive.class)
+        
             }) Specification<Event> spec,
             Sort sort,
             @RequestHeader HttpHeaders headers) {

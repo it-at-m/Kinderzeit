@@ -5,8 +5,8 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.List;
-import java.time.LocalDateTime; 
-import java.time.LocalTime; 
+import java.sql.Date; 
+import java.sql.Time; 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.AllArgsConstructor;
@@ -66,16 +66,16 @@ public class Event {
     private String zip_code;
 
     @Column(nullable = false)
-    private LocalDateTime begin_date;
+    private Date begin_date;
 
     @Column(nullable = false)
-    private LocalDateTime end_date;
+    private Date end_date;
 
     @Column(nullable = false)
-    private LocalTime start_time;
+    private Time start_time;
 
     @Column(nullable = false)
-    private LocalTime end_time;
+    private Time end_time;
 
     @Column(nullable = false)
     private Integer places_available;
