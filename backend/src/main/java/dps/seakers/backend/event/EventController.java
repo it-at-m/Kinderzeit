@@ -94,21 +94,16 @@ public class EventController {
         return eventService.update(id, item);
     }
 
-   /* @Transactional
+    @Transactional
     @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<List<Car>> get(
+    public List<Event> get(
             @And({
-                    @Spec(path = "manufacturer", params = "manufacturer", spec = Like.class),
-                    @Spec(path = "model", params = "model", spec = Like.class),
-                    @Spec(path = "country", params = "country", spec = In.class),
-                    @Spec(path = "type", params = "type", spec = Like.class),
-                    @Spec(path = "createDate", params = "createDate", spec = Equal.class),
-                    @Spec(path = "createDate", params = {"createDateGt", "createDateLt"}, spec = Between.class)
-            }) Specification<Car> spec,
+                    @Spec(path = "area", params = "area", spec = In.class),
+                    @Spec(path = "price", params = "price", spec = Equal.class),
+            }) Specification<Event> spec,
             Sort sort,
             @RequestHeader HttpHeaders headers) {
-        final PagingResponse response = eventService.get(spec, headers, sort);
-        return new ResponseEntity<>(response.getElements(), returnHttpHeaders(response), HttpStatus.OK);
-    }*/
+        return eventService.getSorted(spec, sort);
+    }
 }

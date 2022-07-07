@@ -6,6 +6,7 @@ import lombok.Data;
 import javax.persistence.*;
 import java.util.List;
 import java.time.LocalDateTime; 
+import java.time.LocalTime; 
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,9 +21,6 @@ public class Event {
     @GeneratedValue
     private UUID id;
 
-    @Column()
-    private String image_URL;
-
     @Column(nullable = false)
     private String event_name;
 
@@ -30,13 +28,27 @@ public class Event {
     private String event_description;
 
     @Column(nullable = false)
-    private String start_time;
-
-    @Column(nullable = false)
     private Integer min_age;
 
     @Column(nullable = false)
     private Integer max_age;
+
+    @Column(nullable = false)
+    private String event_address;
+
+
+    @Column(nullable = false)
+    private String booking_URL;
+
+    @Column()
+    private String image_URL;
+
+    @Column()
+    private String map_URL;
+
+    @Column(nullable = false)
+    private String area;
+
 
     @Column(nullable = false)
     private Boolean cancelled;
@@ -47,22 +59,7 @@ public class Event {
     private Integer organizer_id;
 
     @Column(nullable = false)
-    private String event_address;
-
-    @Column(nullable = false)
     private String zip_code;
-
-    @Column(nullable = false)
-    private double price;
-
-    @Column(nullable = false)
-    private Integer max_adults_per_family;
-
-    @Column(nullable = false)
-    private Integer max_children_per_family;
-
-    @Column(nullable = false)
-    private Integer places_available;
 
     @Column(nullable = false)
     private LocalDateTime begin_date;
@@ -71,8 +68,28 @@ public class Event {
     private LocalDateTime end_date;
 
     @Column(nullable = false)
+    private LocalTime start_time;
+
+    @Column(nullable = false)
+    private LocalTime end_time;
+
+    @Column(nullable = false)
+    private Integer places_available;
+
+    @Column(nullable = false)
+    private double price;
+
+    @Column(nullable = false)
     private String email_contact;
 
+    @Column()
+    private String take_with;
+
+    @Column(nullable = false)
+    private Boolean accompany_needed;
+
+    @Column()
+    private String holiday_period;
 
    /*@OneToOne
     @Column(name="organizerId", nullable = false)
