@@ -1,4 +1,4 @@
-package com.mak.springbootefficientsearchapi.configuration;
+package dps.seakers.backend.configuration;
 
 import net.kaczmarzyk.spring.data.jpa.web.SpecificationArgumentResolver;
 import org.springframework.context.annotation.Configuration;

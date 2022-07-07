@@ -9,6 +9,8 @@ import java.time.LocalDateTime;
 import java.time.LocalTime; 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
@@ -16,6 +18,8 @@ import java.util.UUID;
 @Table(name="Event")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Event {
     @Id
     @GeneratedValue

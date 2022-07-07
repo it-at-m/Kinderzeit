@@ -1,6 +1,11 @@
 package dps.seakers.backend.event;
 
 import lombok.extern.slf4j.Slf4j;
+
+import dps.seakers.backend.utils.PagingHeaders;
+import dps.seakers.backend.utils.PagingResponse;
+
+import dps.seakers.backend.event.Event;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -43,7 +48,7 @@ public class EventService {
      * @param spec *
      * @return elements
      */
-    public List<Event> getSorted(Specification<Event> spec, Sort sort) {
+    public List<Event> get(Specification<Event> spec, Sort sort) {
         return eventRepository.findAll(spec, sort);
     }
 
@@ -105,5 +110,46 @@ public class EventService {
         }
         return save(item);
     }
+
+    /**
+     * get element using Criteria.
+     *
+     * @param spec    *
+     * @param headers pagination data
+     * @param sort    sort criteria
+     * @return retrieve elements with pagination
+     */
+    public PagingResponse get(Specification<Event> spec, HttpHeaders headers, Sort sort) {
+        if (isRequestPaged(headers)) {
+            return get(spec, buildPageRequest(headers, sort));
+        } else {
+            List<Event> entities = get(spec, sort);
+            return new PagingResponse((long) entities.size(), 0L, 0L, 0L, 0L, entities);
+        }
+    }
+
+    private boolean isRequestPaged(HttpHeaders headers) {
+        return headers.containsKey(PagingHeaders.PAGE_NUMBER.getName()) && headers.containsKey(PagingHeaders.PAGE_SIZE.getName());
+    }
+
+    private Pageable buildPageRequest(HttpHeaders headers, Sort sort) {
+        int page = Integer.parseInt(Objects.requireNonNull(headers.get(PagingHeaders.PAGE_NUMBER.getName())).get(0));
+        int size = Integer.parseInt(Objects.requireNonNull(headers.get(PagingHeaders.PAGE_SIZE.getName())).get(0));
+        return PageRequest.of(page, size, sort);
+    }
+
+    /**
+     * get elements using Criteria.
+     *
+     * @param spec     *
+     * @param pageable pagination data
+     * @return retrieve elements with pagination
+     */
+    public PagingResponse get(Specification<Event> spec, Pageable pageable) {
+        Page<Event> page = eventRepository.findAll(spec, pageable);
+        List<Event> content = page.getContent();
+        return new PagingResponse(page.getTotalElements(), (long) page.getNumber(), (long) page.getNumberOfElements(), pageable.getOffset(), (long) page.getTotalPages(), content);
+    }
+
 
 }
