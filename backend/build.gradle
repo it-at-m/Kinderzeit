@@ -33,6 +33,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'net.kaczmarzyk:specification-arg-resolver:2.6.2'  // https://mvnrepository.com/artifact/net.kaczmarzyk/specification-arg-resolver
 	compileOnly 'org.projectlombok:lombok'
     implementation 'org.flywaydb:flyway-core'
     implementation 'commons-io:commons-io:2.11.0'
