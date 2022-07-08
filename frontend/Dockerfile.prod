@@ -2,23 +2,29 @@ FROM ubuntu/nginx
 
 EXPOSE 80
 
+ENV NODE_ENV=production
+
 RUN apt update && apt upgrade -y
 
 WORKDIR /app
 
-RUN apt install nodejs npm curl -y
+RUN apt install cargo curl -y
 
-RUN npm install -g yarn
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
 
-RUN npm install -g pm2
+RUN apt install nodejs -y
 
-COPY package.json package.json
+RUN npm i -location=global npm@latest
 
-RUN yarn install
+RUN npm install --location=global yarn
+
+RUN npm install --location=global pm2
 
 COPY . /app
 
-RUN yarn run build
+RUN yarn install
+
+RUN yarn build
 
 COPY nginx.conf /etc/nginx/nginx.conf
 

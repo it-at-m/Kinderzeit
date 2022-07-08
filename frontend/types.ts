@@ -5,7 +5,7 @@ type EventDataModel = {
     min_age: number
     max_age: number
     event_address: string
-    booking_URL:string
+    booking_URL: string
     image_URL: string
     map_URL: string
     area: string
