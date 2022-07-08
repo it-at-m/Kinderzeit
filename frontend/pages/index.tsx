@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable @next/next/no-img-element */
 import React from 'react'
 
@@ -16,26 +17,20 @@ export async function getServerSideProps() {
 export default function Home({ data }) {
     return (
         <Layout>
-            <div className="w-screen h-[50rem] relative">
-                <div className="absolute w-[115rem] h-[40rem]">
-                    <img
-                        className="object-cover w-[115rem] h-[40rem]"
-                        src="https://www.excel-communications.com/wp-content/uploads/2021/04/artem-kniaz-DqgMHzeio7g-unsplash-scaled.jpg"
-                    />
-                </div>
-                <div className="absolute w-2/5 top-[-8rem] h-[56rem] rem-[6.5rem] left-0 flex flex-col items-center justify-center">
-                    <div className="text-[#ffffff] font-[700] text-inter text-[6rem] text-center ">
-                        WILLKOMMEN LIEBE ELTERN!
-                    </div>
+            <div className="w-full h-[15rem] md:h-[30rem] relative flex items-center">
+                <img
+                    className="object-cover w-full h-full z-0"
+                    src="https://www.excel-communications.com/wp-content/uploads/2021/04/artem-kniaz-DqgMHzeio7g-unsplash-scaled.jpg"
+                />
+                <div className="text-white absolute w-[40rem] font-[700] left-4 text-inter text-[2rem] md:text-[4rem] text-left z-10">
+                    WILLKOMMEN LIEBE ELTERN!
                 </div>
             </div>
-            <div className="flex flex-row mr-[75rem] mt-[-05rem] left-0 items-center justify-center">
-                <div className=" font-[700] text-inter text-[2.4rem] text-center ">
-                    Ferienprogramm
-                </div>
+            <div className="font-[700] p-4 xl:p-0 text-[1.8rem] md:text-[2.4rem] text-left">
+                Ferienprogramm
             </div>
-            <div className="  h-[5rem] w-screen">
-                <select className="ml-[10rem] w-[31rem] bg-white text-xl h-full drop-shadow-[0_4px_14px_rgba(0,0,0,0.1)]">
+            <div className="h-[5rem] w-full flex items-center bg-pink-500">
+                <select className="bg-white text-xl h-8 drop-shadow-[0_4px_14px_rgba(0,0,0,0.1)]">
                     <option>All Vacations</option>
                     <option>Pfingsten</option>
                     <option>Sommerferien</option>
@@ -45,13 +40,17 @@ export default function Home({ data }) {
                     <option>Osterferien</option>
                 </select>
             </div>
-            <div className="w-screen px-[10rem] py-[3.5rem] grid grid-cols-3 gap-20 place-content-around ">
-                {
-                    // eslint-disable-next-line react/prop-types
-                    data.map((event) => (
-                        <OverviewEventCard event={event} key={event.id} />
-                    ))
-                }
+            <div className="w-full bg-yellow-500 grid grid-cols-1 md:grid-cols-3 gap-2 items-center justify-center p-2 m-auto">
+                <OverviewEventCard event={data[0]} key={data[0].id} />
+                <OverviewEventCard event={data[0]} key={data[0].id} />
+                <OverviewEventCard event={data[0]} key={data[0].id} />
+                <OverviewEventCard event={data[0]} key={data[0].id} />
+                <OverviewEventCard event={data[0]} key={data[0].id} />
+                <OverviewEventCard event={data[0]} key={data[0].id} />
+                <OverviewEventCard event={data[0]} key={data[0].id} />
+                <OverviewEventCard event={data[0]} key={data[0].id} />
+                <OverviewEventCard event={data[0]} key={data[0].id} />
+                <OverviewEventCard event={data[0]} key={data[0].id} />
             </div>
         </Layout>
     )
