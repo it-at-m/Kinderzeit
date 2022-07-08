@@ -17,24 +17,24 @@ export default function OverviewEventCard({
                 />
                 <div className="absolute left-0 bottom-0 right-0 h-3/4 rounded-b-lg pl-[1.8rem] flex flex-col">
                     <h2 className="font-inter font-[600] text-[2rem] leading-[2.4rem] text-[#2B2B2B] w-2/3 line-clamp-2 mt-[1.3rem]">
-                        {event.name}
+                        {event.event_name}
                     </h2>
 
                     <p className="font-inter font-normal text-[1.2rem] w-4/5 text-[#525252] line-clamp-2 mt-[0.85rem]">
-                        {event.description}
+                        {event.event_name}
                     </p>
 
                     <div className="flex-wrap grid grid-cols-2 gap-4 place-content-evenly mt-[2.7rem] mb-[1.6rem] justify-between">
                         <div className="">
                             <div className="">
                                 Datum: Verfügbarkeit: Kosten: {event.price}
-                                Alter: {event.minAge} {event.maxAge}
+                                Alter: {event.min_age} {event.max_age}
                             </div>
                             <div className="">
-                                uhrzeit:{event.time}
+                                uhrzeit:{event.start_time}
                                 Kosten: {event.price}
-                                Alter: {event.minAge} {event.maxAge}
-                                Kontakt:{event.emailContact}
+                                Alter: {event.min_age} {event.max_age}
+                                Kontakt:{event.email_contact}
                             </div>
                         </div>
                     </div>
