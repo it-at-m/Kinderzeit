@@ -67,13 +67,7 @@ public class EventController {
     Iterable<Event> all() {
         return eventService.getAll();
     }
-
-    /*@Transactional
-    @GetMapping(value = "/allsorted", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.OK)
-    List<Event> allsorted() {
-        return eventService.getSorted();
-    }*/
+    
     @Transactional
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
