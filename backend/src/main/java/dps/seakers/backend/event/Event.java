@@ -2,7 +2,6 @@ package dps.seakers.backend.event;
 
 import dps.seakers.backend.organizer.Organizer;
 import lombok.Data;
-
 import javax.persistence.*;
 import java.util.List;
 import java.sql.Date; 

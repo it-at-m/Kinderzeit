@@ -52,10 +52,13 @@ import java.util.UUID;
 public class EventController {
 
     private final EventService eventService;
+    private final EventRepository eventRepository;
+
 
     @Autowired
-    public EventController(EventService eventService) {
+    public EventController(EventService eventService,EventRepository eventRepository) {
         this.eventService = eventService;
+        this.eventRepository = eventRepository;
     }
 
     @Transactional
@@ -64,13 +67,7 @@ public class EventController {
     Iterable<Event> all() {
         return eventService.getAll();
     }
-
-    /*@Transactional
-    @GetMapping(value = "/allsorted", produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.OK)
-    List<Event> allsorted() {
-        return eventService.getSorted();
-    }*/
+    
     @Transactional
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
@@ -82,9 +79,8 @@ public class EventController {
     @PostMapping(value = "/save", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     public Event create(@RequestBody Event item) {
-        return eventService.create(item);
+        return eventRepository.save(item);
     }
-
 
     @Transactional
     @DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
