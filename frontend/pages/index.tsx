@@ -4,9 +4,19 @@ import React from 'react'
 import Layout from '../components/generic/Layout'
 import OverviewEventCard from '../components/overview/OverviewEventCard'
 
-import data from '../data.json'
+//import data from '../data.json'
 
-export default function Home() {
+export async function getStaticProps() {
+
+    const res = await fetch(`http://localhost//api/event/all`)
+    const data = await res.json()
+  
+    // Pass data to the page via props
+    return { props: { data } }
+  }
+
+export default function Home({ data }) {
+
     return (
         <Layout>
             <div className="w-screen h-[50rem] relative">
@@ -39,7 +49,8 @@ export default function Home() {
                 </select>
             </div>
             <div className="w-screen px-[10rem] py-[3.5rem] grid grid-cols-3 gap-20 place-content-around ">
-                {data.map((event) => (
+                {
+                data.map((event) => (
                     <OverviewEventCard event={event} key={event.id} />
                 ))}
             </div>
