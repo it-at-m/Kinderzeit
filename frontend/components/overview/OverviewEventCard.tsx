@@ -43,10 +43,15 @@ export default function OverviewEventCard({
                                     </p>
                                     <div className="flex space-x-12">
                                         <span className="font-semibold text-lg leading-6 text-gray-700 my-2">
-                                            {event.begin_date}
+                                        <script src="http://www.datejs.com/build/date.js" type="text/javascript"></script>
+                                            {new Date(event.begin_date).toLocaleDateString('en-US', {
+                                                    day: 'numeric',
+                                                    month: 'short',
+                                                    year: 'numeric',
+                                                    })}
                                         </span>
                                         <span className="font-semibold text-lg leading-6 text-gray-700 my-2">
-                                            {event.start_time}
+                                            {event.start_time.substring(0,5)} -  {event.end_time.substring(0,5)} 
                                         </span>
                                     </div>
                                 </div>
@@ -75,7 +80,7 @@ export default function OverviewEventCard({
                                     </p>
                                     <div className="flex space-x-12">
                                         <span className="font-semibold text-lg leading-6 text-gray-700 my-2">
-                                            {event.event_address}
+                                            {event.event_address} , {event.area} 
                                         </span>
                                         <span className="font-semibold text-sm leading-6 text-gray-700 my-2">
                                             {}
