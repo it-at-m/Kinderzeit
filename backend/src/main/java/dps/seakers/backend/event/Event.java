@@ -1,8 +1,7 @@
 package dps.seakers.backend.event;
-//import dps.seakers.backend.interest.Interest;
 
-// import lombok.Data;
-
+import dps.seakers.backend.organizer.Organizer;
+import lombok.Data;
 import javax.persistence.*;
 import java.util.List;
 import java.sql.Date; 
@@ -57,11 +56,6 @@ public class Event {
     @Column(nullable = false)
     private Boolean cancelled;
 
-    /*@ManyToMany(mappedBy="taggedEvents")
-    public List<Interest> tags;*/
-    @Column(nullable = false)
-    private Integer organizer_id;
-
     @Column(nullable = false)
     private String zip_code;
 
@@ -95,8 +89,7 @@ public class Event {
     @Column()
     private String holiday_period;
 
-   /*@OneToOne
     @Column(name="organizerId", nullable = false)
-    private Organization organization;*/
+    private UUID organizer_id;
 
 }
