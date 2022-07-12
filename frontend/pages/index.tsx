@@ -17,22 +17,20 @@ export async function getServerSideProps() {
 
 // eslint-disable-next-line react/prop-types
 export default function Home({ data }: { data: EventDataModel[] }) {
-    const [selectedHoliday, setSelectedHoliday] = useState<string | null>(null)
-    const [selectedArea, setSelectedArea] = useState<string | null>(null)
     const [cardData, setCardData] = useState<EventDataModel[]>(data)
 
-    useEffect(() => {
-        let filtered = [...data]
-        if (selectedHoliday && selectedArea !== '') {
-            filtered = filtered.filter(
-                (e) => e.holiday_period === selectedHoliday
-            )
+    const getFilteredData = async (selected, selectaction) => {
+        let filter_value = 'area='
+        for (const i in selected) {
+            filter_value = filter_value + selected[i].value
+            if (selected.length - 1 !== Number(i)) {
+                filter_value = filter_value + '&area='
+            }
         }
-        if (selectedArea) {
-            filtered = filtered.filter((e) => e.area === selectedArea)
-        }
-        setCardData(filtered)
-    }, [selectedHoliday, selectedArea])
+        const res = await fetch(`/api/event?${filter_value}`)
+        const filtered_events = await res.json()
+        setCardData(filtered_events)
+    }
 
     return (
         <Layout>
@@ -115,6 +113,7 @@ export default function Home({ data }: { data: EventDataModel[] }) {
                     <Select
                         placeholder="Bereich auswählen..."
                         id="locationSelect"
+                        isMulti
                         isClearable
                         options={[
                             {
@@ -219,7 +218,7 @@ export default function Home({ data }: { data: EventDataModel[] }) {
                             },
                         ]}
                         closeMenuOnSelect={true}
-                        onChange={(e) => setSelectedArea(e?.value)}
+                        onChange={getFilteredData}
                     />
                 </div>
             </div>
