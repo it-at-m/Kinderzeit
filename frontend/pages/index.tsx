@@ -117,27 +117,105 @@ export default function Home({ data }: { data: EventDataModel[] }) {
                         id="locationSelect"
                         isClearable
                         options={[
-                            { value: 'Bogenhausen', label: 'Bogenhausen' },
+                            { 
+                                value: 'Altstadt - Lehel', 
+                                label: 'Altstadt - Lehel' 
+                            },
+                            {
+                                value: 'Ludwigsvorstadt - Isarvorstadt',
+                                label: 'Ludwigsvorstadt - Isarvorstadt',
+                            },
+                            { 
+                                value: 'Maxvorstadt', 
+                                label: 'Maxvorstadt' 
+                            },
+                            { 
+                                value: 'Schwabing-West', 
+                                label: 'Schwabing-West' 
+                            },
+                            { 
+                                value: 'Au - Haidhausen', 
+                                label: 'Au - Haidhausen' 
+                            },
+                            { 
+                                value: 'Sendling', 
+                                label: 'Sendling' 
+                            },
+                            { 
+                                value: 'Sendling - Westpark', 
+                                label: 'Sendling - Westpark' 
+                            },
                             {
                                 value: 'Schwanthalerhöhe',
                                 label: 'Schwanthalerhöhe',
                             },
-                            { value: 'Berg am Laim', label: 'Berg am Laim' },
+                            { 
+                                value: 'Neuhausen - Nymphenburg', 
+                                label: 'Neuhausen - Nymphenburg' 
+                            },
+                            { 
+                                value: 'Moosach', 
+                                label: 'Moosach' 
+                            },
+                            { 
+                                value: 'Milbertshofen - Am Hart', 
+                                label: 'Milbertshofen - Am Hart' 
+                            },
+                            { 
+                                value: 'Schwabing - Freimann', 
+                                label: 'Schwabing - Freimann' 
+                            },
+                            { 
+                                value: 'Bogenhausen', 
+                                label: 'Bogenhausen' 
+                            },
+                            { 
+                                value: 'Berg am Laim', 
+                                label: 'Berg am Laim' 
+                            },
                             {
-                                value: 'Ramersdorf und Perlach',
-                                label: 'Ramersdorf und Perlach',
+                                value: 'Trudering - Riem',
+                                label: 'Trudering - Riem',
+                            },
+                            {
+                                value: 'Ramersdorf - Perlach',
+                                label: 'Ramersdorf - Perlach',
+                            },
+                            {
+                                value: 'Obergiesing',
+                                label: 'Obergiesing',
+                            },
+                            {
+                                value: 'Untergiesing - Harlaching',
+                                label: 'Untergiesing - Harlaching',
+                            },
+                            {
+                                value: 'Thalkirchen - Obersendling - Forstenried - Fürstenried - Solln',
+                                label: 'Thalkirchen - Obersendling - Forstenried - Fürstenried - Solln',
+                            },
+                            {
+                                value: 'Hadern',
+                                label: 'Hadern',
                             },
                             {
                                 value: 'Pasing - Obermenzing',
                                 label: 'Pasing - Obermenzing',
                             },
                             {
-                                value: 'Berg am Laim',
-                                label: 'Berg am Laim',
+                                value: 'Aubing - Lochhausen - Langwied',
+                                label: 'Aubing - Lochhausen - Langwied',
                             },
                             {
-                                value: 'Ludwigsvorstadt - Isarvorstadt',
-                                label: 'Ludwigsvorstadt - Isarvorstadt',
+                                value: 'Allach - Untermenzing',
+                                label: 'Allach - Untermenzing',
+                            },
+                            {
+                                value: 'Feldmoching - Hasenbergl',
+                                label: 'Feldmoching - Hasenbergl',
+                            },
+                            {
+                                value: 'Laim',
+                                label: 'Laim',
                             },
                         ]}
                         closeMenuOnSelect={true}
