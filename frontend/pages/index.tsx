@@ -14,23 +14,70 @@ export async function getServerSideProps() {
     // Pass data to the page via props
     return { props: { data } }
 }
+export interface AgeOption {
+    readonly value: number
+    readonly label: number
+    readonly flag: string
+}
 
+export const ageOptions: readonly AgeOption[] = [
+    { value: 3, label: 3, flag: '&age=' },
+    { value: 4, label: 4, flag: '&age=' },
+    { value: 5, label: 5, flag: '&age=' },
+    { value: 6, label: 6, flag: '&age=' },
+    { value: 7, label: 7, flag: '&age=' },
+    { value: 8, label: 8, flag: '&age=' },
+    { value: 9, label: 9, flag: '&age=' },
+    { value: 10, label: 10, flag: '&age=' },
+    { value: 11, label: 11, flag: '&age=' },
+    { value: 12, label: 12, flag: '&age=' },
+    { value: 13, label: 13, flag: '&age=' },
+    { value: 14, label: 14, flag: '&age=' },
+    { value: 15, label: 15, flag: '&age=' },
+    { value: 16, label: 16, flag: '&age=' },
+    { value: 17, label: 17, flag: '&age=' },
+    { value: 18, label: 18, flag: '&age=' },
+]
+let filter_value = ''
 // eslint-disable-next-line react/prop-types
 export default function Home({ data }: { data: EventDataModel[] }) {
     const [cardData, setCardData] = useState<EventDataModel[]>(data)
+    const [selectedCost, setSelectedCost] = useState<string | null>(null)
 
-    const getFilteredData = async (selected, selectaction) => {
-        let filter_value = 'area='
-        for (const i in selected) {
-            filter_value = filter_value + selected[i].value
-            if (selected.length - 1 !== Number(i)) {
-                filter_value = filter_value + '&area='
+    const handleFilteredData = async (selected, selectaction) => {
+        const { action } = selectaction
+        if (action === 'clear') {
+        } else if (action === 'select-option') {
+            for (const i in selected) {
+                if (
+                    !filter_value.includes(selected[i].flag + selected[i].value)
+                ) {
+                    filter_value =
+                        filter_value + selected[i].flag + selected[i].value
+                }
             }
+        } else if (action === 'remove-value') {
+            console.log('remove', selectaction.removedValue)
+            filter_value = filter_value.replace(
+                selectaction.removedValue.flag +
+                    selectaction.removedValue.value,
+                ''
+            )
         }
         const res = await fetch(`/api/event?${filter_value}`)
         const filtered_events = await res.json()
         setCardData(filtered_events)
     }
+
+    useEffect(() => {
+        let filtered = [...cardData]
+        if (selectedCost === 'Kostenlos') {
+            filtered = filtered.filter((e) => e.price === 0)
+        } else {
+            filtered = filtered.filter((e) => e.price !== 0)
+        }
+        setCardData(filtered)
+    }, [selectedCost])
 
     return (
         <Layout>
@@ -82,36 +129,9 @@ export default function Home({ data }: { data: EventDataModel[] }) {
                 </div>
             </div>
             <div className="h-[5rem] w-full grid grid-rows-1 grid-cols-3 items-center">
-                <div className="rows-1 columns-1">
+                <div className="rows-1 columns-1 col-start-1">
                     <Select
-                        placeholder="Ferienzeit auswählen..."
-                        id="vactionSelect"
-                        isClearable
-                        options={[
-                            { value: 'Pfingsten', label: 'Pfingsten' },
-                            { value: 'Sommerferien', label: 'Sommerferien' },
-                            { value: 'Herbstferien', label: 'Herbstferien' },
-                            {
-                                value: 'Weihnachtsferien',
-                                label: 'Weihnachtsferien',
-                            },
-                            {
-                                value: 'Faschingsferien',
-                                label: 'Faschingsferien',
-                            },
-                            {
-                                value: 'Osterferien',
-                                label: 'Osterferien',
-                            },
-                        ]}
-                        closeMenuOnSelect={true}
-                        onChange={(e) => setSelectedHoliday(e?.value)}
-                    />
-                </div>
-
-                <div className="rows-1 columns-1 col-start-3">
-                    <Select
-                        placeholder="Bereich auswählen..."
+                        placeholder="Stadtteil"
                         id="locationSelect"
                         isMulti
                         isClearable
@@ -119,106 +139,163 @@ export default function Home({ data }: { data: EventDataModel[] }) {
                             {
                                 value: 'Altstadt - Lehel',
                                 label: 'Altstadt - Lehel',
+                                flag: '&area=',
                             },
                             {
                                 value: 'Ludwigsvorstadt - Isarvorstadt',
                                 label: 'Ludwigsvorstadt - Isarvorstadt',
+                                flag: '&area=',
                             },
                             {
                                 value: 'Maxvorstadt',
                                 label: 'Maxvorstadt',
+                                flag: '&area=',
                             },
                             {
                                 value: 'Schwabing-West',
                                 label: 'Schwabing-West',
+                                flag: '&area=',
                             },
                             {
                                 value: 'Au - Haidhausen',
                                 label: 'Au - Haidhausen',
+                                flag: '&area=',
                             },
                             {
                                 value: 'Sendling',
                                 label: 'Sendling',
+                                flag: '&area=',
                             },
                             {
                                 value: 'Sendling - Westpark',
                                 label: 'Sendling - Westpark',
+                                flag: '&area=',
                             },
                             {
                                 value: 'Schwanthalerhöhe',
                                 label: 'Schwanthalerhöhe',
+                                flag: '&area=',
                             },
                             {
                                 value: 'Neuhausen - Nymphenburg',
                                 label: 'Neuhausen - Nymphenburg',
+                                flag: '&area=',
                             },
                             {
                                 value: 'Moosach',
                                 label: 'Moosach',
+                                flag: '&area=',
                             },
                             {
                                 value: 'Milbertshofen - Am Hart',
                                 label: 'Milbertshofen - Am Hart',
+                                flag: '&area=',
                             },
                             {
                                 value: 'Schwabing - Freimann',
                                 label: 'Schwabing - Freimann',
+                                flag: '&area=',
                             },
                             {
                                 value: 'Bogenhausen',
                                 label: 'Bogenhausen',
+                                flag: '&area=',
                             },
                             {
                                 value: 'Berg am Laim',
                                 label: 'Berg am Laim',
+                                flag: '&area=',
                             },
                             {
                                 value: 'Trudering - Riem',
                                 label: 'Trudering - Riem',
+                                flag: '&area=',
                             },
                             {
                                 value: 'Ramersdorf - Perlach',
                                 label: 'Ramersdorf - Perlach',
+                                flag: '&area=',
                             },
                             {
                                 value: 'Obergiesing',
                                 label: 'Obergiesing',
+                                flag: '&area=',
                             },
                             {
                                 value: 'Untergiesing - Harlaching',
                                 label: 'Untergiesing - Harlaching',
+                                flag: '&area=',
                             },
                             {
                                 value: 'Thalkirchen - Obersendling - Forstenried - Fürstenried - Solln',
                                 label: 'Thalkirchen - Obersendling - Forstenried - Fürstenried - Solln',
+                                flag: '&area=',
                             },
                             {
                                 value: 'Hadern',
                                 label: 'Hadern',
+                                flag: '&area=',
                             },
                             {
                                 value: 'Pasing - Obermenzing',
                                 label: 'Pasing - Obermenzing',
+                                flag: '&area=',
                             },
                             {
                                 value: 'Aubing - Lochhausen - Langwied',
                                 label: 'Aubing - Lochhausen - Langwied',
+                                flag: '&area=',
                             },
                             {
                                 value: 'Allach - Untermenzing',
                                 label: 'Allach - Untermenzing',
+                                flag: '&area=',
                             },
                             {
                                 value: 'Feldmoching - Hasenbergl',
                                 label: 'Feldmoching - Hasenbergl',
+                                flag: '&area=',
                             },
                             {
                                 value: 'Laim',
                                 label: 'Laim',
+                                flag: '&area=',
                             },
                         ]}
                         closeMenuOnSelect={true}
-                        onChange={getFilteredData}
+                        onChange={handleFilteredData}
+                    />
+                </div>
+                <div className="rows-1 columns-1 col-start-2">
+                    <Select
+                        placeholder="Alter"
+                        id="vactionSelect"
+                        isClearable
+                        isMulti
+                        options={ageOptions}
+                        closeMenuOnSelect={true}
+                        onChange={handleFilteredData}
+                    />
+                </div>
+                <div className="rows-1 columns-1 col-start-3">
+                    <Select
+                        placeholder="Kosten"
+                        id="vactionSelect"
+                        isClearable
+                        options={[
+                            {
+                                value: 'Kostenlos',
+                                label: 'Kostenlos',
+                                flag: '&price=',
+                            },
+                            {
+                                value: 'Kostenpflichtig',
+                                label: 'Kostenpflichtig',
+                                flag: '&price=',
+                            },
+                        ]}
+                        closeMenuOnSelect={true}
+                        onChange={(e) => setSelectedCost(e?.value)}
                     />
                 </div>
             </div>
