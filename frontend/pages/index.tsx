@@ -48,10 +48,26 @@ export default function Home({ data }: { data: EventDataModel[] }) {
     const [selectedCost, setSelectedCost] = useState<string | null>(null)
 
     useEffect(() => {
-        let filtered = [...data]
-        if (selectedHolidays && selectedArea !== '') {
-            filtered = filtered.filter((e) =>
-                selectedHolidays.find((o) => o === e.holiday_period)
+        const query = new URLSearchParams()
+        ;['age', 'area', 'price'].forEach((group) => {
+            filterStrategy[group].forEach((v: string) =>{ 
+            if(group === 'price' && v === 'Kostenlos'){
+               v = '0';
+            }
+            if(group === 'price' && v === 'Kostenpflichtig'){
+                v = '0';
+                group = 'pricenot';
+            }
+            query.append(group, v)
+        } )
+        })
+        if (query.toString().length > 0)
+            fetch(`/api/event?${query.toString()}`).then((res) =>
+                res.json().then((filteredEvents) => setCardData(filteredEvents))
+            )
+        else
+            fetch('/api/event/all').then((res) =>
+                res.json().then((allEvents) => setCardData(allEvents))
             )
         }
         const res = await fetch(`/api/event?${filter_value}`)
@@ -118,77 +134,55 @@ export default function Home({ data }: { data: EventDataModel[] }) {
                     </button>
                 </div>
             </div>
-            <div className="h-[5rem] w-full grid grid-rows-1 grid-cols-3 items-center">
-                <Select
-                    onValueChange={setSelectedHolidays}
-                    allowMultiSelect
-                    placeholderText="Ferienzeit"
-                    options={[
-                        {
-                            value: 'Pfingstferien',
-                            label: (
-                                <div>
-                                    <div>Pfingstferien 2022</div>
-                                    <div>06.06 - 19.06 2022</div>
-                                </div>
-                            ),
-                        },
-                        {
-                            value: 'Sommerferien',
-                            label: (
-                                <div>
-                                    <div>Sommerferien 2022</div>
-                                    <div>30.07 - 12.09 2022</div>
-                                </div>
-                            ),
-                        },
-                        {
-                            value: 'Herbstferien',
-                            label: (
-                                <div>
-                                    <div>Herbstferien 2022</div>
-                                    <div>29.10 - 06.11 2022</div>
-                                </div>
-                            ),
-                        },
-                        {
-                            value: 'Weihnachtsferien',
-                            label: (
-                                <div>
-                                    <div>Weihnachtsferien 2022</div>
-                                    <div>24.12 2022 - 08.01 2023</div>
-                                </div>
-                            ),
-                        },
-                        {
-                            value: 'Faschingsferien',
-                            label: (
-                                <div>
-                                    <div>Faschingsferien 2023</div>
-                                    <div>18.02 - 26.02 2023</div>
-                                </div>
-                            ),
-                        },
-                        {
-                            value: 'Osterferien',
-                            label: (
-                                <div>
-                                    <div>Osterferien 2023</div>
-                                    <div>01.04 - 16.04 2023</div>
-                                </div>
-                            ),
-                        },
-                        {
-                            value: 'Pfingsferien 2023',
-                            label: (
-                                <div>
-                                    <div>Osterferien 2023</div>
-                                    <div>30.05 - 09.06 2023</div>
-                                </div>
-                            ),
-                        },
-                    ]}
-                />
+            <div className="h-[5rem] w-full grid grid-rows-1 grid-cols-5 gap-2 items-center">
+                <div className="rows-1 col-span-2">
+                    <Select
+                        placeholderText="Stadtteil"
+                        allowMultiSelect
+                        options={overviewAreaOptions}
+                        onChange={(selectedValues) =>
+                            setFilterStrategy({
+                                ...filterStrategy,
+                                area: selectedValues,
+                            })
+                        }
+                    />
+                </div>
+                <div className="rows-1 col-span-1">
+                    <Select
+                        placeholderText="Alter"
+                        options={overviewAgeOptions}
+                        allowMultiSelect={false}
+                        onChange={(selectedValues) =>
+                            setFilterStrategy({
+                                ...filterStrategy,
+                                age: selectedValues,
+                            })
+                        }
+                    />
+                </div>
+                <div className="rows-1 col-span-2">
+                    <Select
+                        placeholderText="Kosten"
+                        allowMultiSelect={false}
+                        options={[
+                            {
+                                value: 'Kostenlos',
+                                label: 'Kostenlos',
+                            },
+                            {
+                                value: 'Kostenpflichtig',
+                                label: 'Kostenpflichtig',
+                            },
+                        ]}
+                        onChange={(selectedValues) =>
+                            setFilterStrategy({
+                                ...filterStrategy,
+                                price: selectedValues,
+                            })
+                        }
+                    />
+                </div>
             </div>
             <div
                 className={`w-full min-h-[40rem] grid grid-cols-1 md:grid-cols-3 gap-2 ${
