@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from 'react'
-import Select from 'react-select'
 
 import Layout from '../components/generic/Layout'
+import Select from '../components/generic/Select'
 import OverviewEventCard from '../components/overview/OverviewEventCard'
 import EventDataModel from '../types'
 
@@ -41,27 +41,17 @@ export const ageOptions: readonly AgeOption[] = [
 let filter_value = ''
 // eslint-disable-next-line react/prop-types
 export default function Home({ data }: { data: EventDataModel[] }) {
+    const [selectedHolidays, setSelectedHolidays] = useState<string[]>([])
+    // eslint-disable-next-line no-unused-vars
+    const [selectedArea, setSelectedArea] = useState<string | null>(null)
     const [cardData, setCardData] = useState<EventDataModel[]>(data)
     const [selectedCost, setSelectedCost] = useState<string | null>(null)
 
-    const handleFilteredData = async (selected, selectaction) => {
-        const { action } = selectaction
-        if (action === 'clear') {
-        } else if (action === 'select-option') {
-            for (const i in selected) {
-                if (
-                    !filter_value.includes(selected[i].flag + selected[i].value)
-                ) {
-                    filter_value =
-                        filter_value + selected[i].flag + selected[i].value
-                }
-            }
-        } else if (action === 'remove-value') {
-            console.log('remove', selectaction.removedValue)
-            filter_value = filter_value.replace(
-                selectaction.removedValue.flag +
-                    selectaction.removedValue.value,
-                ''
+    useEffect(() => {
+        let filtered = [...data]
+        if (selectedHolidays && selectedArea !== '') {
+            filtered = filtered.filter((e) =>
+                selectedHolidays.find((o) => o === e.holiday_period)
             )
         }
         const res = await fetch(`/api/event?${filter_value}`)
@@ -77,7 +67,7 @@ export default function Home({ data }: { data: EventDataModel[] }) {
             filtered = filtered.filter((e) => e.price !== 0)
         }
         setCardData(filtered)
-    }, [selectedCost])
+    }, [selectedHolidays, selectedArea])
 
     return (
         <Layout>
@@ -129,175 +119,76 @@ export default function Home({ data }: { data: EventDataModel[] }) {
                 </div>
             </div>
             <div className="h-[5rem] w-full grid grid-rows-1 grid-cols-3 items-center">
-                <div className="rows-1 columns-1 col-start-1">
-                    <Select
-                        placeholder="Stadtteil"
-                        id="locationSelect"
-                        isMulti
-                        isClearable
-                        options={[
-                            {
-                                value: 'Altstadt - Lehel',
-                                label: 'Altstadt - Lehel',
-                                flag: '&area=',
-                            },
-                            {
-                                value: 'Ludwigsvorstadt - Isarvorstadt',
-                                label: 'Ludwigsvorstadt - Isarvorstadt',
-                                flag: '&area=',
-                            },
-                            {
-                                value: 'Maxvorstadt',
-                                label: 'Maxvorstadt',
-                                flag: '&area=',
-                            },
-                            {
-                                value: 'Schwabing-West',
-                                label: 'Schwabing-West',
-                                flag: '&area=',
-                            },
-                            {
-                                value: 'Au - Haidhausen',
-                                label: 'Au - Haidhausen',
-                                flag: '&area=',
-                            },
-                            {
-                                value: 'Sendling',
-                                label: 'Sendling',
-                                flag: '&area=',
-                            },
-                            {
-                                value: 'Sendling - Westpark',
-                                label: 'Sendling - Westpark',
-                                flag: '&area=',
-                            },
-                            {
-                                value: 'Schwanthalerhöhe',
-                                label: 'Schwanthalerhöhe',
-                                flag: '&area=',
-                            },
-                            {
-                                value: 'Neuhausen - Nymphenburg',
-                                label: 'Neuhausen - Nymphenburg',
-                                flag: '&area=',
-                            },
-                            {
-                                value: 'Moosach',
-                                label: 'Moosach',
-                                flag: '&area=',
-                            },
-                            {
-                                value: 'Milbertshofen - Am Hart',
-                                label: 'Milbertshofen - Am Hart',
-                                flag: '&area=',
-                            },
-                            {
-                                value: 'Schwabing - Freimann',
-                                label: 'Schwabing - Freimann',
-                                flag: '&area=',
-                            },
-                            {
-                                value: 'Bogenhausen',
-                                label: 'Bogenhausen',
-                                flag: '&area=',
-                            },
-                            {
-                                value: 'Berg am Laim',
-                                label: 'Berg am Laim',
-                                flag: '&area=',
-                            },
-                            {
-                                value: 'Trudering - Riem',
-                                label: 'Trudering - Riem',
-                                flag: '&area=',
-                            },
-                            {
-                                value: 'Ramersdorf - Perlach',
-                                label: 'Ramersdorf - Perlach',
-                                flag: '&area=',
-                            },
-                            {
-                                value: 'Obergiesing',
-                                label: 'Obergiesing',
-                                flag: '&area=',
-                            },
-                            {
-                                value: 'Untergiesing - Harlaching',
-                                label: 'Untergiesing - Harlaching',
-                                flag: '&area=',
-                            },
-                            {
-                                value: 'Thalkirchen - Obersendling - Forstenried - Fürstenried - Solln',
-                                label: 'Thalkirchen - Obersendling - Forstenried - Fürstenried - Solln',
-                                flag: '&area=',
-                            },
-                            {
-                                value: 'Hadern',
-                                label: 'Hadern',
-                                flag: '&area=',
-                            },
-                            {
-                                value: 'Pasing - Obermenzing',
-                                label: 'Pasing - Obermenzing',
-                                flag: '&area=',
-                            },
-                            {
-                                value: 'Aubing - Lochhausen - Langwied',
-                                label: 'Aubing - Lochhausen - Langwied',
-                                flag: '&area=',
-                            },
-                            {
-                                value: 'Allach - Untermenzing',
-                                label: 'Allach - Untermenzing',
-                                flag: '&area=',
-                            },
-                            {
-                                value: 'Feldmoching - Hasenbergl',
-                                label: 'Feldmoching - Hasenbergl',
-                                flag: '&area=',
-                            },
-                            {
-                                value: 'Laim',
-                                label: 'Laim',
-                                flag: '&area=',
-                            },
-                        ]}
-                        closeMenuOnSelect={true}
-                        onChange={handleFilteredData}
-                    />
-                </div>
-                <div className="rows-1 columns-1 col-start-2">
-                    <Select
-                        placeholder="Alter"
-                        id="vactionSelect"
-                        isClearable
-                        isMulti
-                        options={ageOptions}
-                        closeMenuOnSelect={true}
-                        onChange={handleFilteredData}
-                    />
-                </div>
-                <div className="rows-1 columns-1 col-start-3">
-                    <Select
-                        placeholder="Kosten"
-                        id="vactionSelect"
-                        isClearable
-                        options={[
-                            {
-                                value: 'Kostenlos',
-                                label: 'Kostenlos',
-                                flag: '&price=',
-                            },
-                            {
-                                value: 'Kostenpflichtig',
-                                label: 'Kostenpflichtig',
-                                flag: '&price=',
-                            },
-                        ]}
-                        closeMenuOnSelect={true}
-                        onChange={(e) => setSelectedCost(e?.value)}
-                    />
-                </div>
+                <Select
+                    onValueChange={setSelectedHolidays}
+                    allowMultiSelect
+                    placeholderText="Ferienzeit"
+                    options={[
+                        {
+                            value: 'Pfingstferien',
+                            label: (
+                                <div>
+                                    <div>Pfingstferien 2022</div>
+                                    <div>06.06 - 19.06 2022</div>
+                                </div>
+                            ),
+                        },
+                        {
+                            value: 'Sommerferien',
+                            label: (
+                                <div>
+                                    <div>Sommerferien 2022</div>
+                                    <div>30.07 - 12.09 2022</div>
+                                </div>
+                            ),
+                        },
+                        {
+                            value: 'Herbstferien',
+                            label: (
+                                <div>
+                                    <div>Herbstferien 2022</div>
+                                    <div>29.10 - 06.11 2022</div>
+                                </div>
+                            ),
+                        },
+                        {
+                            value: 'Weihnachtsferien',
+                            label: (
+                                <div>
+                                    <div>Weihnachtsferien 2022</div>
+                                    <div>24.12 2022 - 08.01 2023</div>
+                                </div>
+                            ),
+                        },
+                        {
+                            value: 'Faschingsferien',
+                            label: (
+                                <div>
+                                    <div>Faschingsferien 2023</div>
+                                    <div>18.02 - 26.02 2023</div>
+                                </div>
+                            ),
+                        },
+                        {
+                            value: 'Osterferien',
+                            label: (
+                                <div>
+                                    <div>Osterferien 2023</div>
+                                    <div>01.04 - 16.04 2023</div>
+                                </div>
+                            ),
+                        },
+                        {
+                            value: 'Pfingsferien 2023',
+                            label: (
+                                <div>
+                                    <div>Osterferien 2023</div>
+                                    <div>30.05 - 09.06 2023</div>
+                                </div>
+                            ),
+                        },
+                    ]}
+                />
             </div>
             <div
                 className={`w-full min-h-[40rem] grid grid-cols-1 md:grid-cols-3 gap-2 ${
