@@ -108,7 +108,6 @@
         "website_URL": "https://www.feierwerk.de/"
     },
 
-
     {
         "id": "1481e2f4-30a5-4373-b3f2-7e16fdf8b5aa",
         "event_name": "KICKBOXEN-WORKSHOP",
@@ -169,7 +168,7 @@
         "holiday_period": "Sommerferien"
     },
     {
-        "id":"8941ea4e-a60c-4fd5-b167-a1975ac001ea",
+        "id": "8941ea4e-a60c-4fd5-b167-a1975ac001ea",
         "event_name": "Escape Room",
         "event_description": "Im Zeugnerhof lernt ihr euch bei einer Schnitzeljagd durchs Haus kennen und findet heraus, wie ihr als Team Rätsel lösen könnt. Dann wird es ernst! Wir fahren zum Escape Game und ihr müsst als Team knifflige Aufgaben lösen. Stück für Stück tüftelt ihr euch wieder aus dem Raum zum glorreichen Sieg hinaus. Sie können auf Nachfrage das Anmeldeformular auch per Mail bekommen und den Teilnehmendenbetrag auf folgendes Bankkonto überweisen:Kontoinhaber: KJT ZeugnerhofIBAN: DE40701500000000438762BIC: SSKMDEMMXXXBitte nennen Sie als Verwendungszweck Aktion und Datum und informieren Sie uns telefonisch oder per Mail, wenn Sie den Betrag überwiesen haben.Für eine feste Anmeldung muss der Geldbetrag bis spätestens Freitag vor der Aktion auf unserem Bankkonto eingegangen sein.",
         "min_age": 10,
@@ -307,6 +306,4 @@
         "accompany_needed": false,
         "holiday_period": "Sommerferien"
     }
-
-
 ]

@@ -3,21 +3,22 @@
 import React from 'react'
 import Layout from '../components/generic/Layout'
 export default function details() {
-
     return (
         <Layout>
-{/* <div className=''>
+            {/* <div className=''>
 <img className='blur-sm flex flex-col w-screen' src="https://cdn.pixabay.com/photo/2019/05/27/16/41/graffiti-4233073_960_720.jpg" ></img>
 
 </div> */}
 
-
             <div className=" pt-12 flex lg:flex-row-reverse rounded overflow-hidden border">
-                <img className=" h-2/3 w-3/5  " src="https://cdn.pixabay.com/photo/2019/05/27/16/41/graffiti-4233073_960_720.jpg" />
+                <img
+                    className=" h-2/3 w-3/5  "
+                    src="https://cdn.pixabay.com/photo/2019/05/27/16/41/graffiti-4233073_960_720.jpg"
+                />
                 <div className="w-2/5 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col space-y-4  leading-normal">
-                    
-                    <div className="text-grey-300 text-xl  leading-tight">Graffiti Workshop
-                        für Kinder</div>
+                    <div className="text-grey-300 text-xl  leading-tight">
+                        Graffiti Workshop für Kinder
+                    </div>
                     <div className="">
                         <div className="pt-2">
                             <p className="font-200 text-sm text-gray-400">
@@ -26,7 +27,6 @@ export default function details() {
                             <div className="flex space-x-12">
                                 <span className="font-semibold text-lg leading-6 text-gray-700 my-2">
                                     Mi., 10. Aug. 22,
-
                                 </span>
                                 <span className="font-semibold text-lg leading-6 text-gray-700 my-2">
                                     10:30 - 13:00 Uhr
@@ -67,7 +67,6 @@ export default function details() {
                                 Kosten
                             </p>
                             <a className="flex justify-center items-center w-20 top-60 right-0 mb-2   rounded-lg bg-yellow-500 text-white text-s font-small">
-
                                 <p>18€p.P.</p>
                             </a>
                         </div>
@@ -75,17 +74,13 @@ export default function details() {
                             <p className="font-200 text-sm text-gray-400">
                                 Verfügbarkeit
                             </p>
-                            <a className="flex justify-cenw-50 ter items-center top-60 right-0 mb-2 font-semibold  text-green-800">
-
+                            <a className="flex items-center top-60 right-0 mb-2 font-semibold  text-green-800">
                                 <p>Noch 2 Plätze</p>
                             </a>
                         </div>
-
                     </div>
-
                 </div>
             </div>
-
 
             {/* <div className="  flex justify-center ">
                 <div className="w-full lg:w-1/2 p-3">

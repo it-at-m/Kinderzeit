@@ -44,15 +44,21 @@ export default function OverviewEventCard({
                                     </p>
                                     <div className="flex space-x-12">
                                         <span className="font-semibold text-lg leading-6 text-gray-700 my-2">
-                                        <Script src="http://www.datejs.com/build/date.js" type="text/javascript"></Script>
-                                            {new Date(event.begin_date).toLocaleDateString('en-US', {
-                                                    day: 'numeric',
-                                                    month: 'short',
-                                                    year: 'numeric',
-                                                    })}
+                                            <Script
+                                                src="http://www.datejs.com/build/date.js"
+                                                type="text/javascript"
+                                            ></Script>
+                                            {new Date(
+                                                event.begin_date
+                                            ).toLocaleDateString('en-US', {
+                                                day: 'numeric',
+                                                month: 'short',
+                                                year: 'numeric',
+                                            })}
                                         </span>
                                         <span className="font-semibold text-lg leading-6 text-gray-700 my-2">
-                                            {event.start_time.substring(0,5)} -  {event.end_time.substring(0,5)} 
+                                            {event.start_time.substring(0, 5)} -{' '}
+                                            {event.end_time.substring(0, 5)}
                                         </span>
                                     </div>
                                 </div>
@@ -81,7 +87,7 @@ export default function OverviewEventCard({
                                     </p>
                                     <div className="flex space-x-12">
                                         <span className="font-semibold text-lg leading-6 text-gray-700 my-2">
-                                            {event.event_address} , {event.area} 
+                                            {event.event_address} , {event.area}
                                         </span>
                                         <span className="font-semibold text-sm leading-6 text-gray-700 my-2">
                                             {}
@@ -89,13 +95,14 @@ export default function OverviewEventCard({
                                     </div>
                                 </div>
                                 <div className="p-8">
-                                    <button className=" bg-rose-200 rounded-md p-2 text-red-600">
-                                        Nur noch {event.places_available} Plätze
-                                        frei!
-                                    </button>
+                                    
                                 </div>
+                                <a className="flex justify-center items-center bottom-10 right-0 py-6 mr-24 absolute font-semibold text-green-800">
+                                        noch {event.places_available} Plätze
+                                    </a>
 
                                 {/* card bottom */}
+                                
                                 <div className="flex space-x-4">
                                     <a
                                         className=" py-1 px-5 text-gray-500 underline decoration-1"

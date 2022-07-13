@@ -117,61 +117,61 @@ export default function Home({ data }: { data: EventDataModel[] }) {
                         id="locationSelect"
                         isClearable
                         options={[
-                            { 
-                                value: 'Altstadt - Lehel', 
-                                label: 'Altstadt - Lehel' 
+                            {
+                                value: 'Altstadt - Lehel',
+                                label: 'Altstadt - Lehel',
                             },
                             {
                                 value: 'Ludwigsvorstadt - Isarvorstadt',
                                 label: 'Ludwigsvorstadt - Isarvorstadt',
                             },
-                            { 
-                                value: 'Maxvorstadt', 
-                                label: 'Maxvorstadt' 
+                            {
+                                value: 'Maxvorstadt',
+                                label: 'Maxvorstadt',
                             },
-                            { 
-                                value: 'Schwabing-West', 
-                                label: 'Schwabing-West' 
+                            {
+                                value: 'Schwabing-West',
+                                label: 'Schwabing-West',
                             },
-                            { 
-                                value: 'Au - Haidhausen', 
-                                label: 'Au - Haidhausen' 
+                            {
+                                value: 'Au - Haidhausen',
+                                label: 'Au - Haidhausen',
                             },
-                            { 
-                                value: 'Sendling', 
-                                label: 'Sendling' 
+                            {
+                                value: 'Sendling',
+                                label: 'Sendling',
                             },
-                            { 
-                                value: 'Sendling - Westpark', 
-                                label: 'Sendling - Westpark' 
+                            {
+                                value: 'Sendling - Westpark',
+                                label: 'Sendling - Westpark',
                             },
                             {
                                 value: 'Schwanthalerhöhe',
                                 label: 'Schwanthalerhöhe',
                             },
-                            { 
-                                value: 'Neuhausen - Nymphenburg', 
-                                label: 'Neuhausen - Nymphenburg' 
+                            {
+                                value: 'Neuhausen - Nymphenburg',
+                                label: 'Neuhausen - Nymphenburg',
                             },
-                            { 
-                                value: 'Moosach', 
-                                label: 'Moosach' 
+                            {
+                                value: 'Moosach',
+                                label: 'Moosach',
                             },
-                            { 
-                                value: 'Milbertshofen - Am Hart', 
-                                label: 'Milbertshofen - Am Hart' 
+                            {
+                                value: 'Milbertshofen - Am Hart',
+                                label: 'Milbertshofen - Am Hart',
                             },
-                            { 
-                                value: 'Schwabing - Freimann', 
-                                label: 'Schwabing - Freimann' 
+                            {
+                                value: 'Schwabing - Freimann',
+                                label: 'Schwabing - Freimann',
                             },
-                            { 
-                                value: 'Bogenhausen', 
-                                label: 'Bogenhausen' 
+                            {
+                                value: 'Bogenhausen',
+                                label: 'Bogenhausen',
                             },
-                            { 
-                                value: 'Berg am Laim', 
-                                label: 'Berg am Laim' 
+                            {
+                                value: 'Berg am Laim',
+                                label: 'Berg am Laim',
                             },
                             {
                                 value: 'Trudering - Riem',
