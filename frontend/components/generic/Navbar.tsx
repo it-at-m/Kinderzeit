@@ -6,19 +6,19 @@ export default function Navbar() {
     return (
         <header>
             <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 bg-white border-b-4 gradient-to-r from-sky-500 via-purple-500 to-pink-500">
-                <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+                <div className="flex flex-wrap justify-between space-x-20 items-center mx-auto max-w-screen-xl">
                     <a href="" className="flex items-center">
                         <img
-                            className="w-[20rem] h-[2.5rem] mr-6"
+                            className=" absolute w-[20rem] h-[2.5rem]"
                             src="Logo.png"
                         ></img>
                     </a>
                     <div className="flex items-center lg:order-2">
                         <a
                             href="#"
-                            className="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
+                            className="text-white bg-cyan-500 font-medium rounded-full text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 lg:block hidden "
                         >
-                            Log in
+                            Anmelden
                         </a>
                         <button
                             data-collapse-toggle="mobile-menu-2"
@@ -34,7 +34,7 @@ export default function Navbar() {
                         className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
                         id="mobile-menu-2"
                     >
-                        <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+                        <ul className=" absolute flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                             <li>
                                 <a
                                     href="#"
@@ -59,16 +59,7 @@ export default function Navbar() {
                                     className="block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-black"
                                     aria-current="page"
                                 >
-                                    Über Uns
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="#"
-                                    className="block py-2 pr-4 pl-3 text-sky-700 rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-sky-600"
-                                    aria-current="page"
-                                >
-                                    Event erstellen
+                                    Event hinzufügen
                                 </a>
                             </li>
                         </ul>

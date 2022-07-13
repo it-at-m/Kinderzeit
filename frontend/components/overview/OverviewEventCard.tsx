@@ -2,6 +2,7 @@
 import React from 'react'
 import EventDataModel from '../../types'
 import Link from 'next/link'
+import Script from 'next/script'
 
 export default function OverviewEventCard({
     event,
@@ -11,7 +12,7 @@ export default function OverviewEventCard({
     return (
         <Link href="/edetails">
             <div className="w-full h-full py-5 flex justify-center items-center">
-                <div className="relative pl-1  flex justify-center rounded-xl hover:scale-105 duration-500 transform transition cursor-pointer">
+                <div className="relative pl-1  flex justify-center rounded-xl">
                     <div className="w-50 pb-2 bg-white rounded-xl shadow-xl z-10">
                         <div className="relative pt-4">
                             <a className="flex justify-center items-center top-80 right-0 mb-2 mr-4 px-2 absolute rounded-lg bg-yellow-500 text-white text-s font-small">
@@ -23,7 +24,7 @@ export default function OverviewEventCard({
                             {/*  card image */}
                             <img
                                 src="https://www.kindercare.com/-/media/contenthub/images/article-images/activities%20for%20kids/arts%20and%20crafts/painting-with-nature/colorful-paint-splatters-compressor.jpg?la=en&hash=DA9C3A0777DDA8124A30C22CC2D73C508D758F49"
-                                className="max-h-60 object-cover rounded-t-xl"
+                                className="max-h-60 object-cover rounded-xl"
                                 alt=""
                             />
                         </div>
@@ -43,7 +44,7 @@ export default function OverviewEventCard({
                                     </p>
                                     <div className="flex space-x-12">
                                         <span className="font-semibold text-lg leading-6 text-gray-700 my-2">
-                                        <script src="http://www.datejs.com/build/date.js" type="text/javascript"></script>
+                                        <Script src="http://www.datejs.com/build/date.js" type="text/javascript"></Script>
                                             {new Date(event.begin_date).toLocaleDateString('en-US', {
                                                     day: 'numeric',
                                                     month: 'short',
