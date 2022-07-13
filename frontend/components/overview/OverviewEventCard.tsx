@@ -94,15 +94,13 @@ export default function OverviewEventCard({
                                         </span>
                                     </div>
                                 </div>
-                                <div className="p-8">
-                                    
-                                </div>
+                                <div className="p-8"></div>
                                 <a className="flex justify-center items-center bottom-10 right-0 py-6 mr-24 absolute font-semibold text-green-800">
-                                        noch {event.places_available} Plätze
-                                    </a>
+                                    noch {event.places_available} Plätze
+                                </a>
 
                                 {/* card bottom */}
-                                
+
                                 <div className="flex space-x-4">
                                     <a
                                         className=" py-1 px-5 text-gray-500 underline decoration-1"

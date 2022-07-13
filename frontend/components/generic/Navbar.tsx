@@ -4,8 +4,10 @@ import React from 'react'
 
 export default function Navbar() {
     return (
-        <header>
-            <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 bg-white border-b-4 gradient-to-r from-sky-500 via-purple-500 to-pink-500">
+
+        <div className="bg-gradient-to-r pb-1 from-yellow-500 via-green-500 via-blue-300 via-purple-500 via-pink-500 to-red-500">
+   <header>
+            <nav className="bg-white px-4 lg:px-6 py-2.5 bg-white">
                 <div className="flex flex-wrap justify-between space-x-20 items-center mx-auto max-w-screen-xl">
                     <a href="" className="flex items-center">
                         <img
@@ -67,5 +69,8 @@ export default function Navbar() {
                 </div>
             </nav>
         </header>
+</div>
+
+        
     )
 }
