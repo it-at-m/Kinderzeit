@@ -42,7 +42,8 @@
     },
 
     {
-        "event_name": "FabLabKids: 3DCraft - modelliere und drucke Minecraft in 3D",
+        "id": "29c0cd32-dec8-4e97-9286-5801b0ed23a1",
+        "event_name": "FabLabKids: 3DCraft-modelliere und drucke Minecraft in 3D",
         "event_description": "In diesem Workshop werden wir beeindruckende Bauwerke für Minecraft planen und einfach realisieren. Dabei wirst Du lernen wie man 3D-modelliert, wie ein 3D-Drucker funktioniert und Du wirst Dein Minecraft-Bauwerk ausdrucken können.Wir bringen Minecraft ins nächste Level!In jedem Kurs werden die Kinder ca. 30-45 Minuten gemeinsam Minecraft spielen, auf unserem Server wird im Kreativ-Modus gespielt und alle Monster sind ausgeschaltet. Wir nutzen die “Minecraft Java Edition” für PC. Die Welten aus jedem Workshop werden nach dem Kurs auf unserer Webseite zum Download bereitgestellt und nach Absprache kann die Welt den Kindern auf unserem Online-Server zugänglich gemacht werden..",
         "min_age": 8,
         "max_age": 14,
@@ -76,6 +77,7 @@
     },
 
     {
+        "id": "83d3d2ee-cf31-44be-97bc-6914872124a0",
         "event_name": "Mini-München mit dem Zeugnerhof",
         "event_description": "Zusammen mit vielen anderen Münchner Kindern und Jugendlichen betreibt ihr eure eigene Stadt: Ihr könnt arbeiten und studieren, spazieren gehen oder mit der Bahn fahren, bauen, einkaufen, ins Kino gehen, Geschäfte er-öffnen, Zeitungsartikel schreiben, Politik machen und vieles mehr!Wenn es euch gefällt, könnt ihr auch an anderen Tagen selbstständig zu den unterschiedlichen Orten von Mini-München in der Stadt fahren.",
         "min_age": 7,
@@ -144,6 +146,7 @@
     },
 
     {
+        "id": "e6d99b40-6ed1-4635-ba12-818d676c89b4",
         "event_name": "Buch auf, Film ab!",
         "event_description": "Jeder hat seine eigenen Vorstellungen zu Büchern, Geschichten und deren Figuren. Umso spannender, die eigenen Ideen in kleinen Filmen lebendig werden zu lassen! Mit den techni-schen Möglichkeiten eines Tablet-PCs und Bildschneideprogrammes sowie der Lust am Theaterspielen werden wir zusammen mit einfachen Mitteln eigene kleine Filme machen. Vorkenntnisse oder technische Ausstattung braucht ihr nicht; nur eure Neugierde und Fantasie sind gefragt! Wir werden unsere kreative Energie auf ganz unterschiedliche Themen loslassen. Ob verfilmte Gedichte, Grusel- oder selbsterfundene Geschichten: Im Bücherschloss wartet in jedem Winkel eine Idee darauf, von euch entdeckt und verfilmt zu werden!.",
         "min_age": 8,
@@ -152,7 +155,7 @@
         "booking_URL": "https://www.ferien-muenchen.de/veranstaltung.php?idV=3969",
         "image_URL": "",
         "map_URL": "https://www.google.com/maps/place/International+Youth+Library/@48.1633283,11.454842,17z/data=!4m9!1m2!2m1!1sInternationale+Jugendbibliothek+Schloss+Blutenburg+%2F+Seldweg+15+81247+M%C3%BCnchen+-+Pasing+-+Obermenzing!3m5!1s0x479e77f5b3c64b07:0x211589efa93ea1ce!8m2!3d48.1635144!4d11.4569703!15sCmVJbnRlcm5hdGlvbmFsZSBKdWdlbmRiaWJsaW90aGVrIFNjaGxvc3MgQmx1dGVuYnVyZyAvIFNlbGR3ZWcgMTUgODEyNDcgTcO8bmNoZW4gLSBQYXNpbmcgLSBPYmVybWVuemluZ1phIl9pbnRlcm5hdGlvbmFsZSBqdWdlbmRiaWJsaW90aGVrIHNjaGxvc3MgYmx1dGVuYnVyZyBzZWxkd2VnIDE1IDgxMjQ3IG3DvG5jaGVuIHBhc2luZyBvYmVybWVuemluZ5IBB2xpYnJhcnmaASNDaFpEU1VoTk1HOW5TMFZKUTBGblNVTkpjMkZmVDBaQkVBRQ",
-        "area": "Pasing - Obermenzing",
+        "area": "Pasing-Obermenzing",
         "cancelled": false,
         "organizer_id": "bfa8c147-e6b1-45c0-9986-cd25bb8728a4",
         "zip_code": "81247",
@@ -201,15 +204,16 @@
         "website_URL": "https://stadt.muenchen.de/infos/jugendamt.html"
     },
     {
-        "event_name": "Erlebnistour durch die Klamm - Bus ",
-        "event_description": "Es erwartet Dich ein einmaliges Naturschauspiel! Wohin Du schaust – wilde Wasserfälle, Stromschnellen und Gumpen. Auf einer eisernen Brücke in Bayerns schönstem Naturdenkmal bekommst Du faszinierende Ausblicke aus fast 70 Metern Höhe.Ganztägig: Partnachklamm - 700 Meter Weg durch die Klamm- Teilnahme nur bei Schwindelfreiheit möglich",
+        "id": "d467ba5d-879a-44ab-a651-13895c8f09c4",
+        "event_name": "Erlebnistour durch die Klamm-Bus ",
+        "event_description": "Es erwartet Dich ein einmaliges Naturschauspiel! Wohin Du schaust – wilde Wasserfälle, Stromschnellen und Gumpen. Auf einer eisernen Brücke in Bayerns schönstem Naturdenkmal bekommst Du faszinierende Ausblicke aus fast 70 Metern Höhe.Ganztägig: Partnachklamm-700 Meter Weg durch die Klamm- Teilnahme nur bei Schwindelfreiheit möglich",
         "min_age": 10,
         "max_age": 14,
         "event_address": "Arnulfstraße 21",
         "booking_URL": "https://www.ferien-muenchen.de/veranstaltung.php?idV=3847",
         "image_URL": "",
         "map_URL": "https://www.google.com/maps/place/%D0%A6%D0%B5%D0%BD%D1%82%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9+%D0%B0%D0%B2%D1%82%D0%BE%D0%B2%D0%BE%D0%BA%D0%B7%D0%B0%D0%BB+%D0%9C%D1%8E%D0%BD%D1%85%D0%B5%D0%BD%D0%B0/@48.142276,11.5476593,17z/data=!4m9!1m2!2m1!1sZentraler+Omnibus+Bahnhof+(ZOB),!3m5!1s0x479e7600b4a01453:0x316a8592ea327bab!8m2!3d48.142276!4d11.549848!15sCiBaZW50cmFsZXIgT21uaWJ1cyBCYWhuaG9mIChaT0IpLFofIh16ZW50cmFsZXIgb21uaWJ1cyBiYWhuaG9mIHpvYpIBC2J1c19zdGF0aW9umgEjQ2haRFNVaE5NRzluUzBWSlEwRm5TVVJKWjJSTWRVUm5FQUU",
-        "area": "Ludwigsvorstadt - Isarvorstadt",
+        "area": "Ludwigsvorstadt-Isarvorstadt",
         "cancelled": false,
         "organizer_id": "f2e6bbc3-ea2f-4180-b1a8-21bb990fe33a",
         "zip_code": "80335",
@@ -226,8 +230,9 @@
     },
 
     {
-        "event_name": "Wasserrodeln - Stadtreisen 1 ",
-        "event_description": "Du wolltest schon immer mal in weniger als einer Minute 173 m in die Tiefe rutschen und Dich danach zum Entspannen im großen Schwimmbecken im Strudel treiben lassen oder Ballspiele machen? Dann komm mit und rutsche, was das Zeug hält.www.fzp-mammendorf.deGanztägig: Freibad Mammendorf - 173 m lange Super-Wasserrutsche- Strömungskanal und Wasserpilz im Nichtschwimmer*innenbecken- Große Liegewiese mit diversen Spielmöglichkeiten - Wir gehen nicht in den angrenzenden BadeseeJe nach den aktuellen Corona-Bestimmungen wochenweise (fünf Tage am Stück) oder tageweise buchbar - Infos hierzu vor dem Verkaufsstart auf www.muenchen.de/eintaegige-erlebnisreisen.",
+        "id": "29eb691b-54f7-41e6-8ffc-32ecbe0d09d1",
+        "event_name": "Wasserrodeln-Stadtreisen 1 ",
+        "event_description": "Du wolltest schon immer mal in weniger als einer Minute 173 m in die Tiefe rutschen und Dich danach zum Entspannen im großen Schwimmbecken im Strudel treiben lassen oder Ballspiele machen? Dann komm mit und rutsche, was das Zeug hält.www.fzp-mammendorf.deGanztägig: Freibad Mammendorf-173 m lange Super-Wasserrutsche- Strömungskanal und Wasserpilz im Nichtschwimmer*innenbecken- Große Liegewiese mit diversen Spielmöglichkeiten-Wir gehen nicht in den angrenzenden BadeseeJe nach den aktuellen Corona-Bestimmungen wochenweise (fünf Tage am Stück) oder tageweise buchbar-Infos hierzu vor dem Verkaufsstart auf www.muenchen.de/eintaegige-erlebnisreisen.",
         "min_age": 7,
         "max_age": 9,
         "event_address": "Karl-Stützel-Platz, Nähe Hauptbahnhof",
@@ -258,6 +263,7 @@
         "website_URL": "https://zeitfrei-muenchen.de/"
     },
     {
+        "id": "328e00a2-7306-4a10-a785-c574ff365e05",
         "event_name": "Rafting auf der Loisach (Sommerferien 2022)",
         "event_description": "Verbringt mit uns einen unvergesslichen Tag beim (Wasser) Raften auf der Loisach. Zunächst fahren wir gemeinsam vom KJT ZeitFrei mit dem Zug nach Farchant. Auf großen Schlauchbooten geht es anschließend von einer Anlegestelle in Farchant nach Eschenlohe (Nähe Garmisch Partenkirchen). Auf der Fahrt erwartet euch nicht nur eine wunderschöne naturbelassene Landschaft, sondern auch viel Spaß, Abenteuer und spritzige Wildwasserpassagen.Aufgrund der aktuellen Covid-19 Lage gelten die Hygieneschutzbestimmungen, welche zu diesem Zeitpunkt vom Gesetzgeber und dem Träger, dem KJR München-Stadt, in Kraft sind. Bitte beachten Sie dies sowie etwaige kurzfristige Änderungen in Programm und Organisation, die sich daraus ergeben können..",
         "min_age": 8,
@@ -266,7 +272,7 @@
         "booking_URL": "https://zeitfrei-muenchen.de/wp-content/uploads/Tagesausfluege-und-Veranstaltungen-im-Sommer-2022.pdf",
         "image_URL": "",
         "map_URL": "https://www.google.com/maps/place/Kurt-Eisner-Stra%C3%9Fe+28,+81735+M%C3%BCnchen/@48.1059059,11.6523632,17z/data=!3m1!4b1!4m5!3m4!1s0x479de072c65f5431:0xaad2372c79c4fdf3!8m2!3d48.1059059!4d11.6523632",
-        "area": "Ramersdorf - Perlach",
+        "area": "Ramersdorf-Perlach",
         "cancelled": false,
         "organizer_id": "4776be13-4ce1-4ce1-8e3f-bad87fd692a0",
         "zip_code": "81735",
@@ -283,15 +289,16 @@
     },
 
     {
-        "event_name": "Tierisch, tierisch - Bus 1",
-        "event_description": "Wie kann man eigentlich einen afrikanischen Elefanten von einem asiatischen unterscheiden? Haben alle Zebras die gleichen Streifenmuster? Können Seehunde unter Wasser schlafen? Das und mehr erfährst Du heute im Zoo Augsburg und kannst viele Tiere hautnah erleben.Ganztägig: Zoo Augsburg- Löwen, Leoparden, Bären und viele weitere Tiere- Führung durch den Zoo- Abenteuerspielplatz- Streichelgehege mit Kaninchen, Minipony und Zwergesele nach den aktuellen Corona-Bestimmungen wochenweise (fünf Tage am Stück) oder tageweise buchbar - Infos hierzu vor dem Verkaufsstart auf www.muenchen.de/eintaegige-erlebnisreisen.",
+        "id": "79735c6a-c218-4349-8477-6c95eb6e66b1",
+        "event_name": "Tierisch, tierisch-Bus 1",
+        "event_description": "Wie kann man eigentlich einen afrikanischen Elefanten von einem asiatischen unterscheiden? Haben alle Zebras die gleichen Streifenmuster? Können Seehunde unter Wasser schlafen? Das und mehr erfährst Du heute im Zoo Augsburg und kannst viele Tiere hautnah erleben.Ganztägig: Zoo Augsburg- Löwen, Leoparden, Bären und viele weitere Tiere- Führung durch den Zoo- Abenteuerspielplatz- Streichelgehege mit Kaninchen, Minipony und Zwergesele nach den aktuellen Corona-Bestimmungen wochenweise (fünf Tage am Stück) oder tageweise buchbar-Infos hierzu vor dem Verkaufsstart auf www.muenchen.de/eintaegige-erlebnisreisen.",
         "min_age": 5,
         "max_age": 8,
         "event_address": "Arnulfstraße 21",
         "booking_URL": "https://www.muenchenticket.de/tickets/event/pneiblprvowj/Sommerferien-2022-Eintaegige-Erlebnisreisen-Busausfluege",
         "image_URL": "",
         "map_URL": "https://www.google.com/maps/place/%D0%A6%D0%B5%D0%BD%D1%82%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9+%D0%B0%D0%B2%D1%82%D0%BE%D0%B2%D0%BE%D0%BA%D0%B7%D0%B0%D0%BB+%D0%9C%D1%8E%D0%BD%D1%85%D0%B5%D0%BD%D0%B0/@48.14229,11.5411147,15z/data=!3m1!4b1!4m5!3m4!1s0x479e7600b4a01453:0x316a8592ea327bab!8m2!3d48.142276!4d11.549848",
-        "area": "Ludwigsvorstadt - Isarvorstadt",
+        "area": "Ludwigsvorstadt-Isarvorstadt",
         "cancelled": false,
         "organizer_id": "f2e6bbc3-ea2f-4180-b1a8-21bb990fe33a",
         "zip_code": "80335",

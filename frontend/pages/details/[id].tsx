@@ -1,8 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
 
 import React from 'react'
-import Layout from '../components/generic/Layout'
-export default function details() {
+import Layout from '../../components/generic/Layout'
+import EventDataModel from '../../types'
+
+export async function getServerSideProps(context) {
+    const res = await fetch(
+        `${process.env.ROOT_API_URL}/api/event/${context.params.id}`
+    )
+    const data = await res.json()
+    return { props: { data } }
+}
+
+export default function EventDetails({ data }: { data: EventDataModel }) {
     return (
         <Layout>
             {/* <div className=''>

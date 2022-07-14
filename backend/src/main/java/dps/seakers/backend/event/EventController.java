@@ -2,8 +2,10 @@ package dps.seakers.backend.event;
 import lombok.extern.slf4j.Slf4j;
 import net.kaczmarzyk.spring.data.jpa.domain.Between;
 import net.kaczmarzyk.spring.data.jpa.domain.Equal;
+import net.kaczmarzyk.spring.data.jpa.domain.NotEqual;
 import net.kaczmarzyk.spring.data.jpa.domain.In;
 import net.kaczmarzyk.spring.data.jpa.domain.Like;
+import net.kaczmarzyk.spring.data.jpa.web.annotation.Or;
 import net.kaczmarzyk.spring.data.jpa.web.annotation.And;
 import net.kaczmarzyk.spring.data.jpa.domain.LessThanOrEqual;
 import net.kaczmarzyk.spring.data.jpa.domain.GreaterThanOrEqual;
@@ -103,6 +105,7 @@ public class EventController {
             @And({
                     @Spec(path = "area", params = "area", spec = In.class),
                     @Spec(path = "price", params = "price", spec = Equal.class),
+                    @Spec(path = "price", params = "pricenot", spec = NotEqual.class),
                     @Spec(path = "min_age", params = "age", spec = LessThanOrEqual.class),
                     @Spec(path = "max_age", params = "age", spec = GreaterThanOrEqual.class),
                     @Spec(path = "begin_date", params = "date", spec = DateBeforeInclusive.class),

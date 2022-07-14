@@ -1,43 +1,62 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from 'react'
-import Select from 'react-select'
+
+import Image from 'next/image'
+import EventDataModel from '../types'
+import OverviewEventCard from '../components/overview/OverviewEventCard'
 
 import Layout from '../components/generic/Layout'
-import OverviewEventCard from '../components/overview/OverviewEventCard'
-import EventDataModel from '../types'
+import Select from '../components/generic/Select'
+import { overviewAgeOptions, overviewAreaOptions } from '../static.data'
 
 export async function getServerSideProps() {
     const res = await fetch(`${process.env.ROOT_API_URL}/api/event/all`)
     const data = await res.json()
-
-    // Pass data to the page via props
     return { props: { data } }
 }
 
-// eslint-disable-next-line react/prop-types
+export type FilterStrategy = {
+    age: string[]
+    area: string[]
+    price: string[]
+}
+
 export default function Home({ data }: { data: EventDataModel[] }) {
-    const [selectedHoliday, setSelectedHoliday] = useState<string | null>(null)
-    const [selectedArea, setSelectedArea] = useState<string | null>(null)
     const [cardData, setCardData] = useState<EventDataModel[]>(data)
+    const [filterStrategy, setFilterStrategy] = useState<FilterStrategy>({
+        age: [],
+        area: [],
+        price: [],
+    })
 
     useEffect(() => {
-        let filtered = [...data]
-        if (selectedHoliday && selectedArea !== '') {
-            filtered = filtered.filter(
-                (e) => e.holiday_period === selectedHoliday
+        const query = new URLSearchParams()
+        ;['age', 'area', 'price'].forEach((group) => {
+            filterStrategy[group].forEach((v: string) => {
+                if (group === 'price' && v === 'Kostenlos') {
+                    v = '0'
+                }
+                if (group === 'price' && v === 'Kostenpflichtig') {
+                    v = '0'
+                    group = 'pricenot'
+                }
+                query.append(group, v)
+            })
+        })
+        if (query.toString().length > 0)
+            fetch(`/api/event?${query.toString()}`).then((res) =>
+                res.json().then((filteredEvents) => setCardData(filteredEvents))
             )
-        }
-        if (selectedArea) {
-            filtered = filtered.filter((e) => e.area === selectedArea)
-        }
-        setCardData(filtered)
-    }, [selectedHoliday, selectedArea])
+        else
+            fetch('/api/event/all').then((res) =>
+                res.json().then((allEvents) => setCardData(allEvents))
+            )
+    }, [filterStrategy])
 
     return (
         <Layout>
             <div className="w-full h-[15rem] md:h-[30rem] relative flex items-center">
-                <img
+                <Image
+                    layout="fill"
                     className="object-cover w-full h-full z-0"
                     src="https://www.excel-communications.com/wp-content/uploads/2021/04/artem-kniaz-DqgMHzeio7g-unsplash-scaled.jpg"
                 />
@@ -83,143 +102,53 @@ export default function Home({ data }: { data: EventDataModel[] }) {
                     </button>
                 </div>
             </div>
-            <div className="h-[5rem] w-full grid grid-rows-1 grid-cols-3 items-center">
-                <div className="rows-1 columns-1">
+            <div className="h-[5rem] w-full grid grid-rows-1 grid-cols-5 gap-2 items-center">
+                <div className="rows-1 col-span-2">
                     <Select
-                        placeholder="Ferienzeit auswählen..."
-                        id="vactionSelect"
-                        isClearable
-                        options={[
-                            { value: 'Pfingsten', label: 'Pfingsten' },
-                            { value: 'Sommerferien', label: 'Sommerferien' },
-                            { value: 'Herbstferien', label: 'Herbstferien' },
-                            {
-                                value: 'Weihnachtsferien',
-                                label: 'Weihnachtsferien',
-                            },
-                            {
-                                value: 'Faschingsferien',
-                                label: 'Faschingsferien',
-                            },
-                            {
-                                value: 'Osterferien',
-                                label: 'Osterferien',
-                            },
-                        ]}
-                        closeMenuOnSelect={true}
-                        onChange={(e) => setSelectedHoliday(e?.value)}
+                        placeholderText="Stadtteil"
+                        allowMultiSelect
+                        options={overviewAreaOptions}
+                        onChange={(selectedValues) =>
+                            setFilterStrategy({
+                                ...filterStrategy,
+                                area: selectedValues,
+                            })
+                        }
                     />
                 </div>
-
-                <div className="rows-1 columns-1 col-start-3">
+                <div className="rows-1 col-span-1">
                     <Select
-                        placeholder="Bereich auswählen..."
-                        id="locationSelect"
-                        isClearable
+                        placeholderText="Alter"
+                        options={overviewAgeOptions}
+                        allowMultiSelect={false}
+                        onChange={(selectedValues) =>
+                            setFilterStrategy({
+                                ...filterStrategy,
+                                age: selectedValues,
+                            })
+                        }
+                    />
+                </div>
+                <div className="rows-1 col-span-2">
+                    <Select
+                        placeholderText="Kosten"
+                        allowMultiSelect={false}
                         options={[
                             {
-                                value: 'Altstadt - Lehel',
-                                label: 'Altstadt - Lehel',
+                                value: 'Kostenlos',
+                                label: 'Kostenlos',
                             },
                             {
-                                value: 'Ludwigsvorstadt - Isarvorstadt',
-                                label: 'Ludwigsvorstadt - Isarvorstadt',
-                            },
-                            {
-                                value: 'Maxvorstadt',
-                                label: 'Maxvorstadt',
-                            },
-                            {
-                                value: 'Schwabing-West',
-                                label: 'Schwabing-West',
-                            },
-                            {
-                                value: 'Au - Haidhausen',
-                                label: 'Au - Haidhausen',
-                            },
-                            {
-                                value: 'Sendling',
-                                label: 'Sendling',
-                            },
-                            {
-                                value: 'Sendling - Westpark',
-                                label: 'Sendling - Westpark',
-                            },
-                            {
-                                value: 'Schwanthalerhöhe',
-                                label: 'Schwanthalerhöhe',
-                            },
-                            {
-                                value: 'Neuhausen - Nymphenburg',
-                                label: 'Neuhausen - Nymphenburg',
-                            },
-                            {
-                                value: 'Moosach',
-                                label: 'Moosach',
-                            },
-                            {
-                                value: 'Milbertshofen - Am Hart',
-                                label: 'Milbertshofen - Am Hart',
-                            },
-                            {
-                                value: 'Schwabing - Freimann',
-                                label: 'Schwabing - Freimann',
-                            },
-                            {
-                                value: 'Bogenhausen',
-                                label: 'Bogenhausen',
-                            },
-                            {
-                                value: 'Berg am Laim',
-                                label: 'Berg am Laim',
-                            },
-                            {
-                                value: 'Trudering - Riem',
-                                label: 'Trudering - Riem',
-                            },
-                            {
-                                value: 'Ramersdorf - Perlach',
-                                label: 'Ramersdorf - Perlach',
-                            },
-                            {
-                                value: 'Obergiesing',
-                                label: 'Obergiesing',
-                            },
-                            {
-                                value: 'Untergiesing - Harlaching',
-                                label: 'Untergiesing - Harlaching',
-                            },
-                            {
-                                value: 'Thalkirchen - Obersendling - Forstenried - Fürstenried - Solln',
-                                label: 'Thalkirchen - Obersendling - Forstenried - Fürstenried - Solln',
-                            },
-                            {
-                                value: 'Hadern',
-                                label: 'Hadern',
-                            },
-                            {
-                                value: 'Pasing - Obermenzing',
-                                label: 'Pasing - Obermenzing',
-                            },
-                            {
-                                value: 'Aubing - Lochhausen - Langwied',
-                                label: 'Aubing - Lochhausen - Langwied',
-                            },
-                            {
-                                value: 'Allach - Untermenzing',
-                                label: 'Allach - Untermenzing',
-                            },
-                            {
-                                value: 'Feldmoching - Hasenbergl',
-                                label: 'Feldmoching - Hasenbergl',
-                            },
-                            {
-                                value: 'Laim',
-                                label: 'Laim',
+                                value: 'Kostenpflichtig',
+                                label: 'Kostenpflichtig',
                             },
                         ]}
-                        closeMenuOnSelect={true}
-                        onChange={(e) => setSelectedArea(e?.value)}
+                        onChange={(selectedValues) =>
+                            setFilterStrategy({
+                                ...filterStrategy,
+                                price: selectedValues,
+                            })
+                        }
                     />
                 </div>
             </div>
