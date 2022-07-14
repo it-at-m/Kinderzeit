@@ -13,7 +13,7 @@ export default function details() {
             <div className=" pt-12 flex lg:flex-row-reverse rounded overflow-hidden border">
                 <img
                     className=" h-2/3 w-3/5  "
-                    src="https://cdn.pixabay.com/photo/2019/05/27/16/41/graffiti-4233073_960_720.jpg"
+                    src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9b205d59463665.5a2332c39b17b.jpg"
                 />
                 <div className="w-2/5 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col space-y-4  leading-normal">
                     <div className="text-grey-300 text-xl  leading-tight">
