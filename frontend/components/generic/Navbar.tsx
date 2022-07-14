@@ -4,9 +4,9 @@ import React from 'react'
 
 export default function Navbar() {
     return (
-        <div className="bg-gradient-to-r pb-1 from-yellow-500 via-green-500 via-blue-300 via-purple-500 via-pink-500 to-red-500">
+        <div className="bg-gradient-to-r pb-1 from-yellow-500 to-red-500">
             <header>
-                <nav className="bg-white px-4 lg:px-6 py-2.5 bg-white">
+                <nav className="bg-white px-4 lg:px-6 py-2.5">
                     <div className="flex flex-wrap justify-between space-x-20 items-center mx-auto max-w-screen-xl">
                         <a href="" className="flex items-center">
                             <img

@@ -17,13 +17,13 @@ export type SelectOptionProps = {
 
 export type SelectProps = {
     // Options to render for the user
-    options: SelectOptionProps[]
+    options: readonly SelectOptionProps[]
     // Text to display inside the input
     placeholderText: string
     // Toggle multi mode
     allowMultiSelect: boolean
     // Return array of selected values
-    onValueChange: (selectedValues: string[]) => void
+    onChange: (selectedValues: string[]) => void
     containerStyling?: object
 }
 
@@ -126,7 +126,7 @@ export default function Select({
     options,
     placeholderText,
     allowMultiSelect,
-    onValueChange,
+    onChange,
     containerStyling,
 }: SelectProps) {
     return (
@@ -142,8 +142,8 @@ export default function Select({
             options={options}
             onChange={(e: SelectOptionProps[] | SelectOptionProps) =>
                 Array.isArray(e)
-                    ? onValueChange(e.map((o) => o.value))
-                    : onValueChange([e.value])
+                    ? onChange(e.map((o) => o.value))
+                    : onChange(e ? [e.value] : [])
             }
             // theme={(theme) => ({
             //     ...theme,

@@ -1,65 +1,46 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from 'react'
+
+import Image from 'next/image'
+import EventDataModel from '../types'
+import OverviewEventCard from '../components/overview/OverviewEventCard'
 
 import Layout from '../components/generic/Layout'
 import Select from '../components/generic/Select'
-import OverviewEventCard from '../components/overview/OverviewEventCard'
-import EventDataModel from '../types'
+import { overviewAgeOptions, overviewAreaOptions } from '../static.data'
 
 export async function getServerSideProps() {
     const res = await fetch(`${process.env.ROOT_API_URL}/api/event/all`)
     const data = await res.json()
-
-    // Pass data to the page via props
     return { props: { data } }
 }
-export interface AgeOption {
-    readonly value: number
-    readonly label: number
-    readonly flag: string
+
+export type FilterStrategy = {
+    age: string[]
+    area: string[]
+    price: string[]
 }
 
-export const ageOptions: readonly AgeOption[] = [
-    { value: 3, label: 3, flag: '&age=' },
-    { value: 4, label: 4, flag: '&age=' },
-    { value: 5, label: 5, flag: '&age=' },
-    { value: 6, label: 6, flag: '&age=' },
-    { value: 7, label: 7, flag: '&age=' },
-    { value: 8, label: 8, flag: '&age=' },
-    { value: 9, label: 9, flag: '&age=' },
-    { value: 10, label: 10, flag: '&age=' },
-    { value: 11, label: 11, flag: '&age=' },
-    { value: 12, label: 12, flag: '&age=' },
-    { value: 13, label: 13, flag: '&age=' },
-    { value: 14, label: 14, flag: '&age=' },
-    { value: 15, label: 15, flag: '&age=' },
-    { value: 16, label: 16, flag: '&age=' },
-    { value: 17, label: 17, flag: '&age=' },
-    { value: 18, label: 18, flag: '&age=' },
-]
-let filter_value = ''
-// eslint-disable-next-line react/prop-types
 export default function Home({ data }: { data: EventDataModel[] }) {
-    const [selectedHolidays, setSelectedHolidays] = useState<string[]>([])
-    // eslint-disable-next-line no-unused-vars
-    const [selectedArea, setSelectedArea] = useState<string | null>(null)
     const [cardData, setCardData] = useState<EventDataModel[]>(data)
-    const [selectedCost, setSelectedCost] = useState<string | null>(null)
+    const [filterStrategy, setFilterStrategy] = useState<FilterStrategy>({
+        age: [],
+        area: [],
+        price: [],
+    })
 
     useEffect(() => {
         const query = new URLSearchParams()
         ;['age', 'area', 'price'].forEach((group) => {
-            filterStrategy[group].forEach((v: string) =>{ 
-            if(group === 'price' && v === 'Kostenlos'){
-               v = '0';
-            }
-            if(group === 'price' && v === 'Kostenpflichtig'){
-                v = '0';
-                group = 'pricenot';
-            }
-            query.append(group, v)
-        } )
+            filterStrategy[group].forEach((v: string) => {
+                if (group === 'price' && v === 'Kostenlos') {
+                    v = '0'
+                }
+                if (group === 'price' && v === 'Kostenpflichtig') {
+                    v = '0'
+                    group = 'pricenot'
+                }
+                query.append(group, v)
+            })
         })
         if (query.toString().length > 0)
             fetch(`/api/event?${query.toString()}`).then((res) =>
@@ -69,26 +50,13 @@ export default function Home({ data }: { data: EventDataModel[] }) {
             fetch('/api/event/all').then((res) =>
                 res.json().then((allEvents) => setCardData(allEvents))
             )
-        }
-        const res = await fetch(`/api/event?${filter_value}`)
-        const filtered_events = await res.json()
-        setCardData(filtered_events)
-    }
-
-    useEffect(() => {
-        let filtered = [...cardData]
-        if (selectedCost === 'Kostenlos') {
-            filtered = filtered.filter((e) => e.price === 0)
-        } else {
-            filtered = filtered.filter((e) => e.price !== 0)
-        }
-        setCardData(filtered)
-    }, [selectedHolidays, selectedArea])
+    }, [filterStrategy])
 
     return (
         <Layout>
             <div className="w-full h-[15rem] md:h-[30rem] relative flex items-center">
-                <img
+                <Image
+                    layout="fill"
                     className="object-cover w-full h-full z-0"
                     src="https://www.excel-communications.com/wp-content/uploads/2021/04/artem-kniaz-DqgMHzeio7g-unsplash-scaled.jpg"
                 />
