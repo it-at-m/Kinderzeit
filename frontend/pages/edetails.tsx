@@ -80,15 +80,17 @@ export default function details() {
                         </div>
                     </div>
                 </div>
-
             </div>
-            <div className='flex justify-between border '>
-                <button className="h-10 w-48 px-5 m-4 text-green-100 transition-colors duration-150 bg-green-800 rounded-lg focus:shadow-outline hover:bg-green-800">Jetzt buchen</button>
-                <button type="button" className=""><i className="icon-heart"></i></button>
-
+            <div className="flex justify-between border ">
+                <button className="h-10 w-48 px-5 m-4 text-green-100 transition-colors duration-150 bg-green-800 rounded-lg focus:shadow-outline hover:bg-green-800">
+                    Jetzt buchen
+                </button>
+                <button type="button" className="">
+                    <i className="icon-heart"></i>
+                </button>
             </div>
             <div className="grid grid-cols-2 gap-4 border">
-                <div className=''>
+                <div className="">
                     <div className="pt-10 px-20 text-[#000000] font-[400] text-inter text-[1.25rem] text-bottom">
                         Ein Satz zum Graffiti Workshop für Kinder
                     </div>
@@ -96,34 +98,35 @@ export default function details() {
                         Zu diesem Event
                     </div>
                     <div className="p-3 px-20 text-[#000000] font-[200] text-inter text-[0.9rem] text-bottom">
-                        Wenn ihr erfahren wollt, wie Künstler aus der Graffiti-Szene
-                        heutzutage Werke auf der Straße entstehen lassen und wie ihr
-                        euer eigenes, cooles Stencil erstellen könnt, dann seid ihr
-                        in diesem Graffiti Workshop Kids im KUNSTLABOR 2 genau
-                        richtig. Ihr lernt dabei zu sprayen, taggen und zu cutten –
-                        alles was man für ein fertiges Graffiti-Werk braucht. Immer
-                        mit dabei unsere Leiter, die dir Schritt für Schritt alles
+                        Wenn ihr erfahren wollt, wie Künstler aus der
+                        Graffiti-Szene heutzutage Werke auf der Straße entstehen
+                        lassen und wie ihr euer eigenes, cooles Stencil
+                        erstellen könnt, dann seid ihr in diesem Graffiti
+                        Workshop Kids im KUNSTLABOR 2 genau richtig. Ihr lernt
+                        dabei zu sprayen, taggen und zu cutten – alles was man
+                        für ein fertiges Graffiti-Werk braucht. Immer mit dabei
+                        unsere Leiter, die dir Schritt für Schritt alles
                         erklären.
                     </div>
                     <div className="pt-10 px-20 text-[#000000] font-[400] text-inter text-[1.25rem] text-bottom">
                         Wichtige Hinweise
                     </div>
                     <div className="p-3 px-20 text-[#000000] font-[200] text-inter text-[0.9rem] text-bottom">
-                        Alle Materialien werden gestellt. Bitte Kleidung mitnehmen,
-                        die dreckig werden darf und eine FFP2 mitbringen. Auch eine
-                        Getränkeflasche ist zu empfehlen.
+                        Alle Materialien werden gestellt. Bitte Kleidung
+                        mitnehmen, die dreckig werden darf und eine FFP2
+                        mitbringen. Auch eine Getränkeflasche ist zu empfehlen.
                     </div>
                     <div className="pt-10 px-20 text-[#000000] font-[400] text-inter text-[1.25rem] text-bottom">
-                    Veranstalterinformationen
+                        Veranstalterinformationen
                     </div>
                     <div className="p-3 grid-rows-3  px-20 text-[#000000] font-[500] text-inter text-[0.9rem] text-bottom">
-                        <div className=''>KUNSTLABOR 2</div>
-                        <div className=''>Dachauer Str. 90</div>
-                        <div className=''>80335 München</div>
-                        <div className='text-teal-600'>Route Plan</div>
+                        <div className="">KUNSTLABOR 2</div>
+                        <div className="">Dachauer Str. 90</div>
+                        <div className="">80335 München</div>
+                        <div className="text-teal-600">Route Plan</div>
                     </div>
                 </div>
-                <div className=''>
+                <div className="">
                     <div className="pt-10 px-20 text-[#000000] font-[400] text-inter text-[1.25rem] text-bottom">
                         Müssen Eltern teilnehmen
                     </div>
@@ -131,11 +134,8 @@ export default function details() {
                         Nein
                     </div>
                 </div>
-                <div className='p-b-12'></div>
-
+                <div className="p-b-12"></div>
             </div>
-
-
         </Layout>
     )
 }
