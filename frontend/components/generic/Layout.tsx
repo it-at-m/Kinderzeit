@@ -6,9 +6,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     return (
         <div className="w-screen">
             <Navbar />
-            <main className="w-screen max-w-6xl m-auto flex flex-col">
-                {children}
-            </main>
+            {children}
             <Footer />
         </div>
     )
