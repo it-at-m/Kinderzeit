@@ -3,7 +3,6 @@ import React from 'react'
 import Link from 'next/link'
 
 import EventDataModel from '../../types'
-
 export default function IndexEventCard({ event }: { event: EventDataModel }) {
     return (
         <div className="w-full rounded-xl shadow-xl bg-white relative">
@@ -60,13 +59,13 @@ export default function IndexEventCard({ event }: { event: EventDataModel }) {
             <div className="grid grid-cols-2 grid-rows-5 px-2 mt-[-1] rounded-b-xl h-[4.5rem]">
                 <div className="row-start-2 row-span-4 col-start-1 col-span-1 m-auto">
                     <Link href={`/details/${event.id}`}>
-                        <p className="text-gray-500 underline font-roboto decoration-1 cursor-pointer text-[14px]">
+                        <p className="text-gray-500 underline font-roboto decoration-1 cursor-pointer text-[14px] hover:text-blue-600">
                             mehr info
                         </p>
                     </Link>
                 </div>
                 <div className="row-start-2 row-span-4 col-start-2 col-span-1 bg-green-700 text-gray-100 text-[14px] rounded-[17px] hover:bg-green-900 m-auto py-[9px] px-[15px]">
-                    <Link href="#">Jetzt buchen</Link>
+                    <Link href={event.booking_URL}>Jetzt buchen</Link>
                 </div>
                 <a className="text-green-800 row-start-1 row-span-1 font-roboto col-start-2 col-span-1 m-auto text-[14px] mt-[0.2rem]">
                     Noch {event.places_available} Plätze
