@@ -1,9 +1,9 @@
-type EventDataModel = {
+export type EventDataModel = {
     id: string
     event_name: string
     event_description: string
-    min_age: number
-    max_age: number
+    minAge: number
+    maxAge: number
     event_address: string
     booking_URL: string
     image_URL: string
@@ -22,6 +22,12 @@ type EventDataModel = {
     take_with: string
     accompany_needed: boolean
     holiday_period: string
-}
-
-export default EventDataModel
+}; 
+export type OrganizerDataModel = {
+    id: string
+    organizer_name: string
+    organizer_description: string
+    email_contact: string
+    mobile_phone: string
+    website_URL: string
+};

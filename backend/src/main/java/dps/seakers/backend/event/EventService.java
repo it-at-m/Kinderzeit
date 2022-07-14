@@ -20,6 +20,8 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.persistence.EntityNotFoundException;
 import java.io.IOException;
 import java.util.List;
+import java.util.Collections;
+import java.util.stream.Collectors;
 import java.util.Objects;
 import java.util.UUID;
 @Service
@@ -48,8 +50,19 @@ public class EventService {
      * @param spec *
      * @return elements
      */
-    public List<Event> get(Specification<Event> spec, Sort sort) {
-        return eventRepository.findAll(spec, sort);
+    public List<Event> get(Specification<Event> spec, Sort sort , List<Integer> ageList) {
+        List<Event> events = eventRepository.findAll(spec, sort);
+         if(ageList != null ){ 
+                for (int i=0; i<=ageList.size() -1; i++){
+                    List<Event> events_age = eventRepository.findByMaxAgeGreaterThanEqual(ageList.get(i)).stream()
+                            .filter(eventRepository.findByMinAgeLessThanEqual(ageList.get(i)) :: contains)
+                            .collect(Collectors.toList());
+                    events = events.stream()
+                            .filter(events_age :: contains)
+                            .collect(Collectors.toList());
+                }
+            }
+        return events;
     }
 
        /**
@@ -119,11 +132,11 @@ public class EventService {
      * @param sort    sort criteria
      * @return retrieve elements with pagination
      */
-    public PagingResponse get(Specification<Event> spec, HttpHeaders headers, Sort sort) {
+    public PagingResponse get(Specification<Event> spec, HttpHeaders headers, Sort sort, List<Integer> ageList) {
         if (isRequestPaged(headers)) {
             return get(spec, buildPageRequest(headers, sort));
         } else {
-            List<Event> entities = get(spec, sort);
+            List<Event> entities = get(spec, sort, ageList);
             return new PagingResponse((long) entities.size(), 0L, 0L, 0L, 0L, entities);
         }
     }

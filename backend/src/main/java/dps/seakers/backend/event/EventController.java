@@ -102,19 +102,16 @@ public class EventController {
     @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<List<Event>> get(
-            @And({
-                    @Spec(path = "area", params = "area", spec = In.class),
+            @And({@Spec(path = "area", params = "area", spec = In.class),
                     @Spec(path = "price", params = "price", spec = Equal.class),
                     @Spec(path = "price", params = "pricenot", spec = NotEqual.class),
-                    @Spec(path = "min_age", params = "age", spec = LessThanOrEqual.class),
-                    @Spec(path = "max_age", params = "age", spec = GreaterThanOrEqual.class),
                     @Spec(path = "begin_date", params = "date", spec = DateBeforeInclusive.class),
-                    @Spec(path = "end_date", params = "date", spec = DateAfterInclusive.class)
-        
-            }) Specification<Event> spec,
+                    @Spec(path = "end_date", params = "date", spec = DateAfterInclusive.class),
+                    })Specification<Event> spec, @RequestParam(value = "age", required=false) List<Integer> ageList,
             Sort sort,
             @RequestHeader HttpHeaders headers) {
-        final PagingResponse response = eventService.get(spec, headers, sort);
+
+        final PagingResponse response = eventService.get(spec, headers, sort, ageList);
         return new ResponseEntity<>(response.getElements(), returnHttpHeaders(response), HttpStatus.OK);
     }
 

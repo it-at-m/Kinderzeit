@@ -1,19 +1,23 @@
-/* eslint-disable @next/next/no-img-element */
 
 import React from 'react'
 import Footer from '../../components/generic/Footer'
 import Navbar from '../../components/generic/Navbar'
-import EventDataModel from '../../types'
+import {EventDataModel,OrganizerDataModel} from '../../types'
 
 export async function getServerSideProps(context) {
     const res = await fetch(
         `${process.env.ROOT_API_URL}/api/event/${context.params.id}`
     )
-    const data = await res.json()
-    return { props: { data } }
+    const event = await res.json()
+    const organizer_id = event.organizer_id
+    const res_o = await fetch(
+        `${process.env.ROOT_API_URL}/api/organizer/${organizer_id}`
+    )
+    const organizer = await res_o.json()
+    return { props: { event, organizer } }
 }
 
-export default function EventDetails({ data }: { data: EventDataModel }) {
+export default function EventDetails({ event, organizer }: { event: EventDataModel ,organizer: OrganizerDataModel}) {
     return (
         <div className="relative">
             <Navbar />
@@ -29,7 +33,7 @@ export default function EventDetails({ data }: { data: EventDataModel }) {
                     />
                     <div className="w-2/5 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col space-y-4 leading-normal">
                         <div className="text-grey-300 text-xl  leading-tight">
-                            Graffiti Workshop für Kinder
+                            {event.event_name}
                         </div>
                         <div className="">
                             <div className="pt-2">
@@ -38,7 +42,13 @@ export default function EventDetails({ data }: { data: EventDataModel }) {
                                 </p>
                                 <div className="flex space-x-12">
                                     <span className="font-semibold text-lg leading-6 text-gray-700 my-2">
-                                        Mi., 10. Aug. 22,
+                                    {new Date(
+                                                event.begin_date
+                                            ).toLocaleDateString('en-US', {
+                                                day: 'numeric',
+                                                month: 'short',
+                                                year: 'numeric',
+                                            })},
                                     </span>
                                     <span className="font-semibold text-lg leading-6 text-gray-700 my-2">
                                         10:30 - 13:00 Uhr
@@ -51,13 +61,13 @@ export default function EventDetails({ data }: { data: EventDataModel }) {
                                 </p>
                                 <div className="flex space-x-2">
                                     <span className="font-semibold text-lg leading-6 text-gray-700 my-2">
-                                        8
+                                        {event.minAge}
                                     </span>
                                     <span className="font-semibold text-lg leading-6 text-gray-700 my-2">
                                         -
                                     </span>
                                     <span className="font-semibold text-lg leading-6 text-gray-700 my-2">
-                                        7
+                                        {event.maxAge}
                                     </span>
                                     <span className="font-semibold text-lg leading-6 text-gray-700 my-2">
                                         Jahre
@@ -70,8 +80,8 @@ export default function EventDetails({ data }: { data: EventDataModel }) {
                                 </p>
                                 <div className="flex space-x-12">
                                     <span className="font-semibold text-lg leading-6 text-gray-700 my-2">
-                                        Kunstlabor 2, Maxvorstadt
-                                    </span>
+                                        {event.event_address} , {event.area}
+                                     </span>
                                 </div>
                             </div>
                             <div className="pt-2">
@@ -79,7 +89,7 @@ export default function EventDetails({ data }: { data: EventDataModel }) {
                                     Kosten
                                 </p>
                                 <a className="flex justify-center items-center w-20 top-60 right-0 mb-2 rounded-lg bg-yellow-500 text-white text-s font-small">
-                                    <p>18 € p.P.</p>
+                                    <p>{event.price}€p.P.</p>
                                 </a>
                             </div>
                             <div className="pt-2">
@@ -104,39 +114,28 @@ export default function EventDetails({ data }: { data: EventDataModel }) {
                 <div className="grid grid-cols-2 gap-4 border">
                     <div className="">
                         <div className="pt-10 px-20 text-[#000000] font-[400] text-inter text-[1.25rem] text-bottom">
-                            Ein Satz zum Graffiti Workshop für Kinder
+                            {event.event_name}
                         </div>
                         <div className="pt-10 px-20 text-[#000000] font-[400] text-inter text-[1.75rem] text-bottom">
                             Zu diesem Event
                         </div>
                         <div className="p-3 px-20 text-[#000000] font-[200] text-inter text-[0.9rem] text-bottom">
-                            Wenn ihr erfahren wollt, wie Künstler aus der
-                            Graffiti-Szene heutzutage Werke auf der Straße
-                            entstehen lassen und wie ihr euer eigenes, cooles
-                            Stencil erstellen könnt, dann seid ihr in diesem
-                            Graffiti Workshop Kids im KUNSTLABOR 2 genau
-                            richtig. Ihr lernt dabei zu sprayen, taggen und zu
-                            cutten – alles was man für ein fertiges
-                            Graffiti-Werk braucht. Immer mit dabei unsere
-                            Leiter, die dir Schritt für Schritt alles erklären.
+                          {event.event_description}
                         </div>
                         <div className="pt-10 px-20 text-[#000000] font-[400] text-inter text-[1.25rem] text-bottom">
                             Wichtige Hinweise
                         </div>
                         <div className="p-3 px-20 text-[#000000] font-[200] text-inter text-[0.9rem] text-bottom">
-                            Alle Materialien werden gestellt. Bitte Kleidung
-                            mitnehmen, die dreckig werden darf und eine FFP2
-                            mitbringen. Auch eine Getränkeflasche ist zu
-                            empfehlen.
+                          {event.take_with}
                         </div>
                         <div className="pt-10 px-20 text-[#000000] font-[400] text-inter text-[1.25rem] text-bottom">
                             Veranstalterinformationen
                         </div>
                         <div className="p-3 grid-rows-3  px-20 text-[#000000] font-[500] text-inter text-[0.9rem] text-bottom">
-                            <div className="">KUNSTLABOR 2</div>
-                            <div className="">Dachauer Str. 90</div>
-                            <div className="">80335 München</div>
-                            <div className="text-teal-600">Route Plan</div>
+                            <div className="">{organizer.organizer_name} </div>
+                            <div className="">{event.event_address}</div>
+                            <div className="">{event.zip_code} München</div>
+                            <div className="text-teal-600"><a href={event.map_URL}>Route Plan</a></div>
                         </div>
                     </div>
                     <div className="">
@@ -144,7 +143,7 @@ export default function EventDetails({ data }: { data: EventDataModel }) {
                             Müssen Eltern teilnehmen
                         </div>
                         <div className=" px-20 text-[#000000] font-[200] text-inter text-[0.9rem] text-bottom">
-                            Nein
+                            {event.accompany_needed ? "Ja" : "Nein"}
                         </div>
                     </div>
                 </div>
