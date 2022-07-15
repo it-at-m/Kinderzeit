@@ -4,7 +4,7 @@ export default function IndexSearchbar() {
     return (
         <>
             <input
-                className="border-2 text-gray-600 border-gray-300 bg-white h-10 pl-2 pr-8 rounded-lg text-sm focus:outline-none"
+                className="border-2 text-gray-600 border-gray-300 bg-white h-10 pl-2 pr-8 rounded-full text-sm focus:outline-none"
                 type="search"
                 name="search"
                 placeholder="Suche..."
