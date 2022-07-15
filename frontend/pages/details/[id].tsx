@@ -1,24 +1,30 @@
-
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link'
 import React from 'react'
 import Footer from '../../components/generic/Footer'
 import Navbar from '../../components/generic/Navbar'
-import {EventDataModel,OrganizerDataModel} from '../../types'
+import { EventDataModel, OrganizerDataModel } from '../../types'
 
 export async function getServerSideProps(context) {
     const res = await fetch(
         `${process.env.ROOT_API_URL}/api/event/${context.params.id}`
     )
     const event = await res.json()
-    const organizer_id = event.organizer_id
-    const res_o = await fetch(
-        `${process.env.ROOT_API_URL}/api/organizer/${organizer_id}`
+    const organizerId = event.organizer_id
+    const resO = await fetch(
+        `${process.env.ROOT_API_URL}/api/organizer/${organizerId}`
     )
-    const organizer = await res_o.json()
+    const organizer = await resO.json()
     return { props: { event, organizer } }
 }
 
-export default function EventDetails({ event, organizer }: { event: EventDataModel ,organizer: OrganizerDataModel}) {
+export default function EventDetails({
+    event,
+    organizer,
+}: {
+    event: EventDataModel
+    organizer: OrganizerDataModel
+}) {
     return (
         <div className="relative">
             <Navbar />
@@ -34,9 +40,7 @@ export default function EventDetails({ event, organizer }: { event: EventDataMod
                     />
                     <div className="w-2/5 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col space-y-4 leading-normal">
                         <div className="text-grey-300 text-xl  leading-tight">
-
                             {event.event_name}
-
                         </div>
                         <div className="">
                             <div className="pt-2">
@@ -45,22 +49,20 @@ export default function EventDetails({ event, organizer }: { event: EventDataMod
                                 </p>
                                 <div className="flex space-x-12">
                                     <span className="font-semibold text-lg leading-6 text-gray-700 my-2">
-
-                                    {new Date(
-                                                event.begin_date
-                                            ).toLocaleDateString('en-US', {
-                                                day: 'numeric',
-                                                month: 'short',
-                                                year: 'numeric',
-                                            })},
-
+                                        {new Date(
+                                            event.begin_date
+                                        ).toLocaleDateString('en-US', {
+                                            day: 'numeric',
+                                            month: 'short',
+                                            year: 'numeric',
+                                        })}
+                                        ,
                                     </span>
                                     <span className="font-semibold text-lg leading-6 text-gray-700 my-2">
                                         {`${event.start_time.substring(
                                             0,
                                             5
                                         )} - ${event.end_time.substring(0, 5)}`}
-
                                     </span>
                                 </div>
                             </div>
@@ -69,7 +71,6 @@ export default function EventDetails({ event, organizer }: { event: EventDataMod
                                     Alter
                                 </p>
                                 <div className="flex space-x-2">
-
                                     <span className="font-semibold text-lg leading-6 text-gray-700 my-2">
                                         {event.minAge}
                                     </span>
@@ -82,7 +83,6 @@ export default function EventDetails({ event, organizer }: { event: EventDataMod
                                     <span className="font-semibold text-lg leading-6 text-gray-700 my-2">
                                         Jahre
                                     </span>
-
                                 </div>
                             </div>
                             <div className="pt-2">
@@ -91,10 +91,8 @@ export default function EventDetails({ event, organizer }: { event: EventDataMod
                                 </p>
                                 <div className="flex space-x-12">
                                     <span className="font-semibold text-lg leading-6 text-gray-700 my-2">
-
                                         {event.event_address} , {event.area}
-                                     </span>
-
+                                    </span>
                                 </div>
                             </div>
                             <div className="pt-2">
@@ -102,9 +100,7 @@ export default function EventDetails({ event, organizer }: { event: EventDataMod
                                     Kosten
                                 </p>
                                 <a className="flex justify-center items-center w-20 top-60 right-0 mb-2 rounded-lg bg-yellow-500 text-white text-s font-small">
-
                                     <p>{event.price}€p.P.</p>
-
                                 </a>
                             </div>
                             <div className="pt-2">
@@ -130,7 +126,6 @@ export default function EventDetails({ event, organizer }: { event: EventDataMod
                 </div>
                 <div className="grid grid-cols-2 gap-4 border py-8">
                     <div className="">
-
                         <div className="pt-10 px-20 text-[#000000] font-[400] text-inter text-[1.25rem] text-bottom">
                             {event.event_name}
                         </div>
@@ -139,46 +134,44 @@ export default function EventDetails({ event, organizer }: { event: EventDataMod
                             Zu diesem Event
                         </div>
                         <div className="p-3 px-20 text-[#000000] font-[200] text-inter text-[0.9rem] text-bottom">
-
-                          {event.event_description}
-
+                            {event.event_description}
                         </div>
                         <div className="pt-10 px-20 text-[#000000] font-[400] text-inter text-[1.25rem] text-bottom">
                             Wichtige Hinweise
                         </div>
                         <div className="p-3 px-20 text-[#000000] font-[200] text-inter text-[0.9rem] text-bottom">
-
-                          {event.take_with}
-
+                            {event.take_with}
                         </div>
                         <div className="pt-10 px-20 text-[#000000] font-[400] text-inter text-[1.25rem] text-bottom">
                             Veranstalterinformationen
                         </div>
 
-                        <div className='grid grid-cols-2 gap-8 '>
-                        <div className="p-3 grid-rows-1  px-20 text-[#000000] font-[500] text-inter text-[0.9rem] text-bottom">
-                            <div className="">{event.event_address}</div>
-                            <div className="">{`${event.zip_code} München`}</div>
-                            <Link href={event.map_URL}>
-                            <button className="pt-2 text-teal-600">Route Planen</button>
-                            </Link>
+                        <div className="grid grid-cols-2 gap-8 ">
+                            <div className="p-3 grid-rows-1  px-20 text-[#000000] font-[500] text-inter text-[0.9rem] text-bottom">
+                                <div className="">{event.event_address}</div>
+                                <div className="">{`${event.zip_code} München`}</div>
+                                <Link href={event.map_URL}>
+                                    <button className="pt-2 text-teal-600">
+                                        Route Planen
+                                    </button>
+                                </Link>
+                            </div>
+                            <div className="py-8 mr-6 ">
+                                <div className=" font-[500] text-teal-600 text-[0.9rem]">
+                                    +49 89 12 34 56 78
+                                </div>
+                                <div className="font-[500] text-teal-600 text-[0.9rem]">
+                                    {event.email_contact}
+                                </div>
+                            </div>
                         </div>
-                        <div className='py-8 mr-6 '>
-                            <div className=' font-[500] text-teal-600 text-[0.9rem]'>+49 89 12 34 56 78</div>
-                            <div className='font-[500] text-teal-600 text-[0.9rem]'>{event.email_contact}</div>
-
-                        </div>
-                        </div>
-                        
                     </div>
                     <div className="">
                         <div className="pt-10 px-20 text-[#000000] font-[400] text-inter text-[1.25rem] text-bottom">
                             Müssen Eltern teilnehmen
                         </div>
                         <div className=" px-20 text-[#000000] font-[200] text-inter text-[0.9rem] text-bottom">
-
-                            {event.accompany_needed ? "Jawohl" : "Nein"}
-
+                            {event.accompany_needed ? 'Jawohl' : 'Nein'}
                         </div>
                     </div>
                 </div>

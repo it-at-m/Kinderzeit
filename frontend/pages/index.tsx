@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import Image from 'next/image'
-import {EventDataModel} from '../types'
+import { EventDataModel } from '../types'
 import IndexEventCard from '../components/index/IndexEventCard'
 
 import Select from '../components/generic/Select'
