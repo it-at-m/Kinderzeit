@@ -2,14 +2,13 @@
 import React from 'react'
 import Link from 'next/link'
 
-import {EventDataModel} from '../../types'
+import { EventDataModel } from '../../types'
 export default function IndexEventCard({ event }: { event: EventDataModel }) {
     return (
         <div className="w-full rounded-xl shadow-xl bg-white relative">
             <img
                 src={event.image_URL}
-                className="rounded-t-xl w-full h-[150px] sm:h-[200px] md:h-auto object-cover"
-                alt=""
+                className="rounded-t-xl w-full h-[150px] object-fill"
             />
             {/* <!-- Product Title --> */}
             <div className="font-lato leading-6 text-[20px] text-[#2B2B2B] tracking-wider line-clamp-[1.2] h-12 px-2 pt-1 my-auto">
