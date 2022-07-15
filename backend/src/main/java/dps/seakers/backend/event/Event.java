@@ -31,10 +31,10 @@ public class Event {
     private String event_description;
 
     @Column(nullable = false)
-    private Integer min_age;
+    private Integer minAge;
 
     @Column(nullable = false)
-    private Integer max_age;
+    private Integer maxAge;
 
     @Column(nullable = false)
     private String event_address;

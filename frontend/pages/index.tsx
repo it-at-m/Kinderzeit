@@ -99,7 +99,7 @@ export default function Overview({ data }: { data: EventDataModel[] }) {
                             <Select
                                 placeholderText="Alter"
                                 options={overviewAgeOptions}
-                                allowMultiSelect={false}
+                                allowMultiSelect
                                 onChange={(selectedValues) =>
                                     setFilterStrategy({
                                         ...filterStrategy,

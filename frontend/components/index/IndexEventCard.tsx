@@ -42,7 +42,7 @@ export default function IndexEventCard({ event }: { event: EventDataModel }) {
                 </p>
                 <div className="row-start-2 row-span-2 col-start-1 col-span-1">
                     <p className="font-semibold text-[14px] font-roboto leading-6 text-gray-700">
-                        {`${event.min_age} - ${event.max_age} Jahre`}
+                        {`${event.minAge} - ${event.maxAge} Jahre`}
                     </p>
                 </div>
             </div>
