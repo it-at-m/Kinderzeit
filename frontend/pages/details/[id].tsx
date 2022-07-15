@@ -56,10 +56,10 @@ export default function EventDetails({ event, organizer }: { event: EventDataMod
 
                                     </span>
                                     <span className="font-semibold text-lg leading-6 text-gray-700 my-2">
-                                        {`${data.start_time.substring(
+                                        {`${event.start_time.substring(
                                             0,
                                             5
-                                        )} - ${data.end_time.substring(0, 5)}`}
+                                        )} - ${event.end_time.substring(0, 5)}`}
 
                                     </span>
                                 </div>
@@ -112,14 +112,14 @@ export default function EventDetails({ event, organizer }: { event: EventDataMod
                                     Verfügbarkeit
                                 </p>
                                 <a className="flex items-center top-60 right-0 mb-2 font-semibold  text-green-800">
-                                    <p>Noch {data.places_available} Plätze</p>
+                                    <p>Noch {event.places_available} Plätze</p>
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="flex justify-between border">
-                    <Link href={data.booking_URL}>
+                    <Link href={event.booking_URL}>
                         <button className="h-10 w-48 px-5 m-4 text-green-100 transition-colors duration-150 bg-green-800 rounded-lg focus:shadow-outline hover:bg-green-800">
                             Jetzt buchen
                         </button>
