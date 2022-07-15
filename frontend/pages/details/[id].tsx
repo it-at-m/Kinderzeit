@@ -26,7 +26,7 @@ export default function EventDetails({
     organizer: OrganizerDataModel
 }) {
     return (
-        <div className="relative">
+        <div className="relative overflow-hidden">
             <Navbar />
             <img
                 className="blur-sm w-screen h-[50rem] z-0 absolute scale-125"
