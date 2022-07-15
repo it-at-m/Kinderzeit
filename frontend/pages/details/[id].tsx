@@ -30,13 +30,13 @@ export default function EventDetails({
             <Navbar />
             <img
                 className="blur-sm w-screen h-[50rem] z-0 absolute scale-125"
-                src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9b205d59463665.5a2332c39b17b.jpg"
+                src={event.image_URL}
             />
             <main className="z-20 relative top-10 bg-white w-screen max-w-6xl m-auto flex flex-col">
                 <div className="flex lg:flex-row-reverse overflow-hidden border">
                     <img
                         className="h-2/3 w-3/5"
-                        src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9b205d59463665.5a2332c39b17b.jpg"
+                        src={event.image_URL}
                     />
                     <div className="w-2/5 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col space-y-4 leading-normal">
                         <div className="text-grey-300 text-xl  leading-tight">

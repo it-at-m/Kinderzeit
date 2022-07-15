@@ -7,7 +7,7 @@ export default function IndexEventCard({ event }: { event: EventDataModel }) {
     return (
         <div className="w-full rounded-xl shadow-xl bg-white relative">
             <img
-                src="https://www.kindercare.com/-/media/contenthub/images/article-images/activities%20for%20kids/arts%20and%20crafts/painting-with-nature/colorful-paint-splatters-compressor.jpg?la=en&hash=DA9C3A0777DDA8124A30C22CC2D73C508D758F49"
+                src={event.image_URL}
                 className="rounded-t-xl w-full h-[150px] sm:h-[200px] md:h-auto object-cover"
                 alt=""
             />
