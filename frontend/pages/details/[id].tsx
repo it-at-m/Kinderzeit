@@ -34,10 +34,7 @@ export default function EventDetails({
             />
             <main className="z-20 relative top-10 bg-white w-screen max-w-6xl m-auto flex flex-col">
                 <div className="flex lg:flex-row-reverse overflow-hidden border">
-                    <img
-                        className="h-2/3 w-3/5"
-                        src={event.image_URL}
-                    />
+                    <img className="h-2/3 w-3/5" src={event.image_URL} />
                     <div className="w-2/5 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col space-y-4 leading-normal">
                         <div className="text-grey-300 text-xl  leading-tight">
                             {event.event_name}
@@ -175,10 +172,17 @@ export default function EventDetails({
                                 {event.accompany_needed ? 'Jawohl' : 'Nein'}
                             </div>
                         </div>
-                        <div className=''></div>
+                        <div className=""></div>
                         <div>
-                            <div className=' flex px-20 text-[#000000] font-[200]  font-roboto text-inter text-[0.9rem] text-bottom'> Eventquelle:
-                                <div className="text-yellow-600"> &nbsp;<Link href='https://www.ferien-muenchen.de/'>ferien-muenchen.de</Link>
+                            <div className=" flex px-20 text-[#000000] font-[200]  font-roboto text-inter text-[0.9rem] text-bottom">
+                                {' '}
+                                Eventquelle:
+                                <div className="text-yellow-600">
+                                    {' '}
+                                    &nbsp;
+                                    <Link href="https://www.ferien-muenchen.de/">
+                                        ferien-muenchen.de
+                                    </Link>
                                 </div>
                             </div>
                         </div>
