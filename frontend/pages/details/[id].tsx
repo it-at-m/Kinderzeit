@@ -30,14 +30,11 @@ export default function EventDetails({
             <Navbar />
             <img
                 className="blur-sm w-screen h-[50rem] z-0 absolute scale-125"
-                src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9b205d59463665.5a2332c39b17b.jpg"
+                src={event.image_URL}
             />
             <main className="z-20 relative top-10 bg-white w-screen max-w-6xl m-auto flex flex-col">
                 <div className="flex lg:flex-row-reverse overflow-hidden border">
-                    <img
-                        className="h-2/3 w-3/5"
-                        src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/9b205d59463665.5a2332c39b17b.jpg"
-                    />
+                    <img className="h-2/3 w-3/5" src={event.image_URL} />
                     <div className="w-2/5 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col space-y-4 leading-normal">
                         <div className="text-grey-300 text-xl  leading-tight">
                             {event.event_name}
@@ -151,17 +148,23 @@ export default function EventDetails({
                                 <div className="">{event.event_address}</div>
                                 <div className="">{`${event.zip_code} München`}</div>
                                 <Link href={event.map_URL}>
-                                    <button className="  font-roboto pt-2 text-teal-600">
+                                    <button className="font-roboto pt-2 text-teal-600">
                                         Route Planen
                                     </button>
                                 </Link>
                             </div>
-                            <div className="py-8 mr-6 ">
-                                <div className=" font-[500]  font-roboto text-teal-600 text-[0.9rem]">
-                                    +49 89 12 34 56 78
+                            <div className="p-3 grid-rows-1  px-20 text-[#000000] font-[500] font-roboto text-inter text-[0.9rem] text-bottom ">
+                                <div className="">
+                                    {organizer.organizer_name}
                                 </div>
-                                <div className="font-[500]  font-roboto text-teal-600 text-[0.9rem]">
-                                    {event.email_contact}
+                                <div className="">
+                                    {organizer.mobile_phone}
+                                </div>
+                                <div className="">
+                                    {organizer.email_contact}
+                                </div>
+                                <div className="font-roboto pt-2 text-teal-600">
+                                <Link href={organizer.website_URL}>{organizer.website_URL}</Link>
                                 </div>
                             </div>
                         </div>
@@ -175,10 +178,17 @@ export default function EventDetails({
                                 {event.accompany_needed ? 'Jawohl' : 'Nein'}
                             </div>
                         </div>
-                        <div className=''></div>
+                        <div className=""></div>
                         <div>
-                            <div className=' flex px-20 text-[#000000] font-[200]  font-roboto text-inter text-[0.9rem] text-bottom'> Eventquelle:
-                                <div className="text-yellow-600"> &nbsp;<Link href='https://www.ferien-muenchen.de/'>ferien-muenchen.de</Link>
+                            <div className=" flex px-20 text-[#000000] font-[200]  font-roboto text-inter text-[0.9rem] text-bottom">
+                                {' '}
+                                Eventquelle:
+                                <div className="text-yellow-600">
+                                    {' '}
+                                    &nbsp;
+                                    <Link href="https://www.ferien-muenchen.de/">
+                                        ferien-muenchen.de
+                                    </Link>
                                 </div>
                             </div>
                         </div>
