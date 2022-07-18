@@ -105,8 +105,8 @@ public class EventController {
             @And({@Spec(path = "area", params = "area", spec = In.class),
                     @Spec(path = "price", params = "price", spec = Equal.class),
                     @Spec(path = "price", params = "pricenot", spec = NotEqual.class),
-                    @Spec(path = "begin_date", params = "date", spec = DateBeforeInclusive.class),
-                    @Spec(path = "end_date", params = "date", spec = DateAfterInclusive.class),
+                    @Spec(path = "begin_date", params = "beginDate", spec = DateAfterInclusive.class),
+                    @Spec(path = "end_date", params = "endDate", spec = DateBeforeInclusive.class),
                     })Specification<Event> spec, @RequestParam(value = "age", required=false) List<Integer> ageList,
             Sort sort,
             @RequestHeader HttpHeaders headers) {
