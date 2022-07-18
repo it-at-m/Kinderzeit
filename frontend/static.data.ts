@@ -20,9 +20,42 @@ export const overviewAgeOptions: readonly SelectOptionProps[] = [
 ]
 
 export const overviewAreaOptions: readonly SelectOptionProps[] = [
+    
+    {
+        value: 'Allach-Untermenzing',
+        label: 'Allach-Untermenzing',
+    },
     {
         value: 'Altstadt-Lehel',
         label: 'Altstadt-Lehel',
+    },
+    {
+        value: 'Aubing-Lochhausen-Langwied',
+        label: 'Aubing-Lochhausen-Langwied',
+    },
+    {
+        value: 'Au-Haidhausen',
+        label: 'Au-Haidhausen',
+    },
+    {
+        value: 'Berg am Laim',
+        label: 'Berg am Laim',
+    },
+    {
+        value: 'Bogenhausen',
+        label: 'Bogenhausen',
+    },
+    {
+        value: 'Feldmoching-Hasenbergl',
+        label: 'Feldmoching-Hasenbergl',
+    },
+    {
+        value: 'Hadern',
+        label: 'Hadern',
+    },
+    {
+        value: 'Laim',
+        label: 'Laim',
     },
     {
         value: 'Ludwigsvorstadt-Isarvorstadt',
@@ -33,12 +66,40 @@ export const overviewAreaOptions: readonly SelectOptionProps[] = [
         label: 'Maxvorstadt',
     },
     {
+        value: 'Milbertshofen-Am Hart',
+        label: 'Milbertshofen-Am Hart',
+    },
+    {
+        value: 'Moosach',
+        label: 'Moosach',
+    },
+    {
+        value: 'Neuhausen-Nymphenburg',
+        label: 'Neuhausen-Nymphenburg',
+    },
+    {
+        value: 'Obergiesing',
+        label: 'Obergiesing',
+    },
+    {
+        value: 'Pasing-Obermenzing',
+        label: 'Pasing-Obermenzing',
+    },
+    {
+        value: 'Ramersdorf-Perlach',
+        label: 'Ramersdorf-Perlach',
+    },
+    {
+        value: 'Schwabing-Freimann',
+        label: 'Schwabing-Freimann',
+    },
+    {
         value: 'Schwabing-West',
         label: 'Schwabing-West',
     },
     {
-        value: 'Au-Haidhausen',
-        label: 'Au-Haidhausen',
+        value: 'Schwanthalerhöhe',
+        label: 'Schwanthalerhöhe',
     },
     {
         value: 'Sendling',
@@ -48,76 +109,21 @@ export const overviewAreaOptions: readonly SelectOptionProps[] = [
         value: 'Sendling-Westpark',
         label: 'Sendling-Westpark',
     },
+    
     {
-        value: 'Schwanthalerhöhe',
-        label: 'Schwanthalerhöhe',
+        value: 'Thalkirchen-Obersendling-Forstenried-Fürstenried-Solln',
+        label: 'Thalkirchen-Obersendling-Forstenried-Fürstenried-Solln',
     },
-    {
-        value: 'Neuhausen-Nymphenburg',
-        label: 'Neuhausen-Nymphenburg',
-    },
-    {
-        value: 'Moosach',
-        label: 'Moosach',
-    },
-    {
-        value: 'Milbertshofen-Am Hart',
-        label: 'Milbertshofen-Am Hart',
-    },
-    {
-        value: 'Schwabing-Freimann',
-        label: 'Schwabing-Freimann',
-    },
-    {
-        value: 'Bogenhausen',
-        label: 'Bogenhausen',
-    },
-    {
-        value: 'Berg am Laim',
-        label: 'Berg am Laim',
-    },
+   
+   
     {
         value: 'Trudering-Riem',
         label: 'Trudering-Riem',
     },
     {
-        value: 'Ramersdorf-Perlach',
-        label: 'Ramersdorf-Perlach',
-    },
-    {
-        value: 'Obergiesing',
-        label: 'Obergiesing',
-    },
-    {
         value: 'Untergiesing-Harlaching',
         label: 'Untergiesing-Harlaching',
     },
-    {
-        value: 'Thalkirchen-Obersendling-Forstenried-Fürstenried-Solln',
-        label: 'Thalkirchen-Obersendling-Forstenried-Fürstenried-Solln',
-    },
-    {
-        value: 'Hadern',
-        label: 'Hadern',
-    },
-    {
-        value: 'Pasing-Obermenzing',
-        label: 'Pasing-Obermenzing',
-    },
-    {
-        value: 'Aubing-Lochhausen-Langwied',
-        label: 'Aubing-Lochhausen-Langwied',
-    },
-    {
-        value: 'Allach-Untermenzing',
-        label: 'Allach-Untermenzing',
-    },
-    {
-        value: 'Feldmoching-Hasenbergl',
-        label: 'Feldmoching-Hasenbergl',
-    },
-    {
-        value: 'Laim',
-        label: 'Laim',
-    },
+   
+
 ]
