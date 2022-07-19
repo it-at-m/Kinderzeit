@@ -59,14 +59,14 @@ export default function Overview({ data }: { data: EventDataModel[] }) {
             <main className="z-10">
                 <div className="w-full h-[20rem] relative flex flex-row items-center">
                     <div className="object-cover w-[80rem] h-full z-0"></div>
-                    <div className="flex item-center justify-center absolute w-[30rem] font-[700] text-[4rem] md:left-40 font-[200]">
+                    <div className="flex item-center justify-center absolute w-[30rem] font-[700] text-[4rem] md:left-40 font-[600]">
                         WILLKOMMEN LIEBE ELTERN!
                     </div>
                     <div className="font-[500] text-[1.3rem] lg:block hidden">
                         <div className="">
                             Ihr seid auf der Suche nach tollen Ferienaktivitäten
                             für eure Kinder? Bei uns findet ihr
-                            <button className="text-white font-semibold rounded-md px-2 mr-2 bg-gradient-to-r pb-1 from-yellow-500 via-violet-400 via-indigo-400 via-blue-400 via-green-300 via-teal-400 via-indigo-300 via-pink-300 to-red-500">
+                            <button className="text-white font-semibold rounded-md px-2 ml-2 mr-2 bg-gradient-to-r pb-1 from-yellow-500 via-violet-400 via-indigo-400 via-blue-400 via-green-300 via-teal-400 via-indigo-300 via-pink-300 to-red-500">
                                 eine große Auswahl →
                             </button>
                             unterschiedlichster Angebote in München.
@@ -74,7 +74,7 @@ export default function Overview({ data }: { data: EventDataModel[] }) {
                         <div className="">
                             Ihr könnt selbst durch die Veranstaltungen stöbern
                             oder eine
-                            <button className="text-white font-semibold rounded-md px-2 mr-2 bg-gradient-to-r pb-1 from-yellow-500 via-violet-400 via-indigo-400 via-blue-400 via-green-300 via-teal-400 via-indigo-300 via-pink-300 to-red-500">
+                            <button className="text-white font-semibold rounded-md px-2 ml-2 mr-2 bg-gradient-to-r pb-1 from-yellow-500 via-violet-400 via-indigo-400 via-blue-400 via-green-300 via-teal-400 via-indigo-300 via-pink-300 to-red-500">
                                 individuelle Empfehlung →
                             </button>
                             von uns erhalten.
