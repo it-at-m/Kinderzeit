@@ -26,7 +26,7 @@ export default function EventDetails({
     organizer: OrganizerDataModel
 }) {
     return (
-        <div className="relative">
+        <div className="relative overflow-hidden">
             <Navbar />
             <img
                 className="blur-sm w-screen h-[40rem] z-0 absolute scale-125"
@@ -184,11 +184,8 @@ export default function EventDetails({
                         <div className=""></div>
                         <div>
                             <div className=" flex px-20 text-[#000000] font-[200]  font-roboto text-inter text-[0.9rem] text-bottom">
-                                {' '}
                                 Eventquelle:
                                 <div className="text-yellow-600">
-                                    {' '}
-                                    &nbsp;
                                     <Link href="https://www.ferien-muenchen.de/">
                                         ferien-muenchen.de
                                     </Link>

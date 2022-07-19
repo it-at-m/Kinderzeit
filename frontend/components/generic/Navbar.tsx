@@ -19,7 +19,7 @@ export default function Navbar() {
                     href="#"
                     className="text-white bg-cyan-500 font-medium rounded-full text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 lg:block hidden "
                 >
-                    Anmelden
+                    Konto
                 </a>
                 <button
                     data-collapse-toggle="mobile-menu-2"
@@ -65,7 +65,7 @@ export default function Navbar() {
                     </li>
                 </ul>
             </div>
-            <div className="bg-gradient-to-r pb-1 from-yellow-500 via-pink-500 to-red-500 w-full absolute bottom-0" />
+            <div className="bg-gradient-to-r pb-1 from-yellow-500 via-violet-300 via-indigo-300 via-blue-400 via-green-300 via-teal-400 via-indigo-300 via-pink-300 to-red-500 w-full absolute bottom-0" />
         </nav>
     )
 }
