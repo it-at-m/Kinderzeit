@@ -7,9 +7,8 @@ export default function IndexEventCard({ event }: { event: EventDataModel }) {
     return (
         <div className="w-full rounded-xl shadow-xl bg-white relative">
             <img
-                src="https://www.kindercare.com/-/media/contenthub/images/article-images/activities%20for%20kids/arts%20and%20crafts/painting-with-nature/colorful-paint-splatters-compressor.jpg?la=en&hash=DA9C3A0777DDA8124A30C22CC2D73C508D758F49"
-                className="rounded-t-xl w-full h-[150px] sm:h-[200px] md:h-auto object-cover"
-                alt=""
+                src={event.image_URL}
+                className="rounded-t-xl w-full h-[150px] object-fill"
             />
             {/* <!-- Product Title --> */}
             <div className="font-lato leading-6 text-[20px] text-[#2B2B2B] tracking-wider line-clamp-[1.2] h-12 px-2 pt-1 my-auto">
