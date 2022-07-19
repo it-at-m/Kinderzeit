@@ -34,7 +34,10 @@ export default function EventDetails({
             />
             <main className="z-20 relative top-10 bg-white w-screen max-w-6xl m-auto flex flex-col">
                 <div className="flex lg:flex-row-reverse overflow-hidden border">
-                    <img className="border-8 h-[30rem] w-3/5" src={event.image_URL} />
+                    <img
+                        className="h-[30rem] w-3/5"
+                        src={event.image_URL}
+                    />
                     <div className="w-2/5 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col space-y-4 leading-normal">
                         <div className="text-grey-300 text-xl  leading-tight">
                             {event.event_name}
@@ -157,14 +160,14 @@ export default function EventDetails({
                                 <div className="">
                                     {organizer.organizer_name}
                                 </div>
-                                <div className="">
-                                    {organizer.mobile_phone}
-                                </div>
+                                <div className="">{organizer.mobile_phone}</div>
                                 <div className="">
                                     {organizer.email_contact}
                                 </div>
                                 <div className="font-roboto pt-2 text-teal-600">
-                                <Link href={organizer.website_URL}>{organizer.website_URL}</Link>
+                                    <Link href={organizer.website_URL}>
+                                        {organizer.website_URL}
+                                    </Link>
                                 </div>
                             </div>
                         </div>

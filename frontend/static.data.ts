@@ -20,7 +20,6 @@ export const overviewAgeOptions: readonly SelectOptionProps[] = [
 ]
 
 export const overviewAreaOptions: readonly SelectOptionProps[] = [
-    
     {
         value: 'Allach-Untermenzing',
         label: 'Allach-Untermenzing',
@@ -109,13 +108,12 @@ export const overviewAreaOptions: readonly SelectOptionProps[] = [
         value: 'Sendling-Westpark',
         label: 'Sendling-Westpark',
     },
-    
+
     {
         value: 'Thalkirchen-Obersendling-Forstenried-Fürstenried-Solln',
         label: 'Thalkirchen-Obersendling-Forstenried-Fürstenried-Solln',
     },
-   
-   
+
     {
         value: 'Trudering-Riem',
         label: 'Trudering-Riem',
@@ -124,6 +122,4 @@ export const overviewAreaOptions: readonly SelectOptionProps[] = [
         value: 'Untergiesing-Harlaching',
         label: 'Untergiesing-Harlaching',
     },
-   
-
 ]
