@@ -2,7 +2,8 @@
 import React from 'react'
 import Link from 'next/link'
 
-import { EventDataModel } from '../../types'
+import { EventDataModel } from '../../constants'
+
 export default function IndexEventCard({ event }: { event: EventDataModel }) {
     return (
         <div className="w-full rounded-xl shadow-xl bg-white relative">

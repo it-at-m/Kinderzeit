@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import Footer from '../../components/generic/Footer'
 import Navbar from '../../components/generic/Navbar'
-import { EventDataModel, OrganizerDataModel } from '../../types'
+import { EventDataModel, OrganizerDataModel } from '../../constants'
 
 export async function getServerSideProps(context) {
     const res = await fetch(
