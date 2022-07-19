@@ -19,10 +19,11 @@ export default function IndexEventCard({ event }: { event: EventDataModel }) {
             </a>
             <div className="grid grid-rows-3 grid-cols-2 px-2 mt-4 h-10">
                 <p className="font-200 text-[12px] font-roboto text-gray-400 row-start-1 row-span-1 col-start-1 col-span-1">
-                    Datum and Uhrzeit
+                    Datum & Uhrzeit
                 </p>
                 <p className="font-semibold text-[14px] font-roboto leading-6 text-gray-700 row-start-2 row-span-2 col-start-1 col-span-1">
                     {new Date(event.begin_date).toLocaleDateString('en-US', {
+                        weekday:'short',
                         day: 'numeric',
                         month: 'short',
                         year: 'numeric',
