@@ -29,12 +29,12 @@ export default function EventDetails({
         <div className="relative">
             <Navbar />
             <img
-                className="blur-sm w-screen h-[50rem] z-0 absolute scale-125"
+                className="blur-sm w-screen h-[40rem] z-0 absolute scale-125"
                 src={event.image_URL}
             />
             <main className="z-20 relative top-10 bg-white w-screen max-w-6xl m-auto flex flex-col">
                 <div className="flex lg:flex-row-reverse overflow-hidden border">
-                    <img className="h-2/3 w-3/5" src={event.image_URL} />
+                    <img className="border-8 h-[30rem] w-3/5" src={event.image_URL} />
                     <div className="w-2/5 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col space-y-4 leading-normal">
                         <div className="text-grey-300 text-xl  leading-tight">
                             {event.event_name}
