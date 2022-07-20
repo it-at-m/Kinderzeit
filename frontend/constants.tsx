@@ -23,6 +23,7 @@ export type EventDataModel = {
     accompany_needed: boolean
     holiday_period: string
 }
+
 export type OrganizerDataModel = {
     id: string
     organizer_name: string
@@ -30,4 +31,12 @@ export type OrganizerDataModel = {
     email_contact: string
     mobile_phone: string
     website_URL: string
+}
+
+export type RecommendationWizardState = {
+    location: string
+}
+
+export const EMPTY_RECC_STATE: RecommendationWizardState = {
+    location: '',
 }

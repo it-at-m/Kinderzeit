@@ -25,6 +25,8 @@ export type SelectProps = {
     // Return array of selected values
     onChange: (selectedValues: string[]) => void
     containerStyling?: object
+    // Styling for the select container
+    className?: string
 }
 
 function CustomClearIndicator() {
@@ -127,6 +129,7 @@ export default function Select({
     placeholderText,
     allowMultiSelect,
     onChange,
+    className,
     containerStyling,
 }: SelectProps) {
     return (
@@ -155,7 +158,7 @@ export default function Select({
             isMulti={allowMultiSelect}
             closeMenuOnSelect={!allowMultiSelect}
             controlShouldRenderValue={false}
-            className=""
+            className={className || ''}
             styles={{
                 control: (defaultStyling) => ({
                     ...defaultStyling,
