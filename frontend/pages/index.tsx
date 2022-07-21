@@ -8,7 +8,6 @@ import { overviewAgeOptions, overviewAreaOptions } from '../static.data'
 import Navbar from '../components/generic/Navbar'
 import Footer from '../components/generic/Footer'
 
-
 export async function getServerSideProps() {
     const res = await fetch(`${process.env.ROOT_API_URL}/api/event/all`)
     const data = await res.json()
@@ -57,7 +56,7 @@ export default function Overview({ data }: { data: EventDataModel[] }) {
         <>
             <Navbar />
             <main className="z-10">
-            <div className="w-full h-[35rem] relative flex flex-row items-center">
+                <div className="w-full h-[35rem] relative flex flex-row items-center">
                     <div className="object-cover w-[80rem] h-full z-0"></div>
                     <div className="grid grid-cols-2 ">
                         <div className="flex item-center justify-center absolute top-[3rem] w-[30rem] font-[700] text-[4rem] md:left-40 font-[600]">

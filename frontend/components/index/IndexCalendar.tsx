@@ -9,11 +9,10 @@ export default function IndexCalendar() {
     return (
         <div className="rounded-xl mx-auto bg-gradient-to-r p-1 from-yellow-500 via-violet-300 via-indigo-300 via-blue-400 via-green-300 via-teal-400 via-indigo-300 via-pink-300 to-red-500">
             <div className="flex flex-row">
-                <div className='bg-white'>
-                    <Calendar className="react-calendar"               
-                    />
+                <div className="bg-white">
+                    <Calendar/>
                 </div>
-                
+
                 <div className="px-1 rounded-r-xl bg-white">
                     <div className="pt-8 whitespace-nowrap">
                         <p className="font-200 text-[12px] font-roboto text-gray-400">
