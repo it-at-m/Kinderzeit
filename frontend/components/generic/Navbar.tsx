@@ -14,7 +14,7 @@ export default function Navbar() {
                     {...{ modalOpen, setModalOpen }}
                 />
             )}
-            <nav className="bg-white z-4 flex justify-between items-center relative h-20">
+            <nav className="bg-white z-10 flex justify-between items-center relative h-20">
                 <Link href="/">
                     <div className="flex items-center hover:cursor-pointer ml-2">
                         <img

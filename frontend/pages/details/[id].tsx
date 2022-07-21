@@ -32,7 +32,7 @@ export default function EventDetails({
                 className="blur-sm w-screen h-[40rem] z-0 absolute scale-125"
                 src={event.image_URL}
             />
-            <main className="z-20 relative top-10 bg-white w-screen max-w-6xl m-auto flex flex-col mb-24">
+            <main className="z-20 relative bg-white w-screen max-w-6xl m-auto flex flex-col mb-24">
                 <div className="flex lg:flex-row-reverse overflow-hidden border">
                     <img className="h-[30rem] w-3/5" src={event.image_URL} />
                     <div className="w-2/5 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col space-y-4 leading-normal">
