@@ -6,10 +6,10 @@ import Image from 'next/image'
 
 import ReactModal from 'react-modal'
 
-import Select from '../generic/Select'
+import Select, { SelectOptionProps } from '../generic/Select'
 import { EMPTY_RECC_STATE, RecommendationWizardState } from '../../constants'
-import { overviewAreaOptions } from '../../static.data'
 import RecommendationWizardSlide from './RecommendationWizardSlide'
+import { geocodeUserInput } from '../geocode'
 
 ReactModal.setAppElement('#__next')
 
@@ -25,6 +25,7 @@ export default function RecommendationWizardModal({
     const navigator = useRouter()
     const [recommendationState, setRecommendationState] =
         useState<RecommendationWizardState>({ ...EMPTY_RECC_STATE })
+    const [options, setOptions] = useState<SelectOptionProps[]>([])
     const [slideIdx, setSlideIdx] = useState<number>(0)
 
     const slides: React.ReactNode[] = [
@@ -68,10 +69,20 @@ export default function RecommendationWizardModal({
             }
             rightColumnContent={
                 <Select
-                    placeholderText="Stadtteil"
+                    placeholderText="Suchen nach Stadtteil oder Adresse"
                     allowMultiSelect={false}
                     className={'w-4/5 mr-[2rem]'}
-                    options={overviewAreaOptions}
+                    options={options}
+                    onUserTyping={(input) =>
+                        geocodeUserInput(input, (geocodes) =>
+                            setOptions(
+                                geocodes.map((v) => ({
+                                    label: v.placeName,
+                                    value: v.coordinates,
+                                }))
+                            )
+                        )
+                    }
                     onChange={([selectedArea]) => {
                         setRecommendationState({
                             ...recommendationState,

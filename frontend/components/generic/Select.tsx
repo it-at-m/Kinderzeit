@@ -10,7 +10,7 @@ import { DropdownIndicatorProps } from 'react-select/dist/declarations/src/compo
 
 export type SelectOptionProps = {
     // The identifier of the option
-    value: string
+    value: any
     // Arbitrary ReactNode displayed inside the option
     label: ReactNode
 }
@@ -23,10 +23,11 @@ export type SelectProps = {
     // Toggle multi mode
     allowMultiSelect: boolean
     // Return array of selected values
-    onChange: (selectedValues: string[]) => void
+    onChange: (selectedValues: any[]) => void
     containerStyling?: object
     // Styling for the select container
     className?: string
+    onUserTyping?: (userInput: string) => void
 }
 
 function CustomClearIndicator() {
@@ -130,6 +131,7 @@ export default function Select({
     allowMultiSelect,
     onChange,
     className,
+    onUserTyping,
     containerStyling,
 }: SelectProps) {
     return (
@@ -157,6 +159,7 @@ export default function Select({
             // })}
             isMulti={allowMultiSelect}
             closeMenuOnSelect={!allowMultiSelect}
+            onInputChange={onUserTyping}
             controlShouldRenderValue={false}
             className={className || ''}
             styles={{

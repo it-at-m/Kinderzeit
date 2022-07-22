@@ -1,32 +1,41 @@
 import React from 'react'
 
 import IndexEventCard from '../components/index/IndexEventCard'
-import { EventDataModel } from '../constants'
+import { EventDataModel, EventRecommendationByPlace } from '../constants'
 import Navbar from '../components/generic/Navbar'
 import Footer from '../components/generic/Footer'
+import { geocodeUserInputServer, matrixDistance } from '../components/geocode'
 
 export async function getServerSideProps(context) {
-    if (Object.keys(context.query).length == 0) {
-        // User tried entering the route by hand
+    const res = await fetch(`${process.env.ROOT_API_URL}/api/event/all`)
+    const events: EventDataModel[] = await res.json()
+
+    const promises = events.map(async (e) => {
+        const [bestPlaceMatch] = await geocodeUserInputServer(e.eventAddress)
         return {
-            redirect: {
-                destination: '/',
-                permanent: true,
-            },
-        }
-    } else {
-        const apiQuery = new URLSearchParams()
-        apiQuery.append('area', context.query.area)
-        const res = await fetch(
-            `${process.env.ROOT_API_URL}/api/event?${apiQuery.toString()}`
-        )
-        const placeEvents = await res.json()
-        return { props: { byPlace: placeEvents } }
+            event: e,
+            coordinates: bestPlaceMatch.coordinates,
+            distance: 0,
+        } as EventRecommendationByPlace
+    })
+    let augmentedEvents = await Promise.all(promises)
+    const distances = (
+        await matrixDistance([
+            context.query.area,
+            ...augmentedEvents.map((e) => e.coordinates),
+        ])
+    )['distances'][0].slice(1)
+    augmentedEvents.forEach((e, idx) => (e.distance = distances[idx]))
+    augmentedEvents = augmentedEvents
+        .sort((a, b) => a.distance - b.distance)
+        .slice(0, 4)
+    return {
+        props: { events: augmentedEvents },
     }
 }
 
 type RecommendationOverviewProps = {
-    byPlace: EventDataModel[]
+    events: EventRecommendationByPlace[]
 }
 
 export default function RecommendationOverview(
@@ -62,14 +71,17 @@ export default function RecommendationOverview(
                             </div>
                             <div
                                 className={`w-full min-h-[40rem] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-2 md:p-0 pb-2 ${
-                                    props.byPlace.length !== 0
+                                    props.events.length !== 0
                                         ? 'items-start justify-center'
                                         : 'items-center justify-center'
                                 } m-auto`}
                             >
-                                {props.byPlace.length !== 0 ? (
-                                    props.byPlace.map((e) => (
-                                        <IndexEventCard event={e} key={e.id} />
+                                {props.events.length !== 0 ? (
+                                    props.events.map((e) => (
+                                        <IndexEventCard
+                                            event={e.event}
+                                            key={e.event.id}
+                                        />
                                     ))
                                 ) : (
                                     <div className="text-xl text-center col-span-3 font-lato-bold text-[2rem] h-full w-full flex justify-center items-center">
