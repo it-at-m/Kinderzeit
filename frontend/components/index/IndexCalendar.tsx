@@ -4,7 +4,6 @@ import React from 'react'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from "react"
 import CalendarRow from "../index/ClendarRow"
-import 'react-calendar/dist/Calendar.css'
 
 export interface CalendarProps { }
 
@@ -207,8 +206,10 @@ const Calendar: React.FC<CalendarProps> = () => {
                     <p className="font-semibold text-[14px] font-roboto leading-6 text-gray-700 border-b border-gray-300">
                         Do., 18. Aug. 22
                     </p>
-                    <p className="font-semibold text-[14px] font-roboto text-gray-400 mt-48 border-t border-gray-300">
-                        Ferienzeiten in Bayern
+                    <p className=' border-t border-gray-300 mt-48'></p>
+                    <p className=" font-semibold text-[14px] font-roboto text-gray-400 mt-2">
+                        
+                     <button className='bg-green-200 p-4 rounded-md'></button>   Ferienzeiten in Bayern
                     </p>
                 </div>
             </div>
