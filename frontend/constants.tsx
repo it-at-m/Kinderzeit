@@ -24,6 +24,12 @@ export type EventDataModel = {
     holiday_period: string
 }
 
+export type EventRecommendationByPlace = {
+    event: EventDataModel
+    coordinates: number[]
+    distance: number
+}
+
 export type OrganizerDataModel = {
     id: string
     organizer_name: string

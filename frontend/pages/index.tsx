@@ -65,7 +65,7 @@ export default function Overview({ data }: { data: EventDataModel[] }) {
             <main className="z-10">
                 <div className="w-full h-[20rem] relative flex flex-row items-center">
                     <div className="object-cover w-[80rem] h-full z-0"></div>
-                    <div className="flex item-center justify-center absolute w-[30rem] font-[700] text-[4rem] md:left-40 font-[600]">
+                    <div className="flex item-center justify-center absolute w-[30rem] text-[4rem] md:left-40 font-[600]">
                         WILLKOMMEN LIEBE ELTERN!
                     </div>
                     <div className="font-[500] text-[1.3rem] lg:block hidden">
