@@ -292,7 +292,7 @@ VALUES
         'Jeder hat seine eigenen Vorstellungen zu Büchern, Geschichten und deren Figuren. Umso spannender, die eigenen Ideen in kleinen Filmen lebendig werden zu lassen! Mit den techni-schen Möglichkeiten eines Tablet-PCs und Bildschneideprogrammes sowie der Lust am Theaterspielen werden wir zusammen mit einfachen Mitteln eigene kleine Filme machen. Vorkenntnisse oder technische Ausstattung braucht ihr nicht; nur eure Neugierde und Fantasie sind gefragt! Wir werden unsere kreative Energie auf ganz unterschiedliche Themen loslassen. Ob verfilmte Gedichte, Grusel- oder selbsterfundene Geschichten: Im Bücherschloss wartet in jedem Winkel eine Idee darauf, von euch entdeckt und verfilmt zu werden!.',
         8,
         12,
-        'Schloss Blutenburg / Seldweg, 15',
+        'Schloss Blutenburg, Seldweg 15',
         'https://www.ferien-muenchen.de/veranstaltung.php?idV=3969',
         'https://d2gg9evh47fn9z.cloudfront.net/1600px_COLOURBOX26187445.jpg',
         'https://www.google.com/maps/place/International+Youth+Library/@48.1633283,11.454842,17z/data=!4m9!1m2!2m1!1sInternationale+Jugendbibliothek+Schloss+Blutenburg+%2F+Seldweg+15+81247+M%C3%BCnchen+-+Pasing+-+Obermenzing!3m5!1s0x479e77f5b3c64b07:0x211589efa93ea1ce!8m2!3d48.1635144!4d11.4569703!15sCmVJbnRlcm5hdGlvbmFsZSBKdWdlbmRiaWJsaW90aGVrIFNjaGxvc3MgQmx1dGVuYnVyZyAvIFNlbGR3ZWcgMTUgODEyNDcgTcO8bmNoZW4gLSBQYXNpbmcgLSBPYmVybWVuemluZ1phIl9pbnRlcm5hdGlvbmFsZSBqdWdlbmRiaWJsaW90aGVrIHNjaGxvc3MgYmx1dGVuYnVyZyBzZWxkd2VnIDE1IDgxMjQ3IG3DvG5jaGVuIHBhc2luZyBvYmVybWVuemluZ5IBB2xpYnJhcnmaASNDaFpEU1VoTk1HOW5TMFZKUTBGblNVTkpjMkZmVDBaQkVBRQ',
@@ -339,7 +339,7 @@ INSERT INTO Event
     holiday_period)
 VALUES
     ( '1481e2f4-30a5-4373-b3f2-7e16fdf8b5aa',
-        'KICKBOXEN-WORKSHOP',
+        'Kickboxen-Workshop',
         'In diesem Workshop wollen die Pastinaken euch ein paar einfache Übungen aus dem Kickboxen zeigen. Ihr lernt dabei wie ihr euch bewegen könnt und merkt, dass auch schon eine kleine Gewichtsverlagerung oder eine bestimmte Drehung ganz viel Unterschied machen kann und sich ganz anders anfühlt. Wir sprechen darüber, wie wir uns gemeinsam so abstimmen und aufeinander eingehen können, dass wir unsere Kraft zeigen dürfen und uns dabei aber nicht gegenseitig verletzen.',
         8,
         12,

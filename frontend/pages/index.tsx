@@ -7,9 +7,12 @@ import Select from '../components/generic/Select'
 import { overviewAgeOptions, overviewAreaOptions } from '../static.data'
 import Navbar from '../components/generic/Navbar'
 import Footer from '../components/generic/Footer'
+import IndexSearchbar from '../components/index/IndexSearchbar'
 
 export async function getServerSideProps() {
-    const res = await fetch(`${process.env.ROOT_API_URL}/api/event/all`)
+    const res = await fetch(
+        `${process.env.ROOT_API_URL}/api/event?sort=beginDate,asc`
+    )
     const data = await res.json()
     return { props: { data } }
 }
@@ -18,6 +21,7 @@ export type FilterStrategy = {
     age: string[]
     area: string[]
     price: string[]
+    search: string
 }
 
 export default function Overview({ data }: { data: EventDataModel[] }) {
@@ -26,6 +30,7 @@ export default function Overview({ data }: { data: EventDataModel[] }) {
         age: [],
         area: [],
         price: [],
+        search: '',
     })
 
     useEffect(() => {
@@ -42,12 +47,15 @@ export default function Overview({ data }: { data: EventDataModel[] }) {
                 query.append(group, v)
             })
         })
+        if (filterStrategy.search && filterStrategy.search.length > 0) {
+            query.append('search', filterStrategy.search)
+        }
         if (query.toString().length > 0)
             fetch(`/api/event?${query.toString()}`).then((res) =>
                 res.json().then((filteredEvents) => setCardData(filteredEvents))
             )
         else
-            fetch('/api/event/all').then((res) =>
+            fetch('/api/event?sort=beginDate,asc').then((res) =>
                 res.json().then((allEvents) => setCardData(allEvents))
             )
     }, [filterStrategy])
@@ -58,9 +66,11 @@ export default function Overview({ data }: { data: EventDataModel[] }) {
             <main className="z-10">
                 <div className="w-full h-[35rem] relative flex flex-row items-center">
                     <div className="object-cover w-[80rem] h-full z-0"></div>
+
                     <div className="grid grid-cols-2 ">
                         <div className="flex item-center justify-center absolute top-[3rem] w-[30rem] font-[700] text-[4rem] md:left-40 font-[600]">
                             WILLKOMMEN LIEBE ELTERN!
+
                         </div>
                         <div className="flex item-center justify-center absolute top-[18rem] w-[40rem]  text-[1.3rem]  md:left-40">
                             <div className="lg:grid grid-rows-2">
@@ -98,9 +108,16 @@ export default function Overview({ data }: { data: EventDataModel[] }) {
                                 Ferienprogramm
                             </span>
 
-                            {/* <div className="lg:block hidden py-4 px-8">
-                                <IndexSearchbar />
-                            </div> */}
+                            <div className="lg:block hidden py-4 px-8">
+                                <IndexSearchbar
+                                    onChange={(v) =>
+                                        setFilterStrategy({
+                                            ...filterStrategy,
+                                            search: v,
+                                        })
+                                    }
+                                />
+                            </div>
                         </div>
                         {/* Event filters */}
                         <div className="h-[5rem] w-full grid grid-rows-1 grid-cols-5 gap-2 items-center">
@@ -166,7 +183,7 @@ export default function Overview({ data }: { data: EventDataModel[] }) {
                                     <IndexEventCard event={e} key={e.id} />
                                 ))
                             ) : (
-                                <div className="text-xl text-center col-span-3">
+                                <div className="text-xl text-center col-span-full font-lato-bold text-[2rem]">
                                     Keine Veranstaltungen gefunden
                                 </div>
                             )}

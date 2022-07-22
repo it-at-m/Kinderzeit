@@ -5,6 +5,7 @@ import net.kaczmarzyk.spring.data.jpa.domain.Equal;
 import net.kaczmarzyk.spring.data.jpa.domain.NotEqual;
 import net.kaczmarzyk.spring.data.jpa.domain.In;
 import net.kaczmarzyk.spring.data.jpa.domain.Like;
+import net.kaczmarzyk.spring.data.jpa.domain.LikeIgnoreCase;
 import net.kaczmarzyk.spring.data.jpa.web.annotation.Or;
 import net.kaczmarzyk.spring.data.jpa.web.annotation.And;
 import net.kaczmarzyk.spring.data.jpa.domain.LessThanOrEqual;
@@ -101,16 +102,24 @@ public class EventController {
     @Transactional
     @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<List<Event>> get(
-            @And({@Spec(path = "area", params = "area", spec = In.class),
+    public ResponseEntity<List<Event>> get(   
+            @And({
+                    @Spec(path = "area", params = "area", spec = In.class),
                     @Spec(path = "price", params = "price", spec = Equal.class),
                     @Spec(path = "price", params = "pricenot", spec = NotEqual.class),
-                    @Spec(path = "begin_date", params = "beginDate", spec = DateAfterInclusive.class),
-                    @Spec(path = "end_date", params = "endDate", spec = DateBeforeInclusive.class),
-                    })Specification<Event> spec, @RequestParam(value = "age", required=false) List<Integer> ageList,
+                    @Spec(path = "beginDate", params = "beginDate", spec = DateAfterInclusive.class),
+                    @Spec(path = "endDate", params = "endDate", spec = DateBeforeInclusive.class),
+                    @Spec(path = "places_available", params = "availability", spec = Equal.class),
+                    }) Specification<Event> spec,
+            @Or({
+                    @Spec(path = "eventDescription", params = "search", spec = LikeIgnoreCase.class), 
+                    @Spec(path = "eventName", params = "search", spec = LikeIgnoreCase.class)
+                    }) Specification<Event> searchSpec,
+            @RequestParam(value = "age", required=false) List<Integer> ageList,
             Sort sort,
             @RequestHeader HttpHeaders headers) {
-
+        spec = Specification.where(spec).and(searchSpec);
+        
         final PagingResponse response = eventService.get(spec, headers, sort, ageList);
         return new ResponseEntity<>(response.getElements(), returnHttpHeaders(response), HttpStatus.OK);
     }

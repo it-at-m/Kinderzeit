@@ -10,7 +10,9 @@ export default function Footer() {
                     <Link href="https://digitalproductschool.io/legal-disclosure/">
                         <a>Impressum</a>
                     </Link>
-                    <div>Über Uns</div>
+                    <Link href="/uberuns">
+                        <a>Über Uns</a>
+                    </Link>
                     <Link href="https://digitalproductschool.io/privacy-policy/utum/">
                         <a>Datenschutz</a>
                     </Link>

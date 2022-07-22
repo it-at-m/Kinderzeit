@@ -13,17 +13,18 @@ export default function IndexEventCard({ event }: { event: EventDataModel }) {
             />
             {/* <!-- Product Title --> */}
             <div className="font-lato leading-6 text-[20px] text-[#2B2B2B] tracking-wider line-clamp-[1.2] h-12 px-2 pt-1 my-auto">
-                {event.event_name}
+                {event.eventName}
             </div>
             <a className="rounded-lg bg-[#EDA80A] font-roboto text-white font-small absolute right-2 px-1 mt-[0.28rem] text-[14px]">
                 {`${event.price} € p.P.`}
             </a>
             <div className="grid grid-rows-3 grid-cols-2 px-2 mt-4 h-10">
                 <p className="font-200 text-[12px] font-roboto text-gray-400 row-start-1 row-span-1 col-start-1 col-span-1">
-                    Datum and Uhrzeit
+                    Datum & Uhrzeit
                 </p>
                 <p className="font-semibold text-[14px] font-roboto leading-6 text-gray-700 row-start-2 row-span-2 col-start-1 col-span-1">
-                    {new Date(event.begin_date).toLocaleDateString('en-US', {
+                    {new Date(event.beginDate).toLocaleDateString('en-US', {
+                        weekday: 'short',
                         day: 'numeric',
                         month: 'short',
                         year: 'numeric',
@@ -52,7 +53,7 @@ export default function IndexEventCard({ event }: { event: EventDataModel }) {
                 </p>
                 <div className="row-start-2 row-span-3 items-start col-span-1">
                     <p className="font-semibold text-[14px] leading-6 text-gray-700 line-clamp-2 text-start">
-                        {`${event.event_address}, ${event.area}`}
+                        {`${event.eventAddress}, ${event.area}`}
                     </p>
                 </div>
             </div>
