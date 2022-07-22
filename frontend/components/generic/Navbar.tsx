@@ -31,8 +31,7 @@ export default function Navbar() {
                         Event hinzufügen
                     </a>
                     <a
-                        href="https://form.typeform.com/to/ytDRyAwL"
-                        className="font-lato-bold tracking-widest text-[20px]"
+                        className="font-lato-bold cursor-pointer tracking-widest text-[20px]"
                         aria-current="page"
                         onClick={() => setModalOpen(!modalOpen)}
                     >
