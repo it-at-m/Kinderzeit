@@ -339,7 +339,7 @@ INSERT INTO Event
     holiday_period)
 VALUES
     ( '1481e2f4-30a5-4373-b3f2-7e16fdf8b5aa',
-        'KICKBOXEN-WORKSHOP',
+        'Kickboxen-Workshop',
         'In diesem Workshop wollen die Pastinaken euch ein paar einfache Übungen aus dem Kickboxen zeigen. Ihr lernt dabei wie ihr euch bewegen könnt und merkt, dass auch schon eine kleine Gewichtsverlagerung oder eine bestimmte Drehung ganz viel Unterschied machen kann und sich ganz anders anfühlt. Wir sprechen darüber, wie wir uns gemeinsam so abstimmen und aufeinander eingehen können, dass wir unsere Kraft zeigen dürfen und uns dabei aber nicht gegenseitig verletzen.',
         8,
         12,

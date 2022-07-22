@@ -54,7 +54,7 @@ export default function Overview({ data }: { data: EventDataModel[] }) {
                 res.json().then((filteredEvents) => setCardData(filteredEvents))
             )
         else
-            fetch('/api/event/all').then((res) =>
+            fetch('/api/event?sort=beginDate,asc').then((res) =>
                 res.json().then((allEvents) => setCardData(allEvents))
             )
     }, [filterStrategy])
