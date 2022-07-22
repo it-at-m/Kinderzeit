@@ -1,6 +1,10 @@
 import React from 'react'
 
-export default function IndexSearchbar() {
+type IndexSearchbarProps = {
+    onChange: React.Dispatch<string>
+}
+
+export default function IndexSearchbar(props: IndexSearchbarProps) {
     return (
         <>
             <input
@@ -8,6 +12,7 @@ export default function IndexSearchbar() {
                 type="search"
                 name="search"
                 placeholder="Suche..."
+                onChange={(e) => props.onChange(e.target.value)}
             />
             <button type="submit" className="absolute right-0 top-0 mt-3 mr-2">
                 <svg

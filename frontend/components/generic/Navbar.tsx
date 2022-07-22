@@ -23,7 +23,7 @@ export default function Navbar() {
                         />
                     </div>
                 </Link>
-                <ul className="flex items-center">
+                <ul className="flex items-center justify-around w-1/3">
                     <a
                         href="https://form.typeform.com/to/ytDRyAwL"
                         className="font-lato-bold tracking-widest text-[20px]"
@@ -31,7 +31,8 @@ export default function Navbar() {
                         Event hinzufügen
                     </a>
                     <a
-                        className="text-white cursor-pointer ml-12 bg-cyan-500 font-medium rounded-full text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 lg:block hidden "
+                        href="https://form.typeform.com/to/ytDRyAwL"
+                        className="font-lato-bold tracking-widest text-[20px]"
                         aria-current="page"
                         onClick={() => setModalOpen(!modalOpen)}
                     >

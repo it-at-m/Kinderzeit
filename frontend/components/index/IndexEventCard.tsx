@@ -24,7 +24,7 @@ export default function IndexEventCard({ event }: { event: EventDataModel }) {
                 </p>
                 <p className="font-semibold text-[14px] font-roboto leading-6 text-gray-700 row-start-2 row-span-2 col-start-1 col-span-1">
                     {new Date(event.beginDate).toLocaleDateString('en-US', {
-                        weekday:'short',
+                        weekday: 'short',
                         day: 'numeric',
                         month: 'short',
                         year: 'numeric',

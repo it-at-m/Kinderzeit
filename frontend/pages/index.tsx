@@ -6,9 +6,12 @@ import Select from '../components/generic/Select'
 import { overviewAgeOptions, overviewAreaOptions } from '../static.data'
 import Navbar from '../components/generic/Navbar'
 import Footer from '../components/generic/Footer'
+import IndexSearchbar from '../components/index/IndexSearchbar'
 
 export async function getServerSideProps() {
-    const res = await fetch(`${process.env.ROOT_API_URL}/api/event?sort=beginDate,asc`)
+    const res = await fetch(
+        `${process.env.ROOT_API_URL}/api/event?sort=beginDate,asc`
+    )
     const data = await res.json()
     return { props: { data } }
 }
@@ -17,6 +20,7 @@ export type FilterStrategy = {
     age: string[]
     area: string[]
     price: string[]
+    search: string
 }
 
 export default function Overview({ data }: { data: EventDataModel[] }) {
@@ -25,6 +29,7 @@ export default function Overview({ data }: { data: EventDataModel[] }) {
         age: [],
         area: [],
         price: [],
+        search: '',
     })
 
     useEffect(() => {
@@ -41,6 +46,9 @@ export default function Overview({ data }: { data: EventDataModel[] }) {
                 query.append(group, v)
             })
         })
+        if (filterStrategy.search && filterStrategy.search.length > 0) {
+            query.append('search', filterStrategy.search)
+        }
         if (query.toString().length > 0)
             fetch(`/api/event?${query.toString()}`).then((res) =>
                 res.json().then((filteredEvents) => setCardData(filteredEvents))
@@ -88,9 +96,16 @@ export default function Overview({ data }: { data: EventDataModel[] }) {
                                 Ferienprogramm
                             </span>
 
-                            {/* <div className="lg:block hidden py-4 px-8">
-                                <IndexSearchbar />
-                            </div> */}
+                            <div className="lg:block hidden py-4 px-8">
+                                <IndexSearchbar
+                                    onChange={(v) =>
+                                        setFilterStrategy({
+                                            ...filterStrategy,
+                                            search: v,
+                                        })
+                                    }
+                                />
+                            </div>
                         </div>
                         {/* Event filters */}
                         <div className="h-[5rem] w-full grid grid-rows-1 grid-cols-5 gap-2 items-center">
