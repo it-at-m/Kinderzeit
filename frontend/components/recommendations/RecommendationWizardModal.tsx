@@ -56,8 +56,8 @@ export default function RecommendationWizardModal({
             title="Wohngegend"
             buttonText="Weiter"
             buttonDisabled={
-                !recommendationState.location ||
-                recommendationState.location.length == 0
+                !recommendationState.area ||
+                recommendationState.area.length == 0
             }
             leftColumnContent={
                 <div className="text-[12px] md:text-[16px] lg:text-[20px] font-roboto text-left pl-4 pr-2">
@@ -72,18 +72,18 @@ export default function RecommendationWizardModal({
                     allowMultiSelect={false}
                     className={'w-4/5 mr-[2rem]'}
                     options={overviewAreaOptions}
-                    onChange={([selectedLocation]) => {
+                    onChange={([selectedArea]) => {
                         setRecommendationState({
                             ...recommendationState,
-                            location: selectedLocation,
+                            area: selectedArea,
                         })
                     }}
                 />
             }
             buttonClassName={`${
                 // See the disabled attribute
-                !recommendationState.location ||
-                recommendationState.location.length == 0
+                !recommendationState.area ||
+                recommendationState.area.length == 0
                     ? 'bg-[#9CA3AF]'
                     : 'bg-[#417764]'
             } rounded-[6px] text-white text-[12px] min-w-[6rem] md:text-[16px] lg:text-[20px] p-1 text-center mr-[2rem]`}

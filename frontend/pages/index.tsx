@@ -156,7 +156,7 @@ export default function Overview({ data }: { data: EventDataModel[] }) {
                                     <IndexEventCard event={e} key={e.id} />
                                 ))
                             ) : (
-                                <div className="text-xl text-center col-span-3">
+                                <div className="text-xl text-center col-span-full font-lato-bold text-[2rem]">
                                     Keine Veranstaltungen gefunden
                                 </div>
                             )}

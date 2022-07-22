@@ -34,9 +34,9 @@ export type OrganizerDataModel = {
 }
 
 export type RecommendationWizardState = {
-    location: string
+    area: string
 }
 
 export const EMPTY_RECC_STATE: RecommendationWizardState = {
-    location: '',
+    area: '',
 }
