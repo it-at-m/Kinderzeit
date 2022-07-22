@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import IndexEventCard from '../components/index/IndexEventCard'
+import IndexCalendar from '../components/index/IndexCalendar'
 import { EventDataModel } from '../constants'
 import Select from '../components/generic/Select'
 import { overviewAgeOptions, overviewAreaOptions } from '../static.data'
@@ -63,30 +64,41 @@ export default function Overview({ data }: { data: EventDataModel[] }) {
         <>
             <Navbar />
             <main className="z-10">
-                <div className="w-full h-[20rem] relative flex flex-row items-center">
+                <div className="w-full h-[35rem] relative flex flex-row items-center">
                     <div className="object-cover w-[80rem] h-full z-0"></div>
-                    <div className="flex item-center justify-center absolute w-[30rem] text-[4rem] md:left-40 font-[600]">
-                        WILLKOMMEN LIEBE ELTERN!
-                    </div>
-                    <div className="font-[500] text-[1.3rem] lg:block hidden">
-                        <div className="">
-                            Ihr seid auf der Suche nach tollen Ferienaktivitäten
-                            für eure Kinder? Bei uns findet ihr
-                            <button className="text-white font-semibold rounded-md px-2 ml-2 mr-2 bg-gradient-to-r pb-1 from-yellow-500 via-violet-400 via-indigo-400 via-blue-400 via-green-300 via-teal-400 via-indigo-300 via-pink-300 to-red-500">
-                                eine große Auswahl →
-                            </button>
-                            unterschiedlichster Angebote in München.
+
+                    <div className="grid grid-cols-2 ">
+                        <div className="flex item-center justify-center absolute top-[3rem] w-[30rem] font-[700] text-[4rem] md:left-40 font-[600]">
+                            WILLKOMMEN LIEBE ELTERN!
+
                         </div>
-                        <div className="">
-                            Ihr könnt selbst durch die Veranstaltungen stöbern
-                            oder eine
-                            <button className="text-white font-semibold rounded-md px-2 ml-2 mr-2 bg-gradient-to-r pb-1 from-yellow-500 via-violet-400 via-indigo-400 via-blue-400 via-green-300 via-teal-400 via-indigo-300 via-pink-300 to-red-500">
-                                individuelle Empfehlung →
-                            </button>
-                            von uns erhalten.
+                        <div className="flex item-center justify-center absolute top-[18rem] w-[40rem]  text-[1.3rem]  md:left-40">
+                            <div className="lg:grid grid-rows-2">
+                                <div className="">
+                                    Ihr seid auf der Suche nach tollen
+                                    Ferienaktivitäten für eure Kinder? Bei uns
+                                    findet ihr
+                                    <button className="text-white font-semibold rounded-md px-2 ml-1 mr-1 bg-gradient-to-r pb-1 from-yellow-500 via-violet-400 via-indigo-400 via-blue-400 via-green-300 via-teal-400 via-indigo-300 via-pink-300 to-red-500">
+                                        eine große Auswahl →
+                                    </button>
+                                    unterschiedlichster Angebote in München.
+                                </div>
+                                <div className="">
+                                    Ihr könnt selbst durch die Veranstaltungen
+                                    stöbern oder eine
+                                    <button className="text-white font-semibold rounded-md px-2 ml-1 mr-1 bg-gradient-to-r pb-1 from-yellow-500 via-violet-400 via-indigo-400 via-blue-400 via-green-300 via-teal-400 via-indigo-300 via-pink-300 to-red-500">
+                                        individuelle Empfehlung →
+                                    </button>
+                                    von uns erhalten.
+                                </div>
+                            </div>
                         </div>
-                        <div className=" bg-gradient-to-r pb-1 from-yellow-500 via-violet-400 via-indigo-400 via-blue-400 via-green-300 via-teal-400 via-indigo-300 via-pink-300 to-red-500 w-full absolute left-0 bottom-0"></div>
                     </div>
+                    <div className="relative top-[0rem] right-[5rem] invisible lg:visible">
+                        <IndexCalendar />
+                    </div>
+
+                    <div className=" bg-gradient-to-r pb-1 from-yellow-500 via-violet-400 via-indigo-400 via-blue-400 via-green-300 via-teal-400 via-indigo-300 via-pink-300 to-red-500 w-full absolute left-0 bottom-0"></div>
                 </div>
                 <div className="first-section bg-[#E4EAF2] pb-48">
                     <div className="w-screen max-w-6xl m-auto flex flex-col pb-2 bg-[#E4EAF2]">
