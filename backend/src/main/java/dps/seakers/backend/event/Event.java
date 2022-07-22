@@ -25,10 +25,10 @@ public class Event {
     private UUID id;
 
     @Column(nullable = false)
-    private String event_name;
+    private String eventName;
 
     @Column(nullable = false)
-    private String event_description;
+    private String eventDescription;
 
     @Column(nullable = false)
     private Integer minAge;
@@ -37,7 +37,7 @@ public class Event {
     private Integer maxAge;
 
     @Column(nullable = false)
-    private String event_address;
+    private String eventAddress;
 
 
     @Column(nullable = false)
@@ -60,10 +60,10 @@ public class Event {
     private String zip_code;
 
     @Column(nullable = false)
-    private Date begin_date;
+    private Date beginDate;
 
     @Column(nullable = false)
-    private Date end_date;
+    private Date endDate;
 
     @Column(nullable = false)
     private Time start_time;
