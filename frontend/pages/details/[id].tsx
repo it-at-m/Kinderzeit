@@ -37,7 +37,7 @@ export default function EventDetails({
                     <img className="h-[30rem] w-3/5" src={event.image_URL} />
                     <div className="w-2/5 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col space-y-4 leading-normal">
                         <div className="text-grey-300 text-xl  leading-tight">
-                            {event.event_name}
+                            {event.eventName}
                         </div>
                         <div className="">
                             <div className="pt-2">
@@ -47,7 +47,7 @@ export default function EventDetails({
                                 <div className="flex space-x-12">
                                     <span className="font-semibold  font-roboto text-lg leading-6 text-gray-700 my-2">
                                         {new Date(
-                                            event.begin_date
+                                            event.beginDate
                                         ).toLocaleDateString('en-US', {
                                             weekday:'short',
                                             day: 'numeric',
@@ -89,7 +89,7 @@ export default function EventDetails({
                                 </p>
                                 <div className="flex space-x-12">
                                     <span className="font-semibold  font-roboto text-lg leading-6 text-gray-700 my-2">
-                                        {event.event_address} , {event.area}
+                                        {event.eventAddress} , {event.area}
                                     </span>
                                 </div>
                             </div>

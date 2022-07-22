@@ -8,7 +8,7 @@ import Navbar from '../components/generic/Navbar'
 import Footer from '../components/generic/Footer'
 
 export async function getServerSideProps() {
-    const res = await fetch(`${process.env.ROOT_API_URL}/api/event/all`)
+    const res = await fetch(`${process.env.ROOT_API_URL}/api/event?sort=beginDate,asc`)
     const data = await res.json()
     return { props: { data } }
 }
