@@ -1,10 +1,10 @@
 export type EventDataModel = {
     id: string
-    event_name: string
-    event_description: string
+    eventName: string
+    eventDescription: string
     minAge: number
     maxAge: number
-    event_address: string
+    eventAddress: string
     booking_URL: string
     image_URL: string
     map_URL: string
@@ -12,8 +12,8 @@ export type EventDataModel = {
     cancelled: boolean
     organizer_id: number
     zip_code: string
-    begin_date: string
-    end_date: string
+    beginDate: string
+    endDate: string
     start_time: string
     end_time: string
     places_available: number

@@ -125,14 +125,14 @@ export default function EventDetails({
                 <div className="grid grid-cols-2 gap-4 border py-8">
                     <div className="">
                         <div className="pt-10 px-20 text-[#000000] font-[400] font-roboto text-inter text-[1.25rem] text-bottom">
-                            {event.event_name}
+                            {event.eventName}
                         </div>
 
                         <div className="pt-10 px-20 text-[#000000] font-[400] font-roboto text-inter text-[1.75rem] text-bottom">
                             Zu diesem Event
                         </div>
                         <div className="p-3 px-20 text-[#000000] font-[200] font-roboto text-inter text-[0.9rem] text-bottom">
-                            {event.event_description}
+                            {event.eventDescription}
                         </div>
                         <div className="pt-10 px-20 text-[#000000] font-[400] font-roboto text-inter text-[1.25rem] text-bottom">
                             Wichtige Hinweise
@@ -146,7 +146,7 @@ export default function EventDetails({
 
                         <div className="grid grid-cols-2 gap-8 ">
                             <div className="p-3 grid-rows-1  px-20 text-[#000000] font-[500] font-roboto text-inter text-[0.9rem] text-bottom">
-                                <div className="">{event.event_address} , {event.area}</div>
+                                <div className="">{event.eventAddress} , {event.area}</div>
                                 <div className="">{`${event.zip_code} München`}</div>
                                 <Link href={event.map_URL}>
                                     <button className="font-roboto pt-2 text-teal-600">
