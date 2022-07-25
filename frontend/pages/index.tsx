@@ -35,18 +35,18 @@ export default function Overview({ data }: { data: EventDataModel[] }) {
 
     useEffect(() => {
         const query = new URLSearchParams()
-            ;['age', 'area', 'price'].forEach((group) => {
-                filterStrategy[group].forEach((v: string) => {
-                    if (group === 'price' && v === 'Kostenlos') {
-                        v = '0'
-                    }
-                    if (group === 'price' && v === 'Kostenpflichtig') {
-                        v = '0'
-                        group = 'pricenot'
-                    }
-                    query.append(group, v)
-                })
+        ;['age', 'area', 'price'].forEach((group) => {
+            filterStrategy[group].forEach((v: string) => {
+                if (group === 'price' && v === 'Kostenlos') {
+                    v = '0'
+                }
+                if (group === 'price' && v === 'Kostenpflichtig') {
+                    v = '0'
+                    group = 'pricenot'
+                }
+                query.append(group, v)
             })
+        })
         if (filterStrategy.search && filterStrategy.search.length > 0) {
             query.append('search', filterStrategy.search)
         }
@@ -61,7 +61,6 @@ export default function Overview({ data }: { data: EventDataModel[] }) {
     }, [filterStrategy])
 
     return (
-
         <>
             <Navbar />
             <main className="z-10">
@@ -85,7 +84,7 @@ export default function Overview({ data }: { data: EventDataModel[] }) {
                                 <div className="">
                                     Ihr könnt selbst durch die Veranstaltungen
                                     stöbern oder eine
-                                    <Link href=''>
+                                    <Link href="">
                                         <button className="text-white font-semibold rounded-md px-2 ml-1 mr-1 bg-gradient-to-r pb-1 from-yellow-500 via-violet-400 via-indigo-400 via-blue-400 via-green-300 via-teal-400 via-indigo-300 via-pink-300 to-red-500">
                                             individuelle Empfehlung →
                                         </button>
@@ -95,7 +94,6 @@ export default function Overview({ data }: { data: EventDataModel[] }) {
                             </div>
                         </div>
                     </div>
-
 
                     <div className=" bg-gradient-to-r pb-1 from-yellow-500 via-violet-400 via-indigo-400 via-blue-400 via-green-300 via-teal-400 via-indigo-300 via-pink-300 to-red-500 w-full absolute left-0 bottom-0"></div>
                 </div>
@@ -171,10 +169,11 @@ export default function Overview({ data }: { data: EventDataModel[] }) {
                         </div>
                         {/* Events grid */}
                         <div
-                            className={`w-full min-h-[40rem] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-2 md:p-0 pb-2 ${cardData.length !== 0
+                            className={`w-full min-h-[40rem] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-2 md:p-0 pb-2 ${
+                                cardData.length !== 0
                                     ? 'items-start justify-center'
                                     : 'items-center justify-center'
-                                } m-auto`}
+                            } m-auto`}
                         >
                             {cardData.length !== 0 ? (
                                 cardData.map((e) => (

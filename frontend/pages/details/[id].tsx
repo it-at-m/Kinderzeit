@@ -148,7 +148,7 @@ export default function EventDetails({
                                 </div>
                                 <div className="">{`${event.zip_code} München`}</div>
                                 <Link href={event.map_URL}>
-                                    <a className=' flex flex-row mt-1 '>
+                                    <a className=" flex flex-row mt-1 ">
                                         <div className="w-4 text-teal-600">
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -163,12 +163,12 @@ export default function EventDetails({
                                                     strokeLinejoin="round"
                                                     d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
                                                 />
-
                                             </svg>
                                         </div>
-                                        <div className='ml-2 font-roboto text-teal-600'>Route planen </div>
+                                        <div className="ml-2 font-roboto text-teal-600">
+                                            Route planen{' '}
+                                        </div>
                                     </a>
-
                                 </Link>
                             </div>
                             <div className="p-3 grid-rows-1  px-20 text-[#000000] font-[500] font-roboto text-inter text-[0.9rem] text-bottom ">
@@ -176,7 +176,9 @@ export default function EventDetails({
                                     {organizer.organizer_name}
                                 </div>
                                 <div className="">{organizer.mobile_phone}</div>
-                                <Link href={`mailto:${organizer.email_contact}`}>
+                                <Link
+                                    href={`mailto:${organizer.email_contact}`}
+                                >
                                     <div className="text-teal-600">
                                         {organizer.email_contact}
                                     </div>
