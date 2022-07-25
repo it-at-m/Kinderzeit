@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
 import IndexEventCard from '../components/index/IndexEventCard'
-import IndexCalendar from '../components/index/IndexCalendar'
 import { EventDataModel } from '../constants'
 import Select from '../components/generic/Select'
 import { overviewAgeOptions, overviewAreaOptions } from '../static.data'
@@ -64,15 +63,13 @@ export default function Overview({ data }: { data: EventDataModel[] }) {
         <>
             <Navbar />
             <main className="z-10">
-                <div className="w-full h-[35rem] relative flex flex-row items-center">
+                <div className="w-full h-[20rem] relative flex flex-row items-center">
                     <div className="object-cover w-[80rem] h-full z-0"></div>
-
-                    <div className="grid grid-cols-2 ">
+                      <div className="grid grid-cols-2 ">
                         <div className="flex item-center justify-center absolute top-[3rem] w-[30rem] font-[700] text-[4rem] md:left-40 font-[600]">
                             WILLKOMMEN LIEBE ELTERN!
-
                         </div>
-                        <div className="flex item-center justify-center absolute top-[18rem] w-[40rem]  text-[1.3rem]  md:left-40">
+                        <div className="flex item-center justify-center absolute top-[4rem] w-[40rem]  text-[1.3rem] font-[500] md:right-40 ">
                             <div className="lg:grid grid-rows-2">
                                 <div className="">
                                     Ihr seid auf der Suche nach tollen
@@ -95,7 +92,6 @@ export default function Overview({ data }: { data: EventDataModel[] }) {
                         </div>
                     </div>
                     <div className="relative top-[0rem] right-[5rem] invisible lg:visible">
-                        <IndexCalendar />
                     </div>
 
                     <div className=" bg-gradient-to-r pb-1 from-yellow-500 via-violet-400 via-indigo-400 via-blue-400 via-green-300 via-teal-400 via-indigo-300 via-pink-300 to-red-500 w-full absolute left-0 bottom-0"></div>
