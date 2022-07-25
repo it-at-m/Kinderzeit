@@ -179,9 +179,9 @@ export default function EventDetails({
                                 <Link
                                     href={`mailto:${organizer.email_contact}`}
                                 >
-                                    <div className="text-teal-600">
+                                    <a className="text-teal-600">
                                         {organizer.email_contact}
-                                    </div>
+                                    </a>
                                 </Link>
                                 <div className="font-roboto text-teal-600">
                                     <Link href={organizer.website_URL}>

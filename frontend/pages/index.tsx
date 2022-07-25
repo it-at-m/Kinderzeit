@@ -70,7 +70,7 @@ export default function Overview({ data }: { data: EventDataModel[] }) {
                         <div className="flex item-center justify-center absolute top-[3rem] w-[30rem] font-[700] text-[4rem] left-20 ">
                             WILLKOMMEN LIEBE ELTERN!
                         </div>
-                        <div className="flex item-center justify-center absolute top-[4rem] w-[40rem] font-[500] text-[1.2rem] right-10 ">
+                        <div className="flex item-center justify-center absolute top-[4rem] w-[40rem] font-[500] text-[1.2rem] right-20 ">
                             <div className="lg:grid grid-rows-2 block hidden">
                                 <div className="">
                                     Ihr seid auf der Suche nach tollen
