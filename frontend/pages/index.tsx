@@ -7,6 +7,7 @@ import { overviewAgeOptions, overviewAreaOptions } from '../static.data'
 import Navbar from '../components/generic/Navbar'
 import Footer from '../components/generic/Footer'
 import IndexSearchbar from '../components/index/IndexSearchbar'
+import Link from 'next/link'
 
 export async function getServerSideProps() {
     const res = await fetch(
@@ -34,18 +35,18 @@ export default function Overview({ data }: { data: EventDataModel[] }) {
 
     useEffect(() => {
         const query = new URLSearchParams()
-        ;['age', 'area', 'price'].forEach((group) => {
-            filterStrategy[group].forEach((v: string) => {
-                if (group === 'price' && v === 'Kostenlos') {
-                    v = '0'
-                }
-                if (group === 'price' && v === 'Kostenpflichtig') {
-                    v = '0'
-                    group = 'pricenot'
-                }
-                query.append(group, v)
+            ;['age', 'area', 'price'].forEach((group) => {
+                filterStrategy[group].forEach((v: string) => {
+                    if (group === 'price' && v === 'Kostenlos') {
+                        v = '0'
+                    }
+                    if (group === 'price' && v === 'Kostenpflichtig') {
+                        v = '0'
+                        group = 'pricenot'
+                    }
+                    query.append(group, v)
+                })
             })
-        })
         if (filterStrategy.search && filterStrategy.search.length > 0) {
             query.append('search', filterStrategy.search)
         }
@@ -60,17 +61,18 @@ export default function Overview({ data }: { data: EventDataModel[] }) {
     }, [filterStrategy])
 
     return (
+
         <>
             <Navbar />
             <main className="z-10">
                 <div className="w-full h-[20rem] relative flex flex-row items-center">
                     <div className="object-cover w-[80rem] h-full z-0"></div>
-                      <div className="grid grid-cols-2 ">
-                        <div className="flex item-center justify-center absolute top-[3rem] w-[30rem] font-[700] text-[4rem] md:left-40 font-[600]">
+                    <div className="grid grid-cols-2">
+                        <div className="flex item-center justify-center absolute top-[3rem] w-[30rem] font-[700] text-[4rem] left-20 ">
                             WILLKOMMEN LIEBE ELTERN!
                         </div>
-                        <div className="flex item-center justify-center absolute top-[4rem] w-[40rem]  text-[1.3rem] font-[500] md:right-40 ">
-                            <div className="lg:grid grid-rows-2">
+                        <div className="flex item-center justify-center absolute top-[4rem] w-[40rem] font-[500] text-[1.2rem] right-10 ">
+                            <div className="lg:grid grid-rows-2 block hidden">
                                 <div className="">
                                     Ihr seid auf der Suche nach tollen
                                     Ferienaktivitäten für eure Kinder? Bei uns
@@ -83,16 +85,17 @@ export default function Overview({ data }: { data: EventDataModel[] }) {
                                 <div className="">
                                     Ihr könnt selbst durch die Veranstaltungen
                                     stöbern oder eine
-                                    <button className="text-white font-semibold rounded-md px-2 ml-1 mr-1 bg-gradient-to-r pb-1 from-yellow-500 via-violet-400 via-indigo-400 via-blue-400 via-green-300 via-teal-400 via-indigo-300 via-pink-300 to-red-500">
-                                        individuelle Empfehlung →
-                                    </button>
+                                    <Link href=''>
+                                        <button className="text-white font-semibold rounded-md px-2 ml-1 mr-1 bg-gradient-to-r pb-1 from-yellow-500 via-violet-400 via-indigo-400 via-blue-400 via-green-300 via-teal-400 via-indigo-300 via-pink-300 to-red-500">
+                                            individuelle Empfehlung →
+                                        </button>
+                                    </Link>
                                     von uns erhalten.
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="relative top-[0rem] right-[5rem] invisible lg:visible">
-                    </div>
+
 
                     <div className=" bg-gradient-to-r pb-1 from-yellow-500 via-violet-400 via-indigo-400 via-blue-400 via-green-300 via-teal-400 via-indigo-300 via-pink-300 to-red-500 w-full absolute left-0 bottom-0"></div>
                 </div>
@@ -168,11 +171,10 @@ export default function Overview({ data }: { data: EventDataModel[] }) {
                         </div>
                         {/* Events grid */}
                         <div
-                            className={`w-full min-h-[40rem] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-2 md:p-0 pb-2 ${
-                                cardData.length !== 0
+                            className={`w-full min-h-[40rem] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-2 md:p-0 pb-2 ${cardData.length !== 0
                                     ? 'items-start justify-center'
                                     : 'items-center justify-center'
-                            } m-auto`}
+                                } m-auto`}
                         >
                             {cardData.length !== 0 ? (
                                 cardData.map((e) => (

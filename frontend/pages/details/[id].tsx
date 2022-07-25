@@ -33,7 +33,7 @@ export default function EventDetails({
                 src={event.image_URL}
             />
             <main className="z-20 relative bg-white w-screen max-w-6xl m-auto flex flex-col mb-24">
-                <div className="flex lg:flex-row-reverse overflow-hidden border">
+                <div className="flex lg:flex-row-reverse overflow-hidden border pt-12">
                     <img className="h-[30rem] w-3/5" src={event.image_URL} />
                     <div className="w-2/5 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col space-y-4 leading-normal">
                         <div className="text-grey-300 text-xl  leading-tight">
@@ -114,16 +114,13 @@ export default function EventDetails({
                 </div>
                 <div className="flex justify-between border">
                     <Link href={event.booking_URL}>
-                        <button className="h-10 w-48 px-5 m-4 text-green-100   font-roboto transition-colors duration-150 bg-green-800 rounded-lg focus:shadow-outline hover:bg-green-800 ">
+                        <button className="h-10 w-48 px-5 ml-12 m-2  text-green-100   font-roboto transition-colors duration-150 bg-green-800 rounded-lg focus:shadow-outline hover:bg-green-800 ">
                             Jetzt buchen
                         </button>
                     </Link>
-                    <button type="button" className="">
-                        <link rel="icon" href="/hearticon.svg" />
-                    </button>
                 </div>
-                <div className="grid grid-cols-2 gap-4 border py-8">
-                    <div className="">
+                <div className="grid grid-cols-3 gap-4 border py-8">
+                    <div className="col-span-2">
                         <div className="pt-10 px-20 text-[#000000] font-[400] font-roboto text-inter text-[1.25rem] text-bottom">
                             {event.eventName}
                         </div>
@@ -151,23 +148,27 @@ export default function EventDetails({
                                 </div>
                                 <div className="">{`${event.zip_code} München`}</div>
                                 <Link href={event.map_URL}>
-                                    <button className="font-roboto pt-2 text-teal-600">
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            className="h-6 w-6"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                            strokeWidth={2}
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
-                                            />
-                                        </svg>{' '}
-                                        Route planen
-                                    </button>
+                                    <a className=' flex flex-row mt-1 '>
+                                        <div className="w-4 text-teal-600">
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                className="h-5 w-5"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                stroke="currentColor"
+                                                strokeWidth={2}
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
+                                                />
+
+                                            </svg>
+                                        </div>
+                                        <div className='ml-2 font-roboto text-teal-600'>Route planen </div>
+                                    </a>
+
                                 </Link>
                             </div>
                             <div className="p-3 grid-rows-1  px-20 text-[#000000] font-[500] font-roboto text-inter text-[0.9rem] text-bottom ">
@@ -175,10 +176,12 @@ export default function EventDetails({
                                     {organizer.organizer_name}
                                 </div>
                                 <div className="">{organizer.mobile_phone}</div>
-                                <div className="">
-                                    {organizer.email_contact}
-                                </div>
-                                <div className="font-roboto pt-2 text-teal-600">
+                                <Link href={`mailto:${organizer.email_contact}`}>
+                                    <div className="text-teal-600">
+                                        {organizer.email_contact}
+                                    </div>
+                                </Link>
+                                <div className="font-roboto text-teal-600">
                                     <Link href={organizer.website_URL}>
                                         {organizer.website_URL}
                                     </Link>
@@ -188,10 +191,10 @@ export default function EventDetails({
                     </div>
                     <div className="grid grid-rows-2 gap-6">
                         <div>
-                            <div className="pt-10 px-20 text-[#000000] font-[400]  font-roboto text-inter text-[1.25rem] text-bottom">
+                            <div className="pt-10 px-5 text-[#000000] font-[400]  font-roboto text-inter text-[1.25rem] text-bottom">
                                 Müssen Eltern teilnehmen
                             </div>
-                            <div className=" px-20 text-[#000000] font-[200]  font-roboto text-inter text-[0.9rem] text-bottom">
+                            <div className=" px-5 text-[#000000] font-[200]  font-roboto text-inter text-[0.9rem] text-bottom">
                                 {event.accompany_needed ? 'Jawohl' : 'Nein'}
                             </div>
                         </div>

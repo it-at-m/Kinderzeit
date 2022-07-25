@@ -23,7 +23,7 @@ export default function Navbar() {
                         />
                     </div>
                 </Link>
-                <ul className="flex items-center justify-around w-1/3">
+                <ul className="flex items-center justify-around w-1/3 md:visible">
                     <a
                         href="https://form.typeform.com/to/ytDRyAwL"
                         className="font-lato-bold tracking-widest text-[20px]"
