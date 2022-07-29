@@ -3,4 +3,5 @@
 * Install `yarn` and `Docker` globally on your machine
 * Run `yarn install` in the root of the repository
 * Run `yarn install` inside the frontend directory
-* Always check the `README.md` inside each of the modules for further instructions specific to the project
+*  Run `docker-compose up --build` in the root of the repository to build the project 
+* Always check the `README.md` inside each of the modules for further instructions specific to the project.
